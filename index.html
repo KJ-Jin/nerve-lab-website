@@ -133,5 +133,18 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll('a[href="mailto:UWnerve@uw.edu"]').forEach((link) => {
+          link.href = "mailto:uwnerve@uw.edu";
+          link.childNodes.forEach((node) => {
+            if (node.nodeType === Node.TEXT_NODE) {
+              node.nodeValue = node.nodeValue.replace("UWnerve@uw.edu", "uwnerve@uw.edu");
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
