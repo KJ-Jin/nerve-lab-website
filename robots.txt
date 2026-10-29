@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kj-jin.github.io/nerve-lab-website/sitemap.xml
