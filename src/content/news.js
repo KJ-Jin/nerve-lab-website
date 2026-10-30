@@ -9,6 +9,18 @@ export default {
 
   news: [
     {
+      date: 'GOLDNER AWARD',
+      title: 'Dr. Katie Liu receives Goldner Award for basic science research',
+      description: 'Dr. Yusha (Katie) Liu received a Goldner Award for the basic science project “Induced pluripotent stem cells to model the neuromuscular junction.”',
+      url: 'https://www.assh.org/annualmeeting/general-information/awards',
+    },
+    {
+      date: 'GOLDNER AWARD',
+      title: 'Dr. Christopher Crowe receives Goldner Award for clinical research',
+      description: 'Dr. Christopher Crowe received a Goldner Award for the clinical research project “Electrodiagnostic Features of Hyperselective Neurectomy in the Spastic Upper Limb.”',
+      url: 'https://www.assh.org/annualmeeting/general-information/awards',
+    },
+    {
       date: 'JUNE 2026',
       title: 'Tietze Research Award recognizes Dr. Liu’s research',
       description: 'ISCRM announced that Yusha (Katie) Liu and Mark Bothwell received awards from the John H. Tietze Foundation Trust to support their research.',
@@ -32,6 +44,12 @@ export default {
       description: 'UW Medicine Vitals profiles the Northwest Institute for Nerve Injury at Harborview Medical Center and Dr. Yusha Katie Liu’s approach to coordinated, multidisciplinary peripheral nerve injury care. Originally published October 16, 2024; updated March 19, 2025.',
       url: 'images/news/optimizing-peripheral-nerve-injury-care.pdf',
       linkLabel: 'Read PDF',
+    },
+    {
+      date: '2024',
+      title: '2024 AFSH Basic Science Grant supports microvascular patch research',
+      description: 'The project “Patterned Microvascular Patches to Promote Angiogenesis in Nerve Surgery,” in collaboration with Dr. Samuel Rayner, received a 2024 American Foundation for Surgery of the Hand (AFSH) Basic Science Grant.',
+      url: 'https://afsh.assh.org/s/basic-science-grants',
     },
     {
       date: 'JANUARY 2024',

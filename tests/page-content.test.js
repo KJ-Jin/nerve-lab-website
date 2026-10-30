@@ -49,3 +49,16 @@ test('Lab News includes external trial announcements and the locally hosted Vita
   assert.ok(news.indexOf('OCTOBER 2024') < news.indexOf('JANUARY 2024'));
   assert.ok(!news.includes('Access may require a UW Medicine login'));
 });
+
+test('Lab News lists the two Goldner awards and the 2024 AFSH Basic Science Grant', () => {
+  const news = String(NewsPage());
+  const goldnerUrl = 'https://www.assh.org/annualmeeting/general-information/awards';
+  const afshUrl = 'https://afsh.assh.org/s/basic-science-grants';
+  assert.equal(news.split(goldnerUrl).length - 1, 2);
+  assert.ok(news.includes(afshUrl));
+  assert.ok(news.includes('Induced pluripotent stem cells to model the neuromuscular junction'));
+  assert.ok(news.includes('Electrodiagnostic Features of Hyperselective Neurectomy in the Spastic Upper Limb'));
+  assert.ok(news.includes('Patterned Microvascular Patches to Promote Angiogenesis in Nerve Surgery'));
+  assert.ok(news.includes('Samuel Rayner'));
+  assert.ok(news.indexOf('OCTOBER 2024') < news.indexOf('2024 AFSH Basic Science Grant'));
+});
