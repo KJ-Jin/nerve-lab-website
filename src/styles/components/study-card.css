@@ -63,6 +63,10 @@
   margin: 20px 0 10px;
 }
 
+.project-content.project-no-index h3 {
+  margin-top: 0;
+}
+
 .project-subtitle {
   font: italic 19px/1.5 var(--serif);
   color: #c5b2ff;
