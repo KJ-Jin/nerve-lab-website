@@ -17,7 +17,7 @@ export function NewsGallery(gallery = {}) {
     <section class="shell-wide news-gallery-section" aria-label="Lab event photographs">
       <div class="news-gallery-heading">
         <div class="eyebrow">PHOTO GALLERY</div>
-        <h2 class="section-title">Photo Highlights</h2>
+        <h2 class="section-title">Recent Happenings</h2>
       </div>
       <div class="news-gallery" data-news-gallery data-interval="${intervalMs}"
            role="region" aria-roledescription="carousel" aria-label="Lab events and milestones">

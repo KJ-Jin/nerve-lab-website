@@ -8,11 +8,11 @@ import { ResearchAreaPage } from '../src/pages/research-area.js';
 import basic from '../src/content/research-basic.js';
 import translational from '../src/content/research-translational.js';
 
-test('Lab News, Publications and Team use the requested page headings', () => {
+test('News, Publications and Team use the requested page headings', () => {
   const news = String(NewsPage());
   const publications = String(PublicationsPage());
   const team = String(TeamPage());
-  assert.match(news, /<h1 class="display">Lab News<\/h1>/);
+  assert.match(news, /<h1 class="display">News<\/h1>/);
   assert.ok(!news.includes('FROM THE LAB'));
   assert.ok(!news.includes('Selected updates and milestones from the Liu Lab'));
 
@@ -71,7 +71,7 @@ test('News photo carousel stays hidden until real event photos with captions exi
     {src:'images/news/events/a.jpg', alt:'Lab group', caption:'Nerve Lab annual gathering', date:'October 2026'},
     {src:'images/news/events/b.jpg', alt:'Conference award', caption:'Award ceremony'},
   ]}));
-  assert.ok(gallery.includes('Photo Highlights'));
+  assert.ok(gallery.includes('Recent Happenings'));
   assert.ok(gallery.includes('data-news-gallery'));
   assert.equal((gallery.match(/data-news-gallery-slide/g) || []).length, 2);
   assert.equal((gallery.match(/data-news-gallery-dot=/g) || []).length, 2);

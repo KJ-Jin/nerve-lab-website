@@ -4,7 +4,7 @@
 export default {
   banner: {
     eyebrow: '',
-    title: 'Lab News',
+    title: 'News',
   },
 
   // Temporary carousel test photos; replace with lab event images and captions later.
