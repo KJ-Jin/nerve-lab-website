@@ -11,19 +11,17 @@ import { Collaborators } from '../components/collaborators.js';
 export function ResearchAreaPage({ banner, studies, collaborators, showStudyNumbers = true }) {
   const breadcrumb = html`<a class="research-breadcrumb" href="#research">RESEARCH</a> <span aria-hidden="true">/</span> ${banner.title.toUpperCase()}`;
 
-  const collaboratorSection = Collaborators(collaborators);
-
   return html`
     ${PageBanner({ eyebrow: breadcrumb, title: banner.title, intro: banner.intro })}
 
-    <section class="study-list">
-      <div class="shell">
-        ${studies.length > 0
-          ? studies.map((study, index) => StudyCard(study, index, { showNumber: showStudyNumbers }))
-          : html`<p class="research-empty">Studies for this category are being prepared.</p>`}
-      </div>
-    </section>
+    ${studies.length > 0 && html`
+      <section class="study-list">
+        <div class="shell">
+          ${studies.map((study, index) => StudyCard(study, index, { showNumber: showStudyNumbers }))}
+        </div>
+      </section>
+    `}
 
-    ${collaboratorSection}
+    ${collaborators?.items?.length > 0 && Collaborators(collaborators)}
   `;
 }
