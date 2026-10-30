@@ -60,8 +60,9 @@ export default {
         },
         {
           name: 'Haneul Ryou',
-          role: 'Role',
-          bio: 'Short biography.',
+          role: 'Medical Student Research Fellow',
+          bio: 'Haneul is a medical student research fellow with a background in neuroscience. Her research interests include peripheral nerve regeneration and socioeconomic barriers to care. She is hoping to pursue a career in plastic surgery. In her free time, Haneul loves cafe hopping, cooking, reading, and running!',
+          photo: 'images/team/haneul-ryou.webp',
         },
         {
           name: 'New member',

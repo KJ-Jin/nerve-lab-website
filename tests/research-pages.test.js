@@ -11,14 +11,15 @@ function render(content) {
 
 test('clinical collaborators are rendered after every study with working profile URLs', () => {
   const page = render(clinical);
-  const collaborators = ['Chris Crowe', 'Jeff Friedrich', 'Ben Grannan'];
+  const collaborators = ['Chris Crowe', 'Jeff Friedrich', 'Ben Grannan', 'Chris Dy', 'David Brogan'];
   const urls = [
     'https://www.uwmedicine.org/bios/christopher-crowe',
     'https://www.uwmedicine.org/bios/jeffrey-friedrich',
     'https://www.uwmedicine.org/bios/benjamin-grannan',
+    'https://nerveresearch.wustl.edu/',
   ];
 
-  assert.equal((page.match(/class="collaborator-card"/g) ?? []).length, 3);
+  assert.equal((page.match(/class="collaborator-card"/g) ?? []).length, 5);
   for (const name of collaborators) assert.ok(page.includes(name), `Missing ${name}`);
   for (const url of urls) assert.ok(page.includes(url), `Missing ${url}`);
   assert.ok(page.indexOf('class="shell collaborator-section"') > page.lastIndexOf('class="project"'));
@@ -31,6 +32,9 @@ test('basic science collaborators remain at the end of the page', () => {
     assert.ok(page.includes(name), `Missing ${name}`);
   }
   assert.equal((page.match(/class="collaborator-card"/g) ?? []).length, 5);
+  assert.ok(page.includes('https://ndrg.uw.edu/'));
+  assert.ok(page.includes('https://www.quantbiology.org/'));
+  assert.ok(page.includes('https://sites.uw.edu/raynerlab/'));
   assert.ok(page.indexOf('class="shell collaborator-section"') > page.lastIndexOf('class="project"'));
 });
 

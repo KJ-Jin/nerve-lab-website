@@ -111,6 +111,8 @@ export default {
       { name: "Chris Crowe", link: "https://www.uwmedicine.org/bios/christopher-crowe" },
       { name: "Jeff Friedrich", link: "https://www.uwmedicine.org/bios/jeffrey-friedrich" },
       { name: "Ben Grannan", link: "https://www.uwmedicine.org/bios/benjamin-grannan" },
+      { name: "Chris Dy", affiliation: "Washington University in St. Louis", link: "https://nerveresearch.wustl.edu/" },
+      { name: "David Brogan", affiliation: "Washington University in St. Louis", link: "https://nerveresearch.wustl.edu/" },
     ],
   },
 };
