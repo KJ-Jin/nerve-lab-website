@@ -108,9 +108,9 @@ export default {
     intro: 'Researchers and partners contributing to our clinical research.',
     // Each collaborator: { name, affiliation, role, link, image }
     items: [
-      { name: "Chris Crowe", link: "https://www.uwmedicine.org/bios/christopher-crowe" },
-      { name: "Jeff Friedrich", link: "https://www.uwmedicine.org/bios/jeffrey-friedrich" },
-      { name: "Ben Grannan", link: "https://www.uwmedicine.org/bios/benjamin-grannan" },
+      { name: "Chris Crowe", affiliation: "University of Washington", link: "https://www.uwmedicine.org/bios/christopher-crowe" },
+      { name: "Jeff Friedrich", affiliation: "University of Washington", link: "https://www.uwmedicine.org/bios/jeffrey-friedrich" },
+      { name: "Ben Grannan", affiliation: "University of Washington", link: "https://www.uwmedicine.org/bios/benjamin-grannan" },
       { name: "Chris Dy", affiliation: "Washington University in St. Louis", link: "https://nerveresearch.wustl.edu/" },
       { name: "David Brogan", affiliation: "Washington University in St. Louis", link: "https://nerveresearch.wustl.edu/" },
     ],

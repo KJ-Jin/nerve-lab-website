@@ -20,6 +20,8 @@ test('clinical collaborators are rendered after every study with working profile
   ];
 
   assert.equal((page.match(/class="collaborator-card"/g) ?? []).length, 5);
+  assert.equal((page.match(/University of Washington/g) ?? []).length, 3);
+  assert.equal((page.match(/Washington University in St. Louis/g) ?? []).length, 2);
   for (const name of collaborators) assert.ok(page.includes(name), `Missing ${name}`);
   for (const url of urls) assert.ok(page.includes(url), `Missing ${url}`);
   assert.ok(page.indexOf('class="shell collaborator-section"') > page.lastIndexOf('class="project"'));
