@@ -1,4 +1,4 @@
-# Nerve Lab Website
+# [Nerve Lab Website](https://kj-jin.github.io/nerve-lab-website/#home)
 
 Website for the Nerve Lab (Liu Lab), University of Washington. Plain HTML/CSS/JavaScript built with [Vite](https://vite.dev). No framework.
 
