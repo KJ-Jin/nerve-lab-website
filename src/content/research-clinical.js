@@ -6,13 +6,17 @@
 //   questions (list), methods (side note), sourceUrl ("Research source ↗" link),
 //   image + imageAlt (file in images/), caption (small note under the image),
 //   art: 'axon' | 'nmj' | 'vascular' (generated illustration used when there is no image).
-// Studies are numbered automatically (01, 02, …) in the order listed.
+// Study numbering can be hidden per page with showStudyNumbers: false.
 
 export default {
   banner: {
     title: 'Clinical Trials',
     intro: 'Learn about our team’s current research studies to improve care for nerve injuries and see if you are eligible to participate.',
   },
+
+  // Keep the clinical collaborators easy to find before the longer study list.
+  collaboratorsFirst: true,
+  showStudyNumbers: false,
 
   studies: [
     {
@@ -35,7 +39,6 @@ export default {
         'Our primary goal is to gain a deeper understanding of the biology of peripheral nerve injuries. To achieve this, we collect small samples of peripheral nerve and/or mixed nerve/muscle tissue during surgery. This is tissue that would typically be discarded, so we are utilizing something that would otherwise go to waste. We take this tissue into the lab to study further.',
         'We aim to learn more about what happens to nerves when they are damaged, like how nerves break down, how they repair themselves, and how certain conditions like painful neuromas occur. By understanding these processes better, we can develop new treatments to help patients with nerve injuries. This study will provide valuable insights into the progression of nerve injury and recovery.',
       ],
-      sourceUrl: 'https://uwsurgery.org/wp-content/uploads/2024/12/surgsynopsis_fall_2024_rfs_final.pdf',
       art: 'vascular',
       imageAlt: 'Conceptual illustration of nerve injury outcomes',
       caption: 'Conceptual illustration · replace with an approved figure',
@@ -47,7 +50,6 @@ export default {
         'Nerve injuries have huge impacts on people’s lives, their work, finances, and relationships. In our clinic, we seek to provide comprehensive care to the whole person and include rehabilitation psychologists as a part of our multidisciplinary team. We are conducting a study to understand the role of rehabilitation psychology in our peripheral nerve clinic. Patients who have had a nerve injury will be asked to evaluate their interactions with the rehabilitation psychologists in the clinic.',
         'If you decide to be in this study, we will ask you to fill out a short survey with your thoughts about the role of rehabilitation psychologists in our clinic. The survey will take you about 5 minutes to complete.',
       ],
-      sourceUrl: 'https://uwsurgery.org/wp-content/uploads/2024/02/surgsynopsis-wtr-2024-final-rfs.pdf',
       art: 'nmj',
       imageAlt: 'Conceptual illustration of sensory nerve pathways',
       caption: 'Conceptual illustration · replace with an approved figure',
