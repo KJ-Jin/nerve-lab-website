@@ -11,7 +11,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "node --test"
+    "test": "node --test",
+    "deploy": "npm test && npm run build && rsync -av --delete dist/ uwnerve@ovid.u.washington.edu:public_html/"
   },
   "devDependencies": {
     "vite": "8.3.4"
