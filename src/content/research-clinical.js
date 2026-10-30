@@ -107,6 +107,10 @@ export default {
   collaborators: {
     intro: 'Researchers and partners contributing to our clinical research.',
     // Each collaborator: { name, affiliation, role, link, image }
-    items: [],
+    items: [
+      { name: "Chris Crowe", link: "https://www.uwmedicine.org/bios/christopher-crowe" },
+      { name: "Jeff Friedrich", link: "https://www.uwmedicine.org/bios/jeffrey-friedrich" },
+      { name: "Ben Grannan", link: "https://www.uwmedicine.org/bios/benjamin-grannan" },
+    ],
   },
 };
