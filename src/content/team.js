@@ -3,8 +3,8 @@
 
 export default {
   banner: {
-    eyebrow: 'THE LAB',
-    title: 'Team',
+    eyebrow: '',
+    title: 'The Team',
   },
 
   groupPhoto: {
