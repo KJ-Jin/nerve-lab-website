@@ -7,6 +7,8 @@ export default {
     intro: 'Overview of basic science research',
   },
 
+  showStudyNumbers: false,
+
   studies: [
     {
       title: 'Microvascular patches for improving axonal regeneration',
