@@ -4,7 +4,7 @@ import { PlaceholderArt } from './placeholder-art.js';
 const ART_CYCLE = ['axon', 'nmj', 'vascular'];
 
 /** One study / project on a research area page. Image and text sides alternate. */
-export function StudyCard(study, index) {
+export function StudyCard(study, index, { showNumber = true } = {}) {
   const {
     title,
     subtitle,
@@ -28,8 +28,8 @@ export function StudyCard(study, index) {
         </div>
         <p class="image-note">${caption}</p>
       </div>
-      <div class="project-content">
-        <span class="project-index">${String(index + 1).padStart(2, '0')}</span>
+      <div class="project-content${showNumber ? '' : ' project-no-index'}">
+        ${showNumber && html`<span class="project-index">${String(index + 1).padStart(2, '0')}</span>`}
         <h3>${title}</h3>
         ${subtitle && html`<p class="project-subtitle">${subtitle}</p>`}
         ${principalInvestigator && html`
