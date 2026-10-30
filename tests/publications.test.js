@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 
 import publicationsContent from '../src/content/publications.js';
 import { PublicationsPage, FormatAuthors } from '../src/pages/publications.js';
+import { html } from '../src/lib/html.js';
 
 test('all 24 selected publications appear in reverse chronological order', () => {
   const { publications } = publicationsContent;
@@ -33,5 +34,7 @@ test('Katie is underlined for both Liu Y and Liu YK without affecting other auth
   assert.ok(!markup.includes('&lt;u'));
   assert.equal((markup.match(/<u class="pub-katie">/g) || []).length,
     publicationsContent.publications.filter(p => /\bLiu YK?\b/.test(p.authors)).length);
-  assert.ok(!String(FormatAuthors('Liu YK and <script>')).includes('<script>'));
+  const escaped = String(html`<span>${FormatAuthors('Liu YK and <script>')}</span>`);
+  assert.ok(!escaped.includes('<script>'));
+  assert.ok(escaped.includes('&lt;script&gt;'));
 });
