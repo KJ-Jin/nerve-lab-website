@@ -8,15 +8,13 @@ import { Collaborators } from '../components/collaborators.js';
  * (#research-clinical, #research-basic, #research-translational).
  * Content comes from src/content/research-*.js.
  */
-export function ResearchAreaPage({ banner, studies, collaborators, showStudyNumbers = true, collaboratorsFirst = false }) {
+export function ResearchAreaPage({ banner, studies, collaborators, showStudyNumbers = true }) {
   const breadcrumb = html`<a class="research-breadcrumb" href="#research">RESEARCH</a> <span aria-hidden="true">/</span> ${banner.title.toUpperCase()}`;
 
   const collaboratorSection = Collaborators(collaborators);
 
   return html`
     ${PageBanner({ eyebrow: breadcrumb, title: banner.title, intro: banner.intro })}
-
-    ${collaboratorsFirst ? collaboratorSection : ''}
 
     <section class="study-list">
       <div class="shell">
@@ -26,6 +24,6 @@ export function ResearchAreaPage({ banner, studies, collaborators, showStudyNumb
       </div>
     </section>
 
-    ${!collaboratorsFirst ? collaboratorSection : ''}
+    ${collaboratorSection}
   `;
 }
