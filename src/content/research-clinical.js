@@ -15,7 +15,7 @@ export default {
   },
 
   // Keep the clinical collaborators easy to find before the longer study list.
-  collaboratorsFirst: true,
+  collaboratorsFirst: false,
   showStudyNumbers: false,
 
   studies: [
