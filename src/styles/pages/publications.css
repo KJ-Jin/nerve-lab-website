@@ -31,6 +31,23 @@
 }
 
 
+.pub-katie {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.pub-status {
+  display: inline-block;
+  margin-top: 12px;
+  color: #b7b1c5;
+  font: 700 12px/1.6 Arial, Helvetica, sans-serif;
+}
+
+.publication--accepted {
+  grid-template-columns: 100px 1fr 42px;
+}
+
 .pub-authors {
   margin-bottom: 10px;
   color: #d4ccdf;
