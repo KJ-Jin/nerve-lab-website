@@ -4,7 +4,7 @@
 
 export default {
   banner: {
-    eyebrow: 'SELECTED WORK',
+    eyebrow: '',
     title: 'Publications',
   },
 
