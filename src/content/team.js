@@ -32,7 +32,7 @@ export default {
   // Each group renders as a heading followed by a grid of member cards.
   groups: [
     {
-      title: 'Lab Members',
+      title: 'Basic Science Team',
       members: [
         {
           name: 'Sean Yuan, PhD',
