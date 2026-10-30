@@ -3,9 +3,8 @@
 
 export default {
   banner: {
-    eyebrow: 'FROM THE LAB',
+    eyebrow: '',
     title: 'Lab News',
-    intro: 'Selected updates and milestones from the Liu Lab and its research community.',
   },
 
   news: [
