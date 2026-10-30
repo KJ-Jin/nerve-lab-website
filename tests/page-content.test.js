@@ -82,5 +82,16 @@ test('News photo carousel stays hidden until real event photos with captions exi
   assert.ok(gallery.includes('October 2026'));
   const one = String(NewsGallery({photos: [{src:'images/news/events/a.jpg',caption:'A moment'}]}));
   assert.ok(!one.includes('data-news-gallery-next'));
-  assert.ok(!String(NewsPage()).includes('data-news-gallery'));
+  const liveNews = String(NewsPage());
+  assert.ok(liveNews.includes('data-news-gallery'));
+  for (const [fileName, caption] of [
+    ['cats-eating-together.webp', 'three cat eat food'],
+    ['cat-on-tree.webp', 'cat on tree'],
+    ['close-up-cat.webp', 'close up cat'],
+  ]) {
+    assert.ok(liveNews.includes(fileName), `Missing ${fileName}`);
+    assert.ok(liveNews.includes(caption), `Missing caption: ${caption}`);
+  }
+  assert.equal((liveNews.match(/data-news-gallery-slide/g) || []).length, 3);
+  assert.equal((liveNews.match(/data-news-gallery-dot=/g) || []).length, 3);
 });

@@ -7,15 +7,26 @@ export default {
     title: 'Lab News',
   },
 
-  // Add approved event photos here when ready; each needs a file path and caption.
-  // Photos should be placed in images/news/events/ and keep their original quality.
+  // Temporary carousel test photos; replace with lab event images and captions later.
+  // New photos can be added to images/news/events/ with one item per slide.
   gallery: {
     intervalMs: 6000,
     photos: [
-      // { src: 'images/news/events/event-photo.jpg',
-      //   alt: 'Who or what is shown in the photo',
-      //   caption: 'What the event was and why it mattered',
-      //   date: 'October 2026' },
+      {
+        src: 'images/news/events/cats-eating-together.webp',
+        alt: 'Three cats eating from bowls around a white table',
+        caption: 'three cat eat food',
+      },
+      {
+        src: 'images/news/events/cat-on-tree.webp',
+        alt: 'A gray tabby cat sitting inside a cat tree',
+        caption: 'cat on tree',
+      },
+      {
+        src: 'images/news/events/close-up-cat.webp',
+        alt: 'Close-up portrait of a gray tabby cat',
+        caption: 'close up cat',
+      },
     ],
   },
 
