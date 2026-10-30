@@ -107,7 +107,15 @@
           </div>
           <a class="nav-link" href="#people" data-page="people">Team</a>
           <a class="nav-link" href="#publications" data-page="publications">Publications</a>
-          <a class="nav-link" href="#news" data-page="news">News</a>
+          <div class="nav-dropdown" id="news-menu">
+            <a class="nav-link nav-dropdown-parent" href="#news" data-page="news" aria-haspopup="true">News</a>
+            <button class="nav-submenu-toggle" id="news-dropdown-toggle" type="button" aria-controls="news-submenu" aria-expanded="false" aria-label="Expand News menu">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </button>
+            <div class="nav-submenu" id="news-submenu" aria-label="News pages">
+              <a href="#gallery-archive" data-page="gallery-archive">Gallery Archive</a>
+            </div>
+          </div>
           <a class="nav-link" href="#contact" data-page="contact">Contact</a>
         </nav>
       </div>

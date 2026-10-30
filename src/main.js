@@ -4,6 +4,7 @@ import { ResearchAreaPage } from './pages/research-area.js';
 import { TeamPage } from './pages/team.js';
 import { PublicationsPage } from './pages/publications.js';
 import { NewsPage } from './pages/news.js';
+import { GalleryArchivePage } from './pages/gallery-archive.js';
 import { initNewsGallery } from './lib/news-gallery.js';
 import { ContactPage } from './pages/contact.js';
 
@@ -24,6 +25,7 @@ const routes = {
   people: TeamPage,
   publications: PublicationsPage,
   news: NewsPage,
+  'gallery-archive': GalleryArchivePage,
   contact: ContactPage,
 };
 

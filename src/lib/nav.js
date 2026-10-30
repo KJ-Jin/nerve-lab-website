@@ -1,17 +1,25 @@
 /**
- * Header navigation behaviour:
- * - mobile menu toggle
- * - Research dropdown (click/tap to open, Escape or outside click to close)
+ * Header navigation: desktop dropdowns, accessible mobile menu toggles,
+ * outside-click and Escape dismissal. Research and News share the same behavior.
  */
-
 const mobileToggle = document.getElementById('mobile-toggle');
 const mainNav = document.getElementById('main-nav');
-const researchMenu = document.getElementById('research-menu');
-const researchToggle = document.getElementById('research-dropdown-toggle');
 
-function setResearchMenuOpen(open) {
-  researchMenu.classList.toggle('open', open);
-  researchToggle.setAttribute('aria-expanded', String(open));
+const menus = ['research', 'news'].map((id) => ({
+  id,
+  wrapper: document.getElementById(`${id}-menu`),
+  toggle: document.getElementById(`${id}-dropdown-toggle`),
+}));
+
+function setMenuOpen(menu, open) {
+  menu.wrapper.classList.toggle('open', open);
+  menu.toggle.setAttribute('aria-expanded', String(open));
+}
+
+function closeMenus(except = null) {
+  menus.forEach((menu) => {
+    if (menu !== except) setMenuOpen(menu, false);
+  });
 }
 
 function setMobileMenuOpen(open) {
@@ -24,26 +32,36 @@ export function initNav() {
     setMobileMenuOpen(!mainNav.classList.contains('open'));
   });
 
-  researchToggle.addEventListener('click', (event) => {
-    event.preventDefault();
-    setResearchMenuOpen(!researchMenu.classList.contains('open'));
+  menus.forEach((menu) => {
+    menu.toggle.addEventListener('click', (event) => {
+      event.preventDefault();
+      const shouldOpen = !menu.wrapper.classList.contains('open');
+      closeMenus();
+      setMenuOpen(menu, shouldOpen);
+    });
   });
 
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && researchMenu.classList.contains('open')) {
-      researchToggle.focus();
-      setResearchMenuOpen(false);
-    }
+    if (event.key !== 'Escape') return;
+    const openMenu = menus.find((menu) => menu.wrapper.classList.contains('open'));
+    if (!openMenu) return;
+    closeMenus();
+    openMenu.toggle.focus();
   });
 
   document.addEventListener('click', (event) => {
-    if (!event.target.closest('#research-menu')) setResearchMenuOpen(false);
+    menus.forEach((menu) => {
+      if (!menu.wrapper.contains(event.target)) setMenuOpen(menu, false);
+    });
   });
 }
 
-/** Called on every page change: highlight Research for its sub-pages and close open menus. */
+/** Highlight parent menus on their subpages and close menus on navigation. */
 export function updateNav(pageId) {
-  researchMenu.classList.toggle('current', pageId === 'research' || pageId.startsWith('research-'));
-  setResearchMenuOpen(false);
+  const researchMenu = menus.find((menu) => menu.id === 'research');
+  const newsMenu = menus.find((menu) => menu.id === 'news');
+  researchMenu.wrapper.classList.toggle('current', pageId === 'research' || pageId.startsWith('research-'));
+  newsMenu.wrapper.classList.toggle('current', pageId === 'news' || pageId === 'gallery-archive');
+  closeMenus();
   setMobileMenuOpen(false);
 }

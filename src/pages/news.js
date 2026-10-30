@@ -23,5 +23,14 @@ export function NewsPage() {
         </article>
       `)}
     </section>
+
+    <section class="shell-wide news-archive-link">
+      <div>
+        <div class="eyebrow">MORE MOMENTS</div>
+        <h2>Gallery Archive</h2>
+        <p>Explore earlier lab photos and the stories behind them.</p>
+      </div>
+      <a class="text-link" href="#gallery-archive">Explore Gallery Archive ${ArrowIcon('right')}</a>
+    </section>
   `;
 }

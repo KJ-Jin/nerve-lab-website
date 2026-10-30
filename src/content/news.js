@@ -8,7 +8,8 @@ export default {
   },
 
   // Temporary carousel test photos; replace with lab event images and captions later.
-  // New photos can be added to images/news/events/ with one item per slide.
+  // Add new photos to images/news/events/ and list them here NEWEST FIRST.
+  // The newest 9 appear in the News carousel; all older photos move to Gallery Archive.
   gallery: {
     intervalMs: 6000,
     photos: [

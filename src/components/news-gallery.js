@@ -1,12 +1,13 @@
 import { html } from '../lib/html.js';
 import { ArrowIcon } from './arrow-icon.js';
+import { getRecentPhotos } from '../lib/news-photos.js';
 
 /**
  * News event photo carousel. Hidden until approved images and captions are
  * added to content/news.js; never fills the page with placeholder pictures.
  */
 export function NewsGallery(gallery = {}) {
-  const photos = (gallery?.photos ?? []).filter((photo) => photo?.src && photo?.caption);
+  const photos = getRecentPhotos(gallery);
   if (!photos.length) return html``;
 
   const intervalMs = Number.isFinite(gallery.intervalMs)
