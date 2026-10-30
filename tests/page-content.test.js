@@ -76,6 +76,9 @@ test('News photo carousel stays hidden until real event photos with captions exi
   assert.ok(gallery.includes('Recent Happenings'));
   assert.ok(gallery.includes('data-news-gallery'));
   assert.equal((gallery.match(/data-news-gallery-slide/g) || []).length, 2);
+  assert.ok(gallery.includes('data-position="center"'));
+  assert.ok(gallery.includes('data-position="next"'));
+  assert.equal((gallery.match(/data-news-gallery-caption/g) || []).length, 2);
   assert.equal((gallery.match(/data-news-gallery-dot=/g) || []).length, 2);
   assert.ok(gallery.includes('Previous photo'));
   assert.ok(gallery.includes('Next photo'));
@@ -95,6 +98,8 @@ test('News photo carousel stays hidden until real event photos with captions exi
     assert.ok(liveNews.includes(caption), `Missing caption: ${caption}`);
   }
   assert.equal((liveNews.match(/data-news-gallery-slide/g) || []).length, 3);
+  assert.equal((liveNews.match(/data-news-gallery-caption/g) || []).length, 3);
+  assert.ok(liveNews.includes('data-position="previous"'));
   assert.equal((liveNews.match(/data-news-gallery-dot=/g) || []).length, 3);
 });
 

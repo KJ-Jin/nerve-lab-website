@@ -1,13 +1,13 @@
 /**
- * Initializes the Lab News photo carousel, when approved photos are present.
- * The router keeps pages mounted, so autoplay only advances while News is
- * visible. Manual controls always work, including with reduced motion.
+ * Three-up News carousel. The centered image is always sharp; adjacent photos
+ * are faded previews. Only the centered image's caption is visible.
  */
 export function initNewsGallery() {
   const gallery = document.querySelector('[data-news-gallery]');
   if (!gallery) return;
 
   const slides = Array.from(gallery.querySelectorAll('[data-news-gallery-slide]'));
+  const captions = Array.from(gallery.querySelectorAll('[data-news-gallery-caption]'));
   const dots = Array.from(gallery.querySelectorAll('[data-news-gallery-dot]'));
   if (slides.length < 2) return;
 
@@ -22,8 +22,19 @@ export function initNewsGallery() {
 
   function showSlide(index) {
     active = ((index % slides.length) + slides.length) % slides.length;
+    const previousIndex = (active + slides.length - 1) % slides.length;
+    const nextIndex = (active + 1) % slides.length;
+
     slides.forEach((slide, i) => {
-      slide.hidden = i !== active;
+      const position = i === active ? 'center'
+        : i === previousIndex && slides.length > 2 ? 'previous'
+        : i === nextIndex ? 'next'
+        : 'hidden';
+      slide.dataset.position = position;
+      slide.setAttribute('aria-hidden', String(position !== 'center'));
+    });
+    captions.forEach((caption, i) => {
+      caption.hidden = i !== active;
     });
     dots.forEach((dot, i) => {
       dot.setAttribute('aria-current', String(i === active));
@@ -41,10 +52,9 @@ export function initNewsGallery() {
 
   next?.addEventListener('click', () => showSlide(active + 1));
   previous?.addEventListener('click', () => showSlide(active - 1));
-  dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => showSlide(index));
-  });
+  dots.forEach((dot, index) => dot.addEventListener('click', () => showSlide(index)));
   pause?.addEventListener('click', () => setPaused(!paused));
+
   gallery.addEventListener('keydown', (event) => {
     if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
     if (!gallery.contains(document.activeElement)) return;

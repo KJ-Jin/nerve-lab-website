@@ -3,8 +3,8 @@ import { ArrowIcon } from './arrow-icon.js';
 import { getRecentPhotos } from '../lib/news-photos.js';
 
 /**
- * News event photo carousel. Hidden until approved images and captions are
- * added to content/news.js; never fills the page with placeholder pictures.
+ * Wide, cinematic carousel: the selected photo is sharp and centered,
+ * with faded previous/next previews. Only its caption is displayed.
  */
 export function NewsGallery(gallery = {}) {
   const photos = getRecentPhotos(gallery);
@@ -22,25 +22,39 @@ export function NewsGallery(gallery = {}) {
       </div>
       <div class="news-gallery" data-news-gallery data-interval="${intervalMs}"
            role="region" aria-roledescription="carousel" aria-label="Lab events and milestones">
-        <div class="news-gallery-slides" aria-live="off">
-          ${photos.map((photo, index) => html`
-            <figure class="news-gallery-slide" data-news-gallery-slide ${index !== 0 && html`hidden`}>
-              <div class="news-gallery-image-frame">
+        <div class="news-gallery-stage" aria-live="off">
+          ${photos.map((photo, index) => {
+            const position = index === 0 ? 'center'
+              : index === 1 ? 'next'
+              : index === photos.length - 1 && photos.length > 2 ? 'previous'
+              : 'hidden';
+            return html`
+              <figure class="news-gallery-slide" data-news-gallery-slide
+                      data-position="${position}" aria-hidden="${position !== 'center'}">
                 <img src="${photo.src}" alt="${photo.alt || photo.caption}"
-                     loading="${index === 0 ? 'eager' : 'lazy'}"
+                     loading="${index < 3 || index === photos.length - 1 ? 'eager' : 'lazy'}"
                      decoding="async">
-              </div>
-              <figcaption class="news-gallery-caption">
-                ${photo.date && html`<span class="news-gallery-date">${photo.date}</span>`}
-                <span>${photo.caption}</span>
-              </figcaption>
-            </figure>
+              </figure>
+            `;
+          })}
+          ${photos.length > 1 && html`
+            <button type="button" class="news-gallery-arrow news-gallery-arrow--prev"
+                    data-news-gallery-previous aria-label="Previous photo">${ArrowIcon('right')}</button>
+            <button type="button" class="news-gallery-arrow news-gallery-arrow--next"
+                    data-news-gallery-next aria-label="Next photo">${ArrowIcon('right')}</button>
+          `}
+        </div>
+        <div class="news-gallery-captions" aria-live="off">
+          ${photos.map((photo, index) => html`
+            <div class="news-gallery-caption" data-news-gallery-caption
+                 ${index !== 0 && html`hidden`}>
+              ${photo.date && html`<span class="news-gallery-date">${photo.date}</span>`}
+              <span>${photo.caption}</span>
+            </div>
           `)}
         </div>
         ${photos.length > 1 && html`
           <div class="news-gallery-controls" aria-label="Photo carousel controls">
-            <button type="button" class="news-gallery-arrow news-gallery-arrow--prev"
-                    data-news-gallery-previous aria-label="Previous photo">${ArrowIcon('right')}</button>
             <div class="news-gallery-dots" role="group" aria-label="Choose a photo">
               ${photos.map((photo, index) => html`
                 <button type="button" class="news-gallery-dot"
@@ -49,8 +63,6 @@ export function NewsGallery(gallery = {}) {
                         aria-current="${index === 0}"></button>
               `)}
             </div>
-            <button type="button" class="news-gallery-arrow"
-                    data-news-gallery-next aria-label="Next photo">${ArrowIcon('right')}</button>
             <button type="button" class="news-gallery-pause"
                     data-news-gallery-pause aria-pressed="false"
                     aria-label="Pause automatic photo rotation">Pause</button>

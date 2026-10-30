@@ -24,6 +24,11 @@ test('only nine newest captioned photos appear in carousel, older photos move to
   const archive = String(GalleryArchivePage(gallery));
   assert.equal((recent.match(/data-news-gallery-slide/g) ?? []).length, 9);
   assert.equal((recent.match(/data-news-gallery-dot=/g) ?? []).length, 9);
+  assert.equal((recent.match(/data-news-gallery-caption/g) ?? []).length, 9);
+  assert.equal((recent.match(/data-position="center"/g) ?? []).length, 1);
+  assert.equal((recent.match(/data-position="previous"/g) ?? []).length, 1);
+  assert.equal((recent.match(/data-position="next"/g) ?? []).length, 1);
+  assert.equal((recent.match(/data-position="hidden"/g) ?? []).length, 6);
   assert.ok(recent.includes('Event 9 caption'));
   assert.ok(!recent.includes('Event 10 caption'));
   assert.equal((archive.match(/class="gallery-archive-card"/g) ?? []).length, 3);
