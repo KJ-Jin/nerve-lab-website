@@ -30,6 +30,31 @@
   line-height: 1.9;
 }
 
+
+.pub-authors {
+  margin-bottom: 10px;
+  color: #d4ccdf;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.pub-journal {
+  margin-top: 4px;
+  font-style: italic;
+}
+
+.pub-pubmed {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--accent);
+  font: 700 12px/1.6 Arial, Helvetica, sans-serif;
+}
+
+.publication:hover .pub-pubmed,
+.publication:focus-visible .pub-pubmed {
+  text-decoration: underline;
+}
+
 .publication .arrow {
   align-self: start;
   color: var(--accent);
