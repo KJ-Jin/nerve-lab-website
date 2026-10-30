@@ -52,14 +52,12 @@ export function TeamPage() {
     <section class="shell-wide team-wrap">
       ${GroupPhoto(groupPhoto)}
       ${PrincipalInvestigator(pi)}
-      ${groups
-        .filter((group) => group.members.length > 0)
-        .map((group) => html`
-          <div class="team-group">
-            <h2 class="team-heading">${group.title}</h2>
-            ${MemberGrid(group.members)}
-          </div>
-        `)}
+      ${groups.map((group) => html`
+        <div class="team-group">
+          <h2 class="team-heading">${group.title}</h2>
+          ${group.members.length > 0 && MemberGrid(group.members)}
+        </div>
+      `)}
     </section>
   `;
 }

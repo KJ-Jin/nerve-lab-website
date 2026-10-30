@@ -37,11 +37,12 @@ export default {
     intro: 'Scientific partners working with us on fundamental questions of nerve and muscle regeneration.',
     // Each collaborator: { name, affiliation, role, link, image }
     items: [
-      { name: "Mark Bothwell", affiliation: "Neuromuscular Disease Research Group", link: "https://ndrg.uw.edu/" },
-      { name: "David Mack", affiliation: "Neuromuscular Disease Research Group", link: "https://ndrg.uw.edu/" },
-      { name: "Alec Smith", affiliation: "Neuromuscular Disease Research Group", link: "https://ndrg.uw.edu/" },
-      { name: "Shao-En Ong", link: "https://www.quantbiology.org/" },
-      { name: "Samuel Rayner", link: "https://sites.uw.edu/raynerlab/" },
+      { name: "Mark Bothwell", affiliation: "University of Washington", role: "Neuromuscular Disease Research Group", link: "https://ndrg.uw.edu/" },
+      { name: "David Mack", affiliation: "University of Washington", role: "Neuromuscular Disease Research Group", link: "https://ndrg.uw.edu/" },
+      { name: "Alec Smith", affiliation: "University of Washington", role: "Neuromuscular Disease Research Group", link: "https://ndrg.uw.edu/" },
+      { name: "Shao-En Ong", affiliation: "University of Washington", link: "https://www.quantbiology.org/" },
+      { name: "Samuel Rayner", affiliation: "University of Washington", link: "https://sites.uw.edu/raynerlab/" },
+      { name: "David Brogan", affiliation: "Washington University in St. Louis", link: "https://nerveresearch.wustl.edu/" },
     ],
   },
 };

@@ -71,5 +71,9 @@ export default {
         },
       ],
     },
+    {
+      title: 'Translational Team',
+      members: [],
+    },
   ],
 };

@@ -28,10 +28,13 @@ test('clinical collaborators are rendered after every study with working profile
 
 test('basic science collaborators remain at the end of the page', () => {
   const page = render(basic);
-  for (const name of ['Mark Bothwell', 'David Mack', 'Alec Smith', 'Shao-En Ong', 'Samuel Rayner']) {
+  for (const name of ['Mark Bothwell', 'David Mack', 'Alec Smith', 'Shao-En Ong', 'Samuel Rayner', 'David Brogan']) {
     assert.ok(page.includes(name), `Missing ${name}`);
   }
-  assert.equal((page.match(/class="collaborator-card"/g) ?? []).length, 5);
+  assert.equal((page.match(/class="collaborator-card"/g) ?? []).length, 6);
+  assert.equal((page.match(/University of Washington/g) || []).length, 5);
+  assert.ok(page.includes('Washington University in St. Louis'));
+  assert.ok(page.includes('https://nerveresearch.wustl.edu/'));
   assert.ok(page.includes('https://ndrg.uw.edu/'));
   assert.ok(page.includes('https://www.quantbiology.org/'));
   assert.ok(page.includes('https://sites.uw.edu/raynerlab/'));

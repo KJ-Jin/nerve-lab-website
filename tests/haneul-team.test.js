@@ -15,11 +15,15 @@ test('Haneul Ryou has the supplied portrait and biography', () => {
   assert.ok(clinical.members.some(person => person.name === 'Haneul Ryou'));
   assert.ok(!basic.members.some(person => person.name === 'Haneul Ryou'));
   assert.ok(!basic.members.some(person => person.name === 'New member'));
-  assert.ok(!team.groups.some(group => group.title === 'Translational Team'));
-  assert.equal(team.groups.length, 2);
+  const translational = team.groups.find(group => group.title === 'Translational Team');
+  assert.ok(translational);
+  assert.deepEqual(translational.members, []);
+  assert.equal(team.groups.length, 3);
   const rendered = String(TeamPage());
   assert.ok(!rendered.includes('Add clinical member'));
+  assert.ok(rendered.includes('Translational Team'));
   assert.ok(!rendered.includes('Add translational member'));
+  assert.equal((rendered.match(/class="member-card"/g) || []).length, 5);
   assert.ok(!rendered.includes('New member'));
 
   assert.match(rendered, /images\/team\/haneul-ryou\.webp/);
