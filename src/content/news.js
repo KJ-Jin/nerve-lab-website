@@ -27,16 +27,17 @@ export default {
       url: 'https://www.businesswire.com/news/home/20251002748937/en/Neuraptive-Therapeutics-Inc.-Announces-First-Patient-Enrolled-in-Phase-3-Clinical-Trial-Evaluating-the-Safety-and-Efficacy-of-NTX-001-Compared-to-Standard-of-Care-in-the-Treatment-of-Upper-Extremity-Transected-Nerves-Requiring-Surgical-Repair',
     },
     {
+      date: 'OCTOBER 2024',
+      title: 'Optimizing Peripheral Nerve Injury Care',
+      description: 'UW Medicine Vitals profiles the Northwest Institute for Nerve Injury at Harborview Medical Center and Dr. Yusha Katie Liu’s approach to coordinated, multidisciplinary peripheral nerve injury care. Originally published October 16, 2024; updated March 19, 2025.',
+      url: 'images/news/optimizing-peripheral-nerve-injury-care.pdf',
+      linkLabel: 'Read PDF',
+    },
+    {
       date: 'JANUARY 2024',
       title: 'Introducing Dr. Yusha “Katie” Liu at ISCRM',
       description: 'An ISCRM profile highlights Dr. Liu’s surgeon-scientist career and the research directions of the new laboratory.',
       url: 'https://iscrm.uw.edu/welcome-yusha-katie-liu/',
-    },
-    {
-      date: '',
-      title: 'UW Medicine Vitals feature',
-      description: 'A UW Medicine Vitals article shared by the lab. Access may require a UW Medicine login.',
-      url: 'https://vitals.uwmedicine.org/site/c125bab2-3522-492a-9f37-e94a09912dcd/page/7f3d7394-687b-46e1-834e-bcffebada296',
     },
   ],
 };

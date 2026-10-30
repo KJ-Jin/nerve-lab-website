@@ -38,11 +38,14 @@ test('Translational Research page shows its title without draft projects or empt
   assert.ok(!page.includes('Collaborator profiles will be added here.'));
 });
 
-test('Lab News includes both external trial announcements and the UW Medicine Vitals link', () => {
+test('Lab News includes external trial announcements and the locally hosted Vitals PDF', () => {
   const news = String(NewsPage());
   assert.match(news, /checkpointsurgical\.com\/news\/harborview-medical-center-fastr-ten-study-site/);
   assert.match(news, /businesswire\.com\/news\/home\/20251002748937/);
-  assert.match(news, /vitals\.uwmedicine\.org\/site\/c125bab2/);
+  assert.match(news, /images\/news\/optimizing-peripheral-nerve-injury-care\.pdf/);
   assert.ok(news.indexOf('FEBRUARY 2026') < news.indexOf('OCTOBER 2025'));
-  assert.ok(news.includes('UW Medicine Vitals feature'));
+  assert.ok(news.includes('Optimizing Peripheral Nerve Injury Care'));
+  assert.ok(news.includes('Read PDF'));
+  assert.ok(news.indexOf('OCTOBER 2024') < news.indexOf('JANUARY 2024'));
+  assert.ok(!news.includes('Access may require a UW Medicine login'));
 });
