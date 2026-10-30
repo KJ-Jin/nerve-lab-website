@@ -58,36 +58,16 @@ export default {
           bio: 'Joyce is a research scientist with a background in biochemistry and experience in cardiovascular research. She is passionate about peripheral nerve regeneration and bridging basic science discoveries with clinical applications to improve patient outcomes. Outside of the lab, she enjoys traveling, exploring new places, and spending time with her three very active cats.',
           photo: 'images/team/joyce-liu.png',
         },
-        {
-          name: 'Haneul Ryou',
-          role: 'Medical Student Research Fellow',
-          bio: 'Haneul is a medical student research fellow with a background in neuroscience. Her research interests include peripheral nerve regeneration and socioeconomic barriers to care. She is hoping to pursue a career in plastic surgery. In her free time, Haneul loves cafe hopping, cooking, reading, and running!',
-          photo: 'images/team/haneul-ryou.webp',
-        },
-        {
-          name: 'New member',
-          role: 'Role',
-          bio: 'Short biography.',
-        },
       ],
     },
     {
       title: 'Clinical Team',
       members: [
         {
-          name: 'Add clinical member',
-          role: 'Clinical research team',
-          bio: 'Add a name, role, photo, and short biography in the People editor.',
-        },
-      ],
-    },
-    {
-      title: 'Translational Team',
-      members: [
-        {
-          name: 'Add translational member',
-          role: 'Translational research team',
-          bio: 'Add a name, role, photo, and short biography in the People editor.',
+          name: 'Haneul Ryou',
+          role: 'Medical Student Research Fellow',
+          bio: 'Haneul is a medical student research fellow with a background in neuroscience. Her research interests include peripheral nerve regeneration and socioeconomic barriers to care. She is hoping to pursue a career in plastic surgery. In her free time, Haneul loves cafe hopping, cooking, reading, and running!',
+          photo: 'images/team/haneul-ryou.webp',
         },
       ],
     },
