@@ -36,7 +36,17 @@
   white-space: pre-wrap;
 }
 
-/* Small uppercase link with an underline rule, e.g. "Read more ↗" */
+/* Shared thin-line arrow icons for links and buttons. These never use emoji glyphs. */
+.site-arrow {
+  display: inline-block;
+  width: 1.15em;
+  height: 1.15em;
+  flex: 0 0 auto;
+  vertical-align: -0.16em;
+  stroke: currentColor;
+}
+
+/* Small uppercase link with an underline rule, e.g. "Read more" */
 .text-link {
   font-size: 11px;
   text-transform: uppercase;

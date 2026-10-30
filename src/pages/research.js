@@ -1,6 +1,7 @@
 import { html, paragraphs } from '../lib/html.js';
 import { PageBanner } from '../components/page-banner.js';
 import content from '../content/research.js';
+import { ArrowIcon } from '../components/arrow-icon.js';
 
 /** #research — overview text plus links to the three research areas. */
 export function ResearchPage() {
@@ -24,7 +25,7 @@ export function ResearchPage() {
               <span class="research-area-index">${String(i + 1).padStart(2, '0')}</span>
               <h3>${area.title}</h3>
               <p>${area.text}</p>
-              <span class="research-area-action">${area.linkText} →</span>
+              <span class="research-area-action">${area.linkText} ${ArrowIcon('right')}</span>
             </a>
           `)}
         </div>

@@ -1,5 +1,6 @@
 import { html } from '../lib/html.js';
 import { PageBanner } from '../components/page-banner.js';
+import { ArrowIcon } from '../components/arrow-icon.js';
 import content from '../content/contact.js';
 
 export function ContactPage() {
@@ -23,7 +24,7 @@ export function ContactPage() {
         <div class="eyebrow">${recruiting.eyebrow}</div>
         <h2>${recruiting.title}</h2>
         <p>${recruiting.text}</p>
-        <a class="contact-email-link" href="mailto:${recruiting.email}">${recruiting.email} <span aria-hidden="true">↗</span></a>
+        <a class="contact-email-link" href="mailto:${recruiting.email}">${recruiting.email} ${ArrowIcon('up-right')}</a>
       </aside>
     </section>
   `;

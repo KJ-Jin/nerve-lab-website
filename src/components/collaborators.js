@@ -1,4 +1,5 @@
 import { html } from '../lib/html.js';
+import { ArrowIcon } from './arrow-icon.js';
 
 function CollaboratorCard({ name, affiliation, role, link, image }) {
   return html`
@@ -7,7 +8,7 @@ function CollaboratorCard({ name, affiliation, role, link, image }) {
       <h3>${name}</h3>
       ${affiliation && html`<p>${affiliation}</p>`}
       ${role && html`<p>${role}</p>`}
-      ${link && html`<a class="text-link" href="${link}" target="_blank" rel="noopener noreferrer">Visit collaborator ↗</a>`}
+      ${link && html`<a class="text-link" href="${link}" target="_blank" rel="noopener noreferrer">Visit collaborator ${ArrowIcon('up-right')}</a>`}
     </article>
   `;
 }

@@ -1,6 +1,7 @@
 import { html } from '../lib/html.js';
 import { PageBanner } from '../components/page-banner.js';
 import content from '../content/news.js';
+import { ArrowIcon } from '../components/arrow-icon.js';
 
 export function NewsPage() {
   const { banner, news } = content;
@@ -15,7 +16,7 @@ export function NewsPage() {
           <div>
             <h2>${item.title}</h2>
             <p>${item.description}</p>
-            ${item.url && html`<a class="text-link" href="${item.url}" target="_blank" rel="noopener noreferrer">Read more ↗</a>`}
+            ${item.url && html`<a class="text-link" href="${item.url}" target="_blank" rel="noopener noreferrer">Read more ${ArrowIcon('up-right')}</a>`}
           </div>
         </article>
       `)}

@@ -2,6 +2,7 @@ import { html, paragraphs } from '../lib/html.js';
 import { PageBanner } from '../components/page-banner.js';
 import { MemberGrid, Portrait } from '../components/member-grid.js';
 import content from '../content/team.js';
+import { ArrowIcon } from '../components/arrow-icon.js';
 
 function GroupPhoto({ eyebrow, title, image, caption, placeholderTitle, placeholderNote }) {
   return html`
@@ -35,7 +36,7 @@ function PrincipalInvestigator(pi) {
         <h3>${pi.name}</h3>
         <div class="pi-title">${pi.title}</div>
         <p class="copy multiline">${paragraphs(pi.bio)}</p>
-        <a class="text-link" href="${pi.profileUrl}" target="_blank" rel="noopener noreferrer">Faculty profile ↗</a>
+        <a class="text-link" href="${pi.profileUrl}" target="_blank" rel="noopener noreferrer">Faculty profile ${ArrowIcon('up-right')}</a>
       </div>
     </div>
   `;

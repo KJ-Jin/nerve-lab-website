@@ -1,5 +1,6 @@
 import { html, paragraphs } from '../lib/html.js';
 import { PlaceholderArt } from './placeholder-art.js';
+import { ArrowIcon } from './arrow-icon.js';
 
 const ART_CYCLE = ['axon', 'nmj', 'vascular'];
 
@@ -42,7 +43,7 @@ export function StudyCard(study, index, { showNumber = true } = {}) {
           <ul class="question-list">${questions.map((q) => html`<li>${q}</li>`)}</ul>
         `}
         ${methods && html`<p class="method-note">${methods}</p>`}
-        ${sourceUrl && html`<a class="study-source" href="${sourceUrl}" target="_blank" rel="noopener noreferrer">Research source ↗</a>`}
+        ${sourceUrl && html`<a class="study-source" href="${sourceUrl}" target="_blank" rel="noopener noreferrer">Research source ${ArrowIcon('up-right')}</a>`}
       </div>
     </article>
   `;
