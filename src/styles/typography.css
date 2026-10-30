@@ -1,0 +1,57 @@
+/* Shared text styles */
+
+/* Small uppercase label above a heading */
+.eyebrow {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--accent);
+  font-weight: 800;
+}
+
+/* Large page title */
+.display {
+  font-family: var(--serif);
+  font-size: clamp(52px, 6vw, 86px);
+  font-weight: 400;
+  line-height: 1.065;
+  letter-spacing: -2.8px;
+  margin: 24px 0;
+}
+
+.section-title {
+  font: 400 clamp(34px, 4vw, 54px) / 1.18 var(--serif);
+  letter-spacing: -1.45px;
+}
+
+/* Body text */
+.copy {
+  font-size: 16px;
+  line-height: 1.88;
+  color: #c8c3d2;
+}
+
+/* Keeps line breaks from content, so a list of paragraphs shows blank lines between them. */
+.multiline {
+  white-space: pre-wrap;
+}
+
+/* Small uppercase link with an underline rule, e.g. "Read more ↗" */
+.text-link {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  font-weight: 800;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #a996d2;
+}
+
+@media (max-width: 640px) {
+  .display {
+    letter-spacing: -1.7px;
+  }
+}

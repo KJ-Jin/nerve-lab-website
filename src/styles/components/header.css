@@ -1,0 +1,87 @@
+/* Site header: institute logo + affiliation line. Navigation styles are in nav.css. */
+
+.site-header {
+  position: relative;
+  z-index: 30;
+  background: #000;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1260px;
+  margin: auto;
+  padding: 26px 56px 24px;
+  background: #000;
+}
+
+/* The logo is the link back to the homepage. */
+.brand {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--logo-width);
+  height: calc(var(--logo-width) * 0.395);
+  overflow: hidden;
+}
+
+.brand-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.affiliation {
+  color: #a8a2b8;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.1px;
+  text-align: right;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 900px) {
+  .header-top {
+    padding: 24px 30px;
+  }
+
+  .brand-logo {
+    width: min(var(--logo-width), 215px);
+    height: calc(min(var(--logo-width), 215px) * 0.395);
+  }
+}
+
+@media (max-width: 650px) {
+  .brand-logo {
+    width: min(var(--logo-width), 200px);
+    height: calc(min(var(--logo-width), 200px) * 0.395);
+  }
+}
+
+@media (max-width: 640px) {
+  .header-top {
+    padding: 22px 23px;
+  }
+
+  .affiliation {
+    font-size: 8px;
+    letter-spacing: 1px;
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 380px) {
+  .brand-logo {
+    width: 165px;
+    height: 65px;
+  }
+}

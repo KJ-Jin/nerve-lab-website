@@ -1,0 +1,24 @@
+import { html } from '../lib/html.js';
+import { PageBanner } from '../components/page-banner.js';
+import content from '../content/publications.js';
+
+export function PublicationsPage() {
+  const { banner, publications } = content;
+
+  return html`
+    ${PageBanner(banner)}
+
+    <section class="shell-wide publications-wrap">
+      ${publications.map((pub) => html`
+        <a class="publication" href="${pub.url}" target="_blank" rel="noopener noreferrer">
+          <div class="pub-year">${pub.year}</div>
+          <div>
+            <h2 class="pub-title">${pub.title}</h2>
+            <div class="pub-meta">${pub.authors}<br>${pub.journal}</div>
+          </div>
+          <div class="arrow" aria-hidden="true">↗</div>
+        </a>
+      `)}
+    </section>
+  `;
+}

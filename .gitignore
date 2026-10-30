@@ -1,0 +1,5 @@
+node_modules/
+dist/
+wordpress/
+design/
+.DS_Store

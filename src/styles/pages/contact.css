@@ -1,0 +1,81 @@
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 12%;
+  align-items: start;
+  padding-block: 65px 110px;
+}
+
+.contact-layout .eyebrow {
+  margin-bottom: 22px;
+}
+
+/* Locations */
+
+.address-block {
+  padding: 3px 0 30px;
+}
+
+.address-block + .address-block {
+  padding-top: 27px;
+  border-top: 1px solid #292530;
+}
+
+.address-block h2 {
+  font: 400 clamp(23px, 2.2vw, 32px) / 1.28 Georgia, 'Times New Roman', serif;
+  margin: 0 0 11px;
+}
+
+.address-block p,
+.contact-recruit p {
+  font: 400 15px/1.75 Arial, Helvetica, sans-serif;
+  color: #c7c0d0;
+  margin: 0;
+}
+
+/* "Join our team" */
+
+.contact-recruit {
+  border-left: 1px solid #332c40;
+  padding-left: 37px;
+}
+
+.contact-recruit h2 {
+  font: 400 35px/1.25 Georgia, 'Times New Roman', serif;
+  margin: 0 0 15px;
+}
+
+.contact-email-link {
+  display: inline-flex;
+  gap: 18px;
+  margin-top: 28px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #8b72aa;
+  color: #d5bbff;
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
+.contact-email-link:hover {
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .contact-layout {
+    gap: 6%;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-block: 45px 80px;
+  }
+
+  .contact-recruit {
+    border-left: 0;
+    border-top: 1px solid #332c40;
+    padding: 30px 0 0;
+  }
+}

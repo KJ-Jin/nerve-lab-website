@@ -1,0 +1,234 @@
+/* Main navigation, Research dropdown, and the mobile menu (≤640px). */
+
+.nav-bar {
+  background: #000;
+  border-block: 1px solid #302a3b;
+}
+
+.main-nav {
+  max-width: 1260px;
+  height: 63px;
+  margin: 0 auto;
+  padding: 0 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 42px;
+}
+
+.nav-link {
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--accent);
+}
+
+/* Underline under the current page's link */
+.nav-link.active::after,
+.nav-dropdown.current > .nav-dropdown-parent::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+}
+
+.mobile-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  padding: 8px;
+  color: var(--ink);
+}
+
+.mobile-toggle svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Research dropdown */
+
+.nav-dropdown {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-dropdown > .nav-link {
+  height: 100%;
+}
+
+.nav-dropdown.current > .nav-dropdown-parent {
+  color: var(--ink);
+}
+
+.nav-submenu-toggle {
+  background: transparent;
+  border: 0;
+  color: #c3b7d4;
+  padding: 7px 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.nav-submenu-toggle svg {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.2s;
+}
+
+.nav-dropdown.open .nav-submenu-toggle svg {
+  transform: rotate(180deg);
+}
+
+.nav-submenu {
+  position: absolute;
+  top: calc(100% - 1px);
+  left: -23px;
+  z-index: 80;
+  min-width: 218px;
+  padding: 10px 8px;
+  display: none;
+  flex-direction: column;
+  background: #111015;
+  border: 1px solid #413747;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+}
+
+.nav-submenu a {
+  display: block;
+  padding: 14px 15px;
+  color: #ded8e5;
+  font: 700 11px/1.4 Arial, sans-serif;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-radius: 3px;
+}
+
+.nav-submenu a:hover,
+.nav-submenu a:focus-visible,
+.nav-submenu a.active {
+  background: #282030;
+  color: #fff;
+  outline: none;
+}
+
+/* Desktop: open on hover, keyboard focus, or click */
+@media (hover: hover) and (min-width: 641px) {
+  .nav-dropdown:hover .nav-submenu {
+    display: flex;
+  }
+}
+
+@media (min-width: 641px) {
+  .nav-dropdown:focus-within .nav-submenu,
+  .nav-dropdown.open .nav-submenu {
+    display: flex;
+  }
+}
+
+@media (max-width: 900px) {
+  .main-nav {
+    gap: 25px;
+    padding: 0 22px;
+  }
+}
+
+/* Phone: hamburger menu, Research sub-links expand inline */
+@media (max-width: 640px) {
+  .nav-bar {
+    position: relative;
+  }
+
+  .mobile-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    height: 34px;
+    margin: 9px 20px;
+  }
+
+  .main-nav {
+    display: none;
+    clear: both;
+    height: auto;
+    padding: 10px 24px 20px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .main-nav.open {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 15px 0;
+    font-size: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-link.active::after,
+  .nav-dropdown.current > .nav-dropdown-parent::after {
+    display: none;
+  }
+
+  .nav-dropdown {
+    height: auto;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-dropdown > .nav-link {
+    flex: 1;
+    height: auto;
+    padding: 15px 0;
+    border: 0;
+  }
+
+  .nav-submenu-toggle {
+    padding: 11px 3px 11px 22px;
+    min-height: 45px;
+    min-width: 48px;
+  }
+
+  .nav-submenu {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    padding: 3px 0 10px 14px;
+    background: #09090d;
+    border: 0;
+    border-top: 1px solid #24202a;
+    box-shadow: none;
+  }
+
+  .nav-dropdown.open .nav-submenu {
+    display: flex;
+  }
+
+  .nav-submenu a {
+    padding: 12px 9px;
+    font-size: 11px;
+    white-space: normal;
+  }
+}

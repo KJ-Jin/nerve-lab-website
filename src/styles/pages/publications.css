@@ -1,0 +1,49 @@
+.publications-wrap {
+  padding-block: 35px 115px;
+}
+
+.publication {
+  display: grid;
+  grid-template-columns: 100px 1fr 42px;
+  gap: 35px;
+  padding: 29px 0;
+  border-top: 1px solid var(--line);
+}
+
+.publication:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.pub-year {
+  font: italic 22px var(--serif);
+  color: var(--accent);
+}
+
+.pub-title {
+  font: 400 25px/1.33 var(--serif);
+  margin: 0 0 12px;
+}
+
+.pub-meta {
+  color: #b7b1c5;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.publication .arrow {
+  align-self: start;
+  color: var(--accent);
+  font-size: 25px;
+}
+
+@media (max-width: 640px) {
+  .publication {
+    grid-template-columns: 65px 1fr 15px;
+    gap: 10px;
+    padding: 25px 0;
+  }
+
+  .pub-title {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,33 @@
+/*
+ * Design tokens: change site-wide colors, fonts and key sizes here.
+ * Breakpoints used in the stylesheets: 960px, 900px (tablet), 640px (phone), 380px.
+ */
+
+:root {
+  /* Colors */
+  --ink: #f0edf8; /* main text */
+  --accent: #938ba2; /* eyebrows, highlights, active nav underline */
+  --line: #282431; /* dividers */
+
+  /* Fonts */
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans: Arial, Helvetica, sans-serif;
+
+  /* Side padding of content columns */
+  --gutter: 36px;
+
+  /* Header logo width */
+  --logo-width: 295px;
+
+  /* Home page hero */
+  --hero-height: 670px;
+  --hero-position-x: 63%; /* focal point of the hero image */
+  --hero-position-y: 47%;
+  --hero-dim: 0.12; /* extra darkening over the hero image, 0–1 */
+}
+
+@media (max-width: 640px) {
+  :root {
+    --gutter: 23px;
+  }
+}

@@ -1,0 +1,93 @@
+/* "Collaborators" section on the research area pages — see src/components/collaborators.js */
+
+.collaborator-section {
+  padding-top: 64px;
+  padding-bottom: 104px;
+  border-top: 1px solid var(--line);
+}
+
+.collaborator-top {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 1fr);
+  gap: 36px;
+  align-items: end;
+  margin-bottom: 36px;
+}
+
+.collaborator-top h2 {
+  margin: 10px 0 0;
+}
+
+.collaborator-top .copy {
+  font: 400 14px/1.75 Arial, Helvetica, sans-serif;
+  color: #beb6c8;
+  margin: 0;
+}
+
+.collaborator-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.collaborator-card {
+  border: 1px solid #302a39;
+  background: #0e0c12;
+  padding: 27px 26px;
+  min-height: 165px;
+}
+
+.collaborator-logo {
+  display: block;
+  max-height: 76px;
+  max-width: 180px;
+  object-fit: contain;
+  object-position: left center;
+  margin-bottom: 22px;
+}
+
+.collaborator-card h3 {
+  font: 400 26px/1.27 Georgia, 'Times New Roman', serif;
+  margin: 0 0 12px;
+  color: #f2eef8;
+}
+
+.collaborator-card p {
+  font: 400 13px/1.7 Arial, Helvetica, sans-serif;
+  color: #c5becd;
+  margin: 6px 0;
+}
+
+.collaborator-card .text-link {
+  margin-top: 17px;
+}
+
+.collaborator-empty {
+  border: 1px dashed #3f384c;
+  background: #0a090d;
+  padding: 33px;
+  color: #aea6b9;
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .collaborator-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .collaborator-section {
+    padding-top: 49px;
+    padding-bottom: 70px;
+  }
+
+  .collaborator-top {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .collaborator-grid {
+    grid-template-columns: 1fr;
+  }
+}

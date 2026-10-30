@@ -1,0 +1,48 @@
+/* Pages: only the active one is visible (see src/lib/router.js). */
+
+.page {
+  display: none;
+  min-height: 60vh;
+}
+
+.page.active {
+  display: block;
+  animation: page-in 0.3s ease-out;
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0.1;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page.active {
+    animation: none;
+  }
+}
+
+/* Content columns.
+ * .shell       1180px box with the gutter inside it (text column is 1108px).
+ * .shell-wide  1180px text column, with the gutter added outside it on smaller screens. */
+
+.shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+.shell-wide {
+  width: min(1180px, 100% - 2 * var(--gutter));
+  margin: 0 auto;
+}
+
+.thin-rule {
+  height: 1px;
+  background: var(--line);
+}

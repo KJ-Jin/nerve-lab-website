@@ -1,0 +1,133 @@
+/* #people (Team) page. Member cards and portraits are in components/member-card.css. */
+
+.team-wrap {
+  padding-block: 45px 100px;
+}
+
+.team-heading {
+  display: block;
+  margin: 30px 0 25px;
+  font: 400 30px var(--serif);
+}
+
+/* Group photo */
+
+.team-group-photo {
+  padding: 69px 0 25px;
+}
+
+.group-photo-heading {
+  margin-bottom: 25px;
+}
+
+.group-photo-heading .team-heading {
+  margin: 10px 0 0;
+}
+
+.group-photo-figure {
+  margin: 0;
+}
+
+.group-photo-figure img {
+  display: block;
+  width: 100%;
+  max-height: 610px;
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+}
+
+.group-photo-figure figcaption {
+  padding-top: 12px;
+  color: #b9afc8;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+}
+
+.group-photo-empty {
+  min-height: 215px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 32px;
+  border: 1px dashed #514658;
+  background: #0c0a11;
+  text-align: center;
+  color: #c6bcd1;
+  font: 400 23px Georgia, serif;
+}
+
+.group-photo-empty small {
+  color: #a79eaf;
+  font: 400 12px Arial, Helvetica, sans-serif;
+}
+
+/* Principal investigator */
+
+.pi-block {
+  display: grid;
+  grid-template-columns: 34% 1fr;
+  gap: 65px;
+  padding-bottom: 68px;
+  border-bottom: 1px solid var(--line);
+}
+
+.pi-text h3 {
+  font: 400 clamp(40px, 4vw, 54px) / 1.2 var(--serif);
+  letter-spacing: -1px;
+  margin: 14px 0;
+}
+
+.pi-title {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.75;
+  letter-spacing: 0.2px;
+}
+
+.pi-text .copy {
+  margin: 25px 0;
+  font-size: 15px;
+}
+
+/* Member groups (Lab Members, Clinical Team, …) */
+
+.team-group .team-heading {
+  margin-top: 75px;
+}
+
+.team-group + .team-group {
+  padding-top: 10px;
+}
+
+@media (max-width: 900px) {
+  .pi-block {
+    gap: 35px;
+  }
+}
+
+@media (max-width: 640px) {
+  .team-wrap {
+    padding-block: 20px 70px;
+  }
+
+  .pi-block {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .pi-block .portrait {
+    max-width: 330px;
+  }
+
+  .group-photo-figure img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .group-photo-empty {
+    min-height: 185px;
+    font-size: 20px;
+  }
+}

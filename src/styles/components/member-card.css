@@ -1,0 +1,71 @@
+/* Portraits and member cards — see src/components/member-grid.js */
+
+.portrait {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 4.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #14121b;
+}
+
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Initials shown when there is no photo */
+.portrait-placeholder {
+  color: #5f5772;
+  font: 400 110px var(--serif);
+  letter-spacing: -10px;
+}
+
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 25px;
+}
+
+.member-card .portrait {
+  aspect-ratio: 1;
+}
+
+.member-card .portrait-placeholder {
+  font-size: 65px;
+  letter-spacing: -5px;
+}
+
+.member-name {
+  font: 400 25px var(--serif);
+  margin: 17px 0 4px;
+}
+
+.member-role {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.member-description {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #b8b2c5;
+}
+
+@media (max-width: 900px) {
+  .members-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .members-grid {
+    grid-template-columns: 1fr;
+  }
+}

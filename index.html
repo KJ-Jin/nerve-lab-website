@@ -74,15 +74,15 @@
     </script>
 
     <title>UW Nerve Lab | Yusha “Katie” Liu Lab</title>
-    <script type="module" crossorigin src="./assets/index-BoogI5iP.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BZ3eq8M3.css">
+    <link rel="stylesheet" href="src/styles/main.css" />
+    <script type="module" src="src/main.js"></script>
   </head>
   <body>
     <header class="site-header">
       <div class="header-top">
         <a class="brand" href="#home" aria-label="Northwest Institute for Nerve Injury — go to homepage">
           <span class="brand-logo">
-            <img src="./assets/institute-logo-DyYtuN48.jpg" alt="Northwest Institute for Nerve Injury at Harborview Medical Center logo" />
+            <img src="images/brand/institute-logo.jpg" alt="Northwest Institute for Nerve Injury at Harborview Medical Center logo" />
           </span>
         </a>
         <div class="affiliation">UNIVERSITY OF WASHINGTON  /  ISCRM</div>
@@ -133,18 +133,5 @@
         </div>
       </div>
     </footer>
-
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll('a[href="mailto:UWnerve@uw.edu"]').forEach((link) => {
-          link.href = "mailto:uwnerve@uw.edu";
-          link.childNodes.forEach((node) => {
-            if (node.nodeType === Node.TEXT_NODE) {
-              node.nodeValue = node.nodeValue.replace("UWnerve@uw.edu", "uwnerve@uw.edu");
-            }
-          });
-        });
-      });
-    </script>
   </body>
 </html>

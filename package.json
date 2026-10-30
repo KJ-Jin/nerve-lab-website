@@ -1,0 +1,18 @@
+{
+  "name": "nerve-lab-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Website for the Nerve Lab (Liu Lab), University of Washington.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "8.3.4"
+  }
+}

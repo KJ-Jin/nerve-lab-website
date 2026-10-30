@@ -1,0 +1,35 @@
+/* Top-of-page banner (eyebrow, title, intro) — see src/components/page-banner.js */
+
+.page-banner {
+  padding-block: 86px 72px;
+}
+
+/* An empty eyebrow still takes up its line, so titles line up across pages. */
+.page-banner .eyebrow:empty::before {
+  content: '\200b';
+}
+
+.page-banner .display {
+  font-size: clamp(54px, 5.2vw, 74px);
+  max-width: 900px;
+  margin: 24px 0 16px;
+}
+
+.page-banner .copy {
+  max-width: 780px;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .page-banner {
+    padding-block: 60px 45px;
+  }
+
+  .page-banner .display {
+    font-size: 53px;
+  }
+
+  .page-banner .copy {
+    font-size: 14px;
+  }
+}
