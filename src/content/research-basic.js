@@ -4,7 +4,7 @@
 export default {
   banner: {
     title: 'Basic Science',
-    intro: 'Overview of basic science research',
+    intro: 'Overview of basic science research.',
   },
 
   showStudyNumbers: false,
