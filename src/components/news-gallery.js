@@ -16,7 +16,7 @@ export function NewsGallery(gallery = {}) {
   return html`
     <section class="shell-wide news-gallery-section" aria-label="Lab event photographs">
       <div class="news-gallery-heading">
-        <div class="eyebrow">MOMENTS FROM THE LAB</div>
+        <div class="eyebrow">PHOTO GALLERY</div>
         <h2 class="section-title">Photo Highlights</h2>
       </div>
       <div class="news-gallery" data-news-gallery data-interval="${intervalMs}"
