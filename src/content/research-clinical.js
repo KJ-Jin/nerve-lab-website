@@ -14,8 +14,6 @@ export default {
     intro: 'Learn about our team’s current research studies to improve care for nerve injuries and see if you are eligible to participate.',
   },
 
-  // Keep the clinical collaborators easy to find before the longer study list.
-  collaboratorsFirst: false,
   showStudyNumbers: false,
 
   studies: [
