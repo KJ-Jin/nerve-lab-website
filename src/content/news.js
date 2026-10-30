@@ -12,7 +12,7 @@ export default {
       date: 'JUNE 2026',
       title: 'Tietze Research Award recognizes Dr. Liu’s research',
       description: 'ISCRM announced that Yusha (Katie) Liu and Mark Bothwell received awards from the John H. Tietze Foundation Trust to support their research.',
-      url: 'https://iscrm.uw.edu/news/',
+      url: 'https://iscrm.uw.edu/mark-bothwell-and-yusha-katie-liu-receive-tietze-research-awards/',
     },
     {
       date: 'FEBRUARY 2026',
