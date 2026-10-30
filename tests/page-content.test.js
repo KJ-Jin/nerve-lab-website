@@ -90,17 +90,21 @@ test('News photo carousel stays hidden until real event photos with captions exi
   const liveNews = String(NewsPage());
   assert.ok(liveNews.includes('data-news-gallery'));
   for (const [fileName, caption] of [
-    ['cats-eating-together.webp', 'three cat eat food'],
-    ['cat-on-tree.webp', 'cat on tree'],
-    ['close-up-cat.webp', 'close up cat'],
+    ['aanem-2026.jpg', 'Surgical Strategies for Functional Upper Extremity Reconstruction After Spinal Cord Injury'],
+    ['assh-2026-panel.jpg', 'Does Free Functional Muscle Transfer Outperform Nerve-Based Hand Reconstruction'],
+    ['assh-2026-presentation.jpg', 'CCC15: Adult Brachial Plexus Reconstruction'],
+    ['assh-2025-presentation.jpg', 'Patient Selection: Who, When, and What to Prioritize?'],
   ]) {
     assert.ok(liveNews.includes(fileName), `Missing ${fileName}`);
     assert.ok(liveNews.includes(caption), `Missing caption: ${caption}`);
   }
-  assert.equal((liveNews.match(/data-news-gallery-slide/g) || []).length, 3);
-  assert.equal((liveNews.match(/data-news-gallery-caption/g) || []).length, 3);
+  assert.ok(!liveNews.includes('cats-eating-together.webp'));
+  assert.ok(!liveNews.includes('cat-on-tree.webp'));
+  assert.ok(!liveNews.includes('close-up-cat.webp'));
+  assert.equal((liveNews.match(/data-news-gallery-slide/g) || []).length, 4);
+  assert.equal((liveNews.match(/data-news-gallery-caption/g) || []).length, 4);
   assert.ok(liveNews.includes('data-position="previous"'));
-  assert.equal((liveNews.match(/data-news-gallery-dot=/g) || []).length, 3);
+  assert.equal((liveNews.match(/data-news-gallery-dot=/g) || []).length, 4);
 });
 
 test('News page has its own reduced banner spacing without changing other page banners', async () => {
@@ -109,4 +113,12 @@ test('News page has its own reduced banner spacing without changing other page b
   assert.match(newsCSS, /#page-news \.page-banner\s*\{[^}]*padding-top:\s*43px;/);
   assert.match(newsCSS, /#page-news \.page-banner\s*\{[^}]*padding-bottom:\s*36px;/);
   assert.match(newsCSS, /#page-news \.page-banner \.eyebrow:empty/);
+});
+
+test('centered News photo is visibly larger than both faded side previews', async () => {
+  const { readFileSync } = await import('node:fs');
+  const newsCSS = readFileSync(new URL('../src/styles/pages/news.css', import.meta.url), 'utf8');
+  assert.match(newsCSS, /\.news-gallery-slide\[data-position="center"\]\s*\{[^}]*width:\s*60%;/);
+  assert.match(newsCSS, /\.news-gallery-slide\[data-position="previous"\]\s*\{[^}]*width:\s*17%;[^}]*top:\s*11%;/);
+  assert.match(newsCSS, /\.news-gallery-slide\[data-position="next"\]\s*\{[^}]*width:\s*17%;[^}]*top:\s*11%;/);
 });

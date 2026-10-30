@@ -7,26 +7,34 @@ export default {
     title: 'News',
   },
 
-  // Temporary carousel test photos; replace with lab event images and captions later.
-  // Add new photos to images/news/events/ and list them here NEWEST FIRST.
-  // The newest 9 appear in the News carousel; all older photos move to Gallery Archive.
+  // Add new conference/event photos to images/news/events/ and list NEWEST FIRST.
+  // The newest nine appear in Recent Happenings; older photos go to Gallery Archive.
   gallery: {
     intervalMs: 6000,
     photos: [
       {
-        src: 'images/news/events/cats-eating-together.webp',
-        alt: 'Three cats eating from bowls around a white table',
-        caption: 'three cat eat food',
+        src: 'images/news/events/aanem-2026.jpg',
+        alt: '2026 AANEM Annual Meeting presentation screen and conference attendees',
+        caption: '“Surgical Strategies for Functional Upper Extremity Reconstruction After Spinal Cord Injury.” American Association of Neuromuscular & Electrodiagnostic Medicine Annual Meeting. Orlando, FL, 9/30/2026.',
+        date: 'September 30, 2026',
       },
       {
-        src: 'images/news/events/cat-on-tree.webp',
-        alt: 'A gray tabby cat sitting inside a cat tree',
-        caption: 'cat on tree',
+        src: 'images/news/events/assh-2026-panel.jpg',
+        alt: 'Panel discussion at the 2026 American Society for Surgery of the Hand Annual Meeting',
+        caption: '“Does Free Functional Muscle Transfer Outperform Nerve-Based Hand Reconstruction?” CCC15: Adult Brachial Plexus Reconstruction: Controversies in Strategy and Priorities. American Society for Surgery of the Hand Annual Meeting. Boston, MA, 9/19/2026.',
+        date: 'September 19, 2026',
       },
       {
-        src: 'images/news/events/close-up-cat.webp',
-        alt: 'Close-up portrait of a gray tabby cat',
-        caption: 'close up cat',
+        src: 'images/news/events/assh-2026-presentation.jpg',
+        alt: 'Speaker at the podium during the 2026 ASSH Annual Meeting',
+        caption: '“Does Free Functional Muscle Transfer Outperform Nerve-Based Hand Reconstruction?” CCC15: Adult Brachial Plexus Reconstruction: Controversies in Strategy and Priorities. American Society for Surgery of the Hand Annual Meeting. Boston, MA, 9/19/2026.',
+        date: 'September 19, 2026',
+      },
+      {
+        src: 'images/news/events/assh-2025-presentation.jpg',
+        alt: 'Dr. Katie Liu presenting at the 2025 ASSH Annual Meeting',
+        caption: '“Patient Selection: Who, When, and What to Prioritize?” Pre-Course 12 – A Little Is A Lot: Brachial Plexus From The Ground Up. American Society for Surgery of the Hand Annual Meeting. Vancouver, BC, Canada, 10/9/2025.',
+        date: 'October 9, 2025',
       },
     ],
   },
