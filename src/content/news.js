@@ -21,13 +21,13 @@ export default {
 
   news: [
     {
-      date: 'GOLDNER AWARD',
+      date: '2026',
       title: 'Dr. Katie Liu receives Goldner Award for basic science research',
       description: 'Dr. Yusha (Katie) Liu received a Goldner Award for the basic science project “Induced pluripotent stem cells to model the neuromuscular junction.”',
       url: 'https://www.assh.org/annualmeeting/general-information/awards',
     },
     {
-      date: 'GOLDNER AWARD',
+      date: '2026',
       title: 'Dr. Christopher Crowe receives Goldner Award for clinical research',
       description: 'Dr. Christopher Crowe received a Goldner Award for the clinical research project “Electrodiagnostic Features of Hyperselective Neurectomy in the Spastic Upper Limb.”',
       url: 'https://www.assh.org/annualmeeting/general-information/awards',
