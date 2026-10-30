@@ -55,7 +55,7 @@ export default {
         {
           name: 'Joyce Liu',
           role: 'Research Scientist',
-          bio: 'Short biography.',
+          bio: 'Joyce is a research scientist with a background in biochemistry and experience in molecular and cellular biology. Her previous research focused on cardiovascular injury and repair, and she is now interested in exploring the mechanisms underlying peripheral nerve regeneration, with a particular interest in translating basic science discoveries into clinical applications to improve patient outcomes. Outside of the lab, she enjoys traveling, exploring new places, and spending time with her three very active cats.',
           photo: 'images/team/joyce-liu.png',
         },
         {
