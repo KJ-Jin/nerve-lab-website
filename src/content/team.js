@@ -8,7 +8,6 @@ export default {
   },
 
   groupPhoto: {
-    eyebrow: 'TOGETHER IN RESEARCH',
     title: 'Our Team',
     image: '', // e.g. 'images/team/group-photo.jpg'
     caption: 'The Nerve Lab team',

@@ -1,3 +1,15 @@
+/* Reduce the empty vertical space before the News title (not other pages). */
+#page-news .page-banner {
+  padding-top: 43px;
+  padding-bottom: 36px;
+}
+#page-news .page-banner .eyebrow:empty {
+  display: none;
+}
+#page-news .page-banner .display {
+  margin-top: 12px;
+}
+
 .news-wrap {
   padding-block: 38px 110px;
 }

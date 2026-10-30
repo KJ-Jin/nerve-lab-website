@@ -22,6 +22,8 @@ test('News, Publications and Team use the requested page headings', () => {
   assert.match(team, /<h1 class="display">The Team<\/h1>/);
   assert.ok(!team.includes('THE LAB'));
   assert.ok(team.includes('Basic Science Team'));
+  assert.ok(team.includes('Our Team'));
+  assert.ok(!team.includes('TOGETHER IN RESEARCH'));
 });
 
 test('Basic Science introduction ends with a period', () => {
@@ -94,4 +96,12 @@ test('News photo carousel stays hidden until real event photos with captions exi
   }
   assert.equal((liveNews.match(/data-news-gallery-slide/g) || []).length, 3);
   assert.equal((liveNews.match(/data-news-gallery-dot=/g) || []).length, 3);
+});
+
+test('News page has its own reduced banner spacing without changing other page banners', async () => {
+  const { readFileSync } = await import('node:fs');
+  const newsCSS = readFileSync(new URL('../src/styles/pages/news.css', import.meta.url), 'utf8');
+  assert.match(newsCSS, /#page-news \.page-banner\s*\{[^}]*padding-top:\s*43px;/);
+  assert.match(newsCSS, /#page-news \.page-banner\s*\{[^}]*padding-bottom:\s*36px;/);
+  assert.match(newsCSS, /#page-news \.page-banner \.eyebrow:empty/);
 });

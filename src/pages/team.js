@@ -8,7 +8,7 @@ function GroupPhoto({ eyebrow, title, image, caption, placeholderTitle, placehol
   return html`
     <section class="team-group-photo">
       <div class="group-photo-heading">
-        <div class="eyebrow">${eyebrow}</div>
+        ${eyebrow && html`<div class="eyebrow">${eyebrow}</div>`}
         <h2 class="team-heading">${title}</h2>
       </div>
       ${image
