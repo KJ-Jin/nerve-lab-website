@@ -2,12 +2,14 @@ import { html } from '../lib/html.js';
 import { PageBanner } from '../components/page-banner.js';
 import content from '../content/news.js';
 import { ArrowIcon } from '../components/arrow-icon.js';
+import { NewsGallery } from '../components/news-gallery.js';
 
 export function NewsPage() {
-  const { banner, news } = content;
+  const { banner, gallery, news } = content;
 
   return html`
     ${PageBanner(banner)}
+    ${NewsGallery(gallery)}
 
     <section class="shell-wide news-wrap">
       ${news.map((item) => html`

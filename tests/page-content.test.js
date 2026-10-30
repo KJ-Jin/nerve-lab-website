@@ -62,3 +62,25 @@ test('Lab News lists the two Goldner awards and the 2024 AFSH Basic Science Gran
   assert.ok(news.includes('Samuel Rayner'));
   assert.ok(news.indexOf('OCTOBER 2024') < news.indexOf('2024 AFSH Basic Science Grant'));
 });
+
+test('News photo carousel stays hidden until real event photos with captions exist', async () => {
+  const { NewsGallery } = await import('../src/components/news-gallery.js');
+  assert.equal(String(NewsGallery({photos: []})), '');
+  assert.equal(String(NewsGallery({photos: [{src:'images/news/events/test.jpg'}]})), '');
+  const gallery = String(NewsGallery({intervalMs: 6000, photos: [
+    {src:'images/news/events/a.jpg', alt:'Lab group', caption:'Nerve Lab annual gathering', date:'October 2026'},
+    {src:'images/news/events/b.jpg', alt:'Conference award', caption:'Award ceremony'},
+  ]}));
+  assert.ok(gallery.includes('Photo Highlights'));
+  assert.ok(gallery.includes('data-news-gallery'));
+  assert.equal((gallery.match(/data-news-gallery-slide/g) || []).length, 2);
+  assert.equal((gallery.match(/data-news-gallery-dot=/g) || []).length, 2);
+  assert.ok(gallery.includes('Previous photo'));
+  assert.ok(gallery.includes('Next photo'));
+  assert.ok(gallery.includes('Pause automatic photo rotation'));
+  assert.ok(gallery.includes('Nerve Lab annual gathering'));
+  assert.ok(gallery.includes('October 2026'));
+  const one = String(NewsGallery({photos: [{src:'images/news/events/a.jpg',caption:'A moment'}]}));
+  assert.ok(!one.includes('data-news-gallery-next'));
+  assert.ok(!String(NewsPage()).includes('data-news-gallery'));
+});

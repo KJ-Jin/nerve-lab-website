@@ -7,6 +7,18 @@ export default {
     title: 'Lab News',
   },
 
+  // Add approved event photos here when ready; each needs a file path and caption.
+  // Photos should be placed in images/news/events/ and keep their original quality.
+  gallery: {
+    intervalMs: 6000,
+    photos: [
+      // { src: 'images/news/events/event-photo.jpg',
+      //   alt: 'Who or what is shown in the photo',
+      //   caption: 'What the event was and why it mattered',
+      //   date: 'October 2026' },
+    ],
+  },
+
   news: [
     {
       date: 'GOLDNER AWARD',

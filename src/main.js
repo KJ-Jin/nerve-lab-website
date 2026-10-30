@@ -4,6 +4,7 @@ import { ResearchAreaPage } from './pages/research-area.js';
 import { TeamPage } from './pages/team.js';
 import { PublicationsPage } from './pages/publications.js';
 import { NewsPage } from './pages/news.js';
+import { initNewsGallery } from './lib/news-gallery.js';
 import { ContactPage } from './pages/contact.js';
 
 import clinical from './content/research-clinical.js';
@@ -38,3 +39,4 @@ for (const [id, renderPage] of Object.entries(routes)) {
 
 initNav();
 startRouter(Object.keys(routes), { onNavigate: updateNav });
+initNewsGallery();
