@@ -4,21 +4,17 @@
  */
 
 :root {
-  /* UW Medicine: https://brand.uwmedicine.org/visual-standards/color-pallets/ */
-  --uw-purple: #32006e; /* Primary PMS 2685 C */
-  --uw-purple-medium: #5d348b;
+  /* Subtle UW Medicine palette on the original black Nerve Lab site. */
+  --uw-purple: #32006e;
+  --uw-purple-mid: #5d348b;
   --uw-purple-soft: #8663a8;
-  --uw-purple-light: #d6c8e1;
-  --uw-gold: #ffc700; /* Primary PMS 7408 C */
+  --uw-lavender: #ae95c4;
+  --uw-gold: #ffc700;
   --uw-gold-light: #ffdd66;
-  --uw-charcoal: #333d47; /* Secondary PMS 432 C */
-  --uw-slate: #566069;
-  --uw-gray-light: #d1d4d7;
-  --uw-white: #f5f5f5;
 
-  --ink: var(--uw-white);
-  --accent: var(--uw-gold);
-  --line: var(--uw-slate);
+  --ink: #f0edf8; /* main text on black */
+  --accent: var(--uw-lavender); /* subdued purple details */
+  --line: #282431; /* subtle dividers */
 
   /* Fonts */
   --serif: Georgia, 'Times New Roman', serif;
