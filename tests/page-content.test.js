@@ -172,3 +172,13 @@ test('Contact page links Northwest Institute for Nerve Injury to the UW Medicine
   assert.ok(page.includes('Northwest Institute for Nerve Injury at Harborview Medical Center'));
   assert.ok(page.includes('Ninth &amp; Jefferson'));
 });
+
+test('News arrows use muted UW gold without replacing the original black look', async () => {
+  const { readFileSync } = await import('node:fs');
+  const newsCSS = readFileSync(new URL('../src/styles/pages/news.css', import.meta.url), 'utf8');
+  assert.match(newsCSS, /\.news-gallery-arrow\s*\{[^}]*color:\s*var\(--uw-gold-muted\)/);
+  assert.ok(newsCSS.includes('.news-entry .text-link .site-arrow'));
+  assert.ok(newsCSS.includes('.news-archive-link .text-link .site-arrow'));
+  assert.ok(newsCSS.includes('border-bottom-color: var(--uw-gold-muted)'));
+  assert.ok(newsCSS.includes('background: #08080c'));
+});

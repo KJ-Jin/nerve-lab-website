@@ -16,6 +16,8 @@ export default {
       title: "Sonographic appearance of peri-procedural popliteal fossa nerve injuries",
       journal: "Pain Med Case Rep (accepted)",
       status: "Accepted for publication",
+      url: "https://www.painmedicine-casereports.com/current/pdf?article=OTY0&journal=71",
+      linkLabel: "View article PDF",
     },
     {
       year: "2026",

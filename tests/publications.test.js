@@ -53,3 +53,16 @@ test('publication citations omit all professional degree suffixes without removi
   assert.ok(!markup.includes(', PhD'));
   assert.ok(!markup.includes(', MBE'));
 });
+
+test('accepted sonographic case report links to the supplied publisher PDF without inventing a PMID', () => {
+  const publication = publicationsContent.publications[0];
+  assert.equal(publication.title, 'Sonographic appearance of peri-procedural popliteal fossa nerve injuries');
+  assert.equal(publication.year, 'Accepted');
+  assert.equal(publication.status, 'Accepted for publication');
+  assert.equal(publication.pmid, undefined);
+  assert.equal(publication.url, 'https://www.painmedicine-casereports.com/current/pdf?article=OTY0&journal=71');
+  const page = String(PublicationsPage());
+  assert.ok(page.includes('href="https://www.painmedicine-casereports.com/current/pdf?article=OTY0&amp;journal=71"'));
+  assert.ok(page.includes('View article PDF'));
+  assert.ok(page.includes('Accepted for publication'));
+});

@@ -20,14 +20,15 @@ function PublicationCard(pub) {
       <div class="pub-meta pub-authors">${FormatAuthors(pub.authors)}</div>
       <h2 class="pub-title">${pub.title}</h2>
       <div class="pub-meta pub-journal">${pub.journal}</div>
+      ${pub.status && html`<span class="pub-status">${pub.status}</span>`}
       ${link
-        ? html`<span class="pub-pubmed">${pub.pmid ? 'View on PubMed' : 'View journal article'} ${ArrowIcon('up-right')}</span>`
-        : html`<span class="pub-status">${pub.status || 'PubMed link pending'}</span>`}
+        ? html`<span class="pub-pubmed">${pub.linkLabel || (pub.pmid ? 'View on PubMed' : 'View journal article')} ${ArrowIcon('up-right')}</span>`
+        : !pub.status && html`<span class="pub-status">PubMed link pending</span>`}
     </div>
     ${link && html`<div class="arrow" aria-hidden="true">${ArrowIcon('up-right')}</div>`}
   `;
   return link
-    ? html`<a class="publication" href="${link}" target="_blank" rel="noopener noreferrer">${details}</a>`
+    ? html`<a class="publication${pub.year === 'Accepted' ? ' publication--accepted' : ''}" href="${link}" target="_blank" rel="noopener noreferrer">${details}</a>`
     : html`<article class="publication publication--accepted">${details}</article>`;
 }
 
