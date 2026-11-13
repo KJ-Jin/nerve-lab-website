@@ -2,13 +2,13 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
-test('Publishing builds main as preview and published as live', () => {
+test('The main branch deploys directly to the live GitHub Pages site', () => {
   const workflow = readFileSync(new URL('../.github/workflows/deploy-pages.yml', import.meta.url), 'utf8');
-  assert.match(workflow, /branches: \[main, published\]/);
-  assert.match(workflow, /ref: main\s+path: preview-src/);
-  assert.match(workflow, /ref: published\s+path: published-src/);
-  assert.ok(workflow.includes('cp -a published-src/dist/. site/'));
-  assert.ok(workflow.includes('cp -a preview-src/dist/. site/preview/'));
-  assert.ok(workflow.includes('noindex, nofollow'));
-  assert.ok(workflow.includes('upload-pages-artifact'));
+  assert.match(workflow, /branches: \[main\]/);
+  assert.ok(workflow.includes('npm test'));
+  assert.ok(workflow.includes('npm run build'));
+  assert.ok(workflow.includes('path: dist'));
+  assert.ok(workflow.includes('actions/deploy-pages@'));
+  assert.ok(!workflow.includes('published-src'));
+  assert.ok(!workflow.includes('preview-src'));
 });
