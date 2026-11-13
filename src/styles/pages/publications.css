@@ -25,7 +25,7 @@
 }
 
 .pub-meta {
-  color: #d1d4d7;
+  color: #b7b1c5;
   font-size: 12px;
   line-height: 1.9;
 }
@@ -40,7 +40,7 @@
 .pub-status {
   display: inline-block;
   margin-top: 12px;
-  color: #d1d4d7;
+  color: #b7b1c5;
   font: 700 12px/1.6 Arial, Helvetica, sans-serif;
 }
 
@@ -50,7 +50,7 @@
 
 .pub-authors {
   margin-bottom: 10px;
-  color: #d6c8e1;
+  color: #d4ccdf;
   font-size: 13px;
   line-height: 1.7;
 }
