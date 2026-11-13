@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: #32006e;
+  background: #14121b;
 }
 
 .portrait img {
@@ -19,7 +19,7 @@
 
 /* Initials shown when there is no photo */
 .portrait-placeholder {
-  color: #d6c8e1;
+  color: #5f5772;
   font: 400 110px var(--serif);
   letter-spacing: -10px;
 }
@@ -55,7 +55,7 @@
 .member-description {
   font-size: 12px;
   line-height: 1.8;
-  color: #d1d4d7;
+  color: #b8b2c5;
 }
 
 @media (max-width: 900px) {

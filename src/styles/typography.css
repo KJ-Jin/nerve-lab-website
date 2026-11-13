@@ -28,7 +28,7 @@
 .copy {
   font-size: 16px;
   line-height: 1.88;
-  color: #d1d4d7;
+  color: #c8c3d2;
 }
 
 /* Keeps line breaks from content, so a list of paragraphs shows blank lines between them. */
@@ -57,7 +57,7 @@
   align-items: center;
   gap: 13px;
   padding-bottom: 5px;
-  border-bottom: 1px solid #8663a8;
+  border-bottom: 1px solid #a996d2;
 }
 
 @media (max-width: 640px) {

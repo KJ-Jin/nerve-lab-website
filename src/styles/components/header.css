@@ -3,7 +3,7 @@
 .site-header {
   position: relative;
   z-index: 30;
-  background: #32006e;
+  background: #000;
 }
 
 .header-top {
@@ -13,7 +13,7 @@
   max-width: 1260px;
   margin: auto;
   padding: 26px 56px 24px;
-  background: #32006e;
+  background: #000;
 }
 
 /* The logo is the link back to the homepage. */
@@ -41,7 +41,7 @@
 }
 
 .affiliation {
-  color: #d1d4d7;
+  color: #a8a2b8;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 2.1px;
