@@ -38,7 +38,7 @@
 
 .group-photo-figure figcaption {
   padding-top: 12px;
-  color: #b9afc8;
+  color: #d1d4d7;
   font-size: 12px;
   letter-spacing: 0.3px;
 }
@@ -51,15 +51,15 @@
   align-items: center;
   gap: 8px;
   padding: 32px;
-  border: 1px dashed #514658;
-  background: #0c0a11;
+  border: 1px dashed #8663a8;
+  background: #32006e;
   text-align: center;
-  color: #c6bcd1;
+  color: #d1d4d7;
   font: 400 23px Georgia, serif;
 }
 
 .group-photo-empty small {
-  color: #a79eaf;
+  color: #d1d4d7;
   font: 400 12px Arial, Helvetica, sans-serif;
 }
 
@@ -149,14 +149,14 @@
   min-width: 0;
   color: var(--ink);
   text-decoration: none;
-  border: 1px solid #312a3a;
-  background: #0d0b12;
+  border: 1px solid #8663a8;
+  background: #32006e;
   transition: border-color .2s ease, transform .2s ease, background .2s ease;
 }
 .team-division-card:hover,
 .team-division-card:focus-visible {
-  background: #17121e;
-  border-color: #a58cbf;
+  background: #32006e;
+  border-color: #8663a8;
   transform: translateY(-3px);
 }
 .team-division-card:focus-visible {
@@ -167,7 +167,7 @@
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  background: #111019;
+  background: #32006e;
 }
 .team-division-photo img {
   display: block;
@@ -182,9 +182,9 @@
   align-items: center;
   gap: 10px;
   height: 100%;
-  border: 1px dashed #55465f;
-  color: #d6c8dd;
-  background: linear-gradient(145deg, #18121f, #0a0910 70%);
+  border: 1px dashed #8663a8;
+  color: #d6c8e1;
+  background: linear-gradient(145deg, #32006e, #32006e 70%);
   text-align: center;
 }
 .team-division-placeholder span {
@@ -192,7 +192,7 @@
   letter-spacing: 3px;
 }
 .team-division-placeholder small {
-  color: #a99cb5;
+  color: #d1d4d7;
   font: 400 12px/1.5 var(--sans);
 }
 .team-division-label {
@@ -211,7 +211,7 @@
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  color: #d5c4eb;
+  color: #ffc700;
   font: 700 11px/1.5 var(--sans);
   letter-spacing: .4px;
 }

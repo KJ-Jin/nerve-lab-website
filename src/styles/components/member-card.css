@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: #14121b;
+  background: #32006e;
 }
 
 .portrait img {
@@ -55,7 +55,7 @@
 .member-description {
   font-size: 12px;
   line-height: 1.8;
-  color: #b8b2c5;
+  color: #d1d4d7;
 }
 
 @media (max-width: 900px) {
