@@ -76,7 +76,7 @@ test('Clinical Studies separates active clinical trials from other studies witho
   assert.ok(page.indexOf('FASTR-TEN') > page.indexOf('active-trials-heading'));
   assert.ok(!page.includes('class="collaborator-section"'));
   assert.ok(page.includes('class="active-trials-divider"'));
-  assert.equal((page.match(/class="project"/g) || []).length, 8);
+  assert.equal((page.match(/class="project(?: project--text-only)?"/g) || []).length, 8);
 });
 
 test('Each active trial links its title and description to the supplied ClinicalTrials.gov record', () => {
