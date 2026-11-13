@@ -10,7 +10,6 @@ import { ContactPage } from './pages/contact.js';
 
 import clinical from './content/research-clinical.js';
 import basic from './content/research-basic.js';
-import translational from './content/research-translational.js';
 
 import { startRouter } from './lib/router.js';
 import { initNav, updateNav } from './lib/nav.js';
@@ -19,9 +18,8 @@ import { initNav, updateNav } from './lib/nav.js';
 const routes = {
   home: HomePage,
   research: ResearchPage,
-  'research-clinical': () => ResearchAreaPage(clinical),
   'research-basic': () => ResearchAreaPage(basic),
-  'research-translational': () => ResearchAreaPage(translational),
+  'research-clinical': () => ResearchAreaPage(clinical),
   people: TeamPage,
   publications: PublicationsPage,
   news: NewsPage,

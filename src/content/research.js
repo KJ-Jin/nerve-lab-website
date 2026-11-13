@@ -1,6 +1,5 @@
 // Research overview page (#research)
-// The three research areas each have their own content file: research-clinical.js,
-// research-basic.js and research-translational.js.
+// Two featured research areas: basic science and clinical studies.
 
 export default {
   banner: {
@@ -22,22 +21,16 @@ export default {
     title: 'Projects',
     items: [
       {
-        title: 'Clinical Trials',
-        text: 'Clinical trials and patient-oriented research on nerve injury and functional recovery.',
-        linkText: 'Explore clinical research',
-        href: '#research-clinical',
-      },
-      {
         title: 'Basic Science',
         text: 'Mechanisms of peripheral nerve regeneration, Schwann cell biology, and neuromuscular junction preservation.',
         linkText: 'Explore basic science',
         href: '#research-basic',
       },
       {
-        title: 'Translational',
-        text: 'Technologies and strategies linking laboratory discoveries to treatments for nerve injury.',
-        linkText: 'Explore translational research',
-        href: '#research-translational',
+        title: 'Clinical Studies',
+        text: 'Patient-oriented research and clinical trials on nerve injury and functional recovery.',
+        linkText: 'Explore clinical studies',
+        href: '#research-clinical',
       },
     ],
   },

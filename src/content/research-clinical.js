@@ -1,4 +1,4 @@
-// Clinical Trials page (#research-clinical)
+// Clinical Studies page (#research-clinical)
 //
 // Study fields (only `title` and `description` are required):
 //   title, subtitle, principalInvestigator, status (small badge),
@@ -10,7 +10,7 @@
 
 export default {
   banner: {
-    title: 'Clinical Trials',
+    title: 'Clinical Studies',
     intro: 'Learn about our team’s current research studies to improve care for nerve injuries and see if you are eligible to participate.',
   },
 
@@ -53,37 +53,6 @@ export default {
       caption: 'Conceptual illustration · replace with an approved figure',
     },
     {
-      title: 'Neuraptive Phase III',
-      principalInvestigator: 'Yusha Katie Liu, MD, PhD',
-      description: [
-        'NTX-001 is a single use surgical product used with standard nerve repair in patients between 18 and 80 years old. It is designed to speed nerve recovery, which is often slow and incomplete, sometimes leading to long-term motor or sensory loss. By reconnecting severed nerves (PEG fusion), NTX-001 may reduce nerve degeneration and muscle atrophy, shorten recovery time, and improve return of function.',
-        'What happens to me if I agree to take part in this research?',
-        'The NTX-001 surgical product contains three (3) solutions that are applied in consecutive order and timed steps to your severed nerve during the surgical repair. You will be randomly (like flipping a coin) entered into either the NTX-001 or Standard of Care group.',
-        'Other procedures include collection of your vital signs and medical history, a physical exam, blood tests, a nerve stimulation test, electromyography, nerve conduction and sensory tests, muscle and sensory assessments, and questionnaires are conducted during the course of a 12-month period post operatively.',
-      ],
-      image: 'images/research/clinical-neuraptive.png',
-      imageAlt: 'Neuraptive Phase III',
-    },
-    {
-      title: 'Neuraptive Expanded Access',
-      principalInvestigator: 'Yusha Katie Liu, MD, PhD',
-      description: [
-        'The proposed use of NTX-001 for transections of upper extremity and facial peripheral nerves, acutely or planned. For this expanded access program, there is a case-by-case internal review process conducted by Neuraptive after the respective investigator provides a prospective case narrative for enrollment consideration. Allowed Sunderland Classifications are IV degree (Seddon’s Class II) and V degree (Seddon’s Class III). If the case is approved, the investigator can move forward.',
-        'If you decide to take part in this research study, the general procedures include applying an investigational solution to the two ends of the nerve that’s being surgically repaired followed by standard of care follow-up visits. There are currently no known side effects related to the use of NTX-001.',
-      ],
-      image: 'images/research/clinical-neuraptive.png',
-      imageAlt: 'Neuraptive Expanded Access',
-    },
-    {
-      title: 'FASTR-TEN',
-      principalInvestigator: 'Yusha Katie Liu, MD, PhD',
-      description: [
-        'The purpose of this research is to evaluate the effects of a brief period of electrical stimulation, done during the surgery, to promote recovery and improve arm function following surgical treatment of nerve injury using the investigational Checkpoint BEST System.',
-        'If you agree to participate in this research study, you will receive current standard of surgical care for your nerve injury but will also be randomly chosen to either receive electrical nerve stimulation after repair or no electrical stimulation. The surgeon will know which treatment group you are in, but neither you nor the study personnel performing the follow-up tests will know if you received the electrical stimulation or not. If you decide to participate in this study, you will have up to 8 required study visits over a time period of approximately 9 months.  These study visits will require you to visit the clinic.  Each visit to the clinic will last about 1 hour.',
-      ],
-      art: 'axon',
-    },
-    {
       title: 'Human Lipoaspirate for Regenerative Medicine',
       principalInvestigator: 'Yusha Katie Liu, MD, PhD',
       description: [
@@ -101,6 +70,43 @@ export default {
       ],
       image: 'images/research/clinical-thermography.jpg',
       imageAlt: 'Cutaneous Thermography for Diagnosis of Nerve Injury and Recovery',
+    },
+  ],
+
+  activeTrials: [
+    {
+      title: 'Neuraptive Phase III',
+      trialUrl: 'https://clinicaltrials.gov/study/NCT06616025?spons=Neuraptive%20Therapeutics%20Inc.&viewType=Card&rank=2',
+      principalInvestigator: 'Yusha Katie Liu, MD, PhD',
+      description: [
+        'NTX-001 is a single use surgical product used with standard nerve repair in patients between 18 and 80 years old. It is designed to speed nerve recovery, which is often slow and incomplete, sometimes leading to long-term motor or sensory loss. By reconnecting severed nerves (PEG fusion), NTX-001 may reduce nerve degeneration and muscle atrophy, shorten recovery time, and improve return of function.',
+        'What happens to me if I agree to take part in this research?',
+        'The NTX-001 surgical product contains three (3) solutions that are applied in consecutive order and timed steps to your severed nerve during the surgical repair. You will be randomly (like flipping a coin) entered into either the NTX-001 or Standard of Care group.',
+        'Other procedures include collection of your vital signs and medical history, a physical exam, blood tests, a nerve stimulation test, electromyography, nerve conduction and sensory tests, muscle and sensory assessments, and questionnaires are conducted during the course of a 12-month period post operatively.',
+      ],
+      image: 'images/research/clinical-neuraptive.png',
+      imageAlt: 'Neuraptive Phase III',
+    },
+    {
+      title: 'Neuraptive Expanded Access',
+      trialUrl: 'https://clinicaltrials.gov/study/NCT05565846?spons=Neuraptive%20Therapeutics%20Inc.&viewType=Card&rank=3',
+      principalInvestigator: 'Yusha Katie Liu, MD, PhD',
+      description: [
+        'The proposed use of NTX-001 for transections of upper extremity and facial peripheral nerves, acutely or planned. For this expanded access program, there is a case-by-case internal review process conducted by Neuraptive after the respective investigator provides a prospective case narrative for enrollment consideration. Allowed Sunderland Classifications are IV degree (Seddon’s Class II) and V degree (Seddon’s Class III). If the case is approved, the investigator can move forward.',
+        'If you decide to take part in this research study, the general procedures include applying an investigational solution to the two ends of the nerve that’s being surgically repaired followed by standard of care follow-up visits. There are currently no known side effects related to the use of NTX-001.',
+      ],
+      image: 'images/research/clinical-neuraptive.png',
+      imageAlt: 'Neuraptive Expanded Access',
+    },
+    {
+      title: 'FASTR-TEN',
+      trialUrl: 'https://clinicaltrials.gov/study/NCT06867185?spons=Checkpoint%20Surgical%20Inc.&viewType=Card&rank=1',
+      principalInvestigator: 'Yusha Katie Liu, MD, PhD',
+      description: [
+        'The purpose of this research is to evaluate the effects of a brief period of electrical stimulation, done during the surgery, to promote recovery and improve arm function following surgical treatment of nerve injury using the investigational Checkpoint BEST System.',
+        'If you agree to participate in this research study, you will receive current standard of surgical care for your nerve injury but will also be randomly chosen to either receive electrical nerve stimulation after repair or no electrical stimulation. The surgeon will know which treatment group you are in, but neither you nor the study personnel performing the follow-up tests will know if you received the electrical stimulation or not. If you decide to participate in this study, you will have up to 8 required study visits over a time period of approximately 9 months.  These study visits will require you to visit the clinic.  Each visit to the clinic will last about 1 hour.',
+      ],
+      art: 'axon',
     },
   ],
 

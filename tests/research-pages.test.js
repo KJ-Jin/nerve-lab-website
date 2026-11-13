@@ -49,3 +49,50 @@ test('requested clinical source links and study numbers stay removed', () => {
   assert.ok(!page.includes('class="project-index"'));
   assert.ok(!render(basic).includes('class="project-index"'));
 });
+
+test('Clinical Studies separates active clinical trials from other studies without duplication', () => {
+  const page = render(clinical);
+  assert.ok(page.includes('Clinical Studies'));
+  assert.ok(page.includes('Active Clinical Trials'));
+  assert.equal(clinical.studies.length, 5);
+  assert.equal(clinical.activeTrials.length, 3);
+  const titles = ['Neuraptive Phase III', 'Neuraptive Expanded Access', 'FASTR-TEN'];
+  for (const title of titles) {
+    assert.ok(!clinical.studies.some(s => s.title === title), `Trial should no longer be in upper studies: ${title}`);
+    assert.equal(clinical.activeTrials.filter(s => s.title === title).length, 1);
+  }
+  assert.ok(page.indexOf('Cutaneous Thermography for Diagnosis') < page.indexOf('active-trials-heading'));
+  assert.ok(page.indexOf('active-trials-heading') < page.indexOf('Neuraptive Phase III'));
+  assert.ok(page.indexOf('FASTR-TEN') < page.indexOf('class="shell collaborator-section"'));
+  assert.ok(page.includes('class="active-trials-divider"'));
+  assert.equal((page.match(/class="project"/g) || []).length, 8);
+});
+
+test('Each active trial links its title and description to the supplied ClinicalTrials.gov record', () => {
+  const urls = new Map([
+    ['Neuraptive Phase III', 'https://clinicaltrials.gov/study/NCT06616025'],
+    ['Neuraptive Expanded Access', 'https://clinicaltrials.gov/study/NCT05565846'],
+    ['FASTR-TEN', 'https://clinicaltrials.gov/study/NCT06867185'],
+  ]);
+  const page = render(clinical);
+  for (const [title, url] of urls) {
+    const study = clinical.activeTrials.find(s => s.title === title);
+    assert.ok(study);
+    assert.ok(study.trialUrl.startsWith(url));
+    assert.equal((page.match(new RegExp(url.replaceAll('/', '\\/'), 'g')) || []).length, 2);
+  }
+  assert.equal((page.match(/View trial details on ClinicalTrials.gov/g) || []).length, 3);
+});
+
+test('Research overview and navigation show Basic Science first, Clinical Studies second, no Translational', async () => {
+  const { ResearchPage } = await import('../src/pages/research.js');
+  const { readFileSync } = await import('node:fs');
+  const overview = String(ResearchPage());
+  const nav = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+  const main = readFileSync(new URL('../src/main.js', import.meta.url), 'utf8');
+  assert.ok(nav.indexOf('>Basic Science</a>') < nav.indexOf('>Clinical Studies</a>'));
+  assert.ok(!nav.includes('data-page="research-translational"'));
+  assert.ok(overview.indexOf('Basic Science') < overview.indexOf('Clinical Studies'));
+  assert.ok(!overview.includes('Translational'));
+  assert.ok(!main.includes("'research-translational':"));
+});

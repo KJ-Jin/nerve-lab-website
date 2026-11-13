@@ -171,3 +171,20 @@
     font-size: 36px;
   }
 }
+
+/* ClinicalTrials.gov links on the relocated active trial cards. */
+.study-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+.study-title-link:hover,
+.study-title-link:focus-visible {
+  color: #d6bdf2;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.study-trial-link {
+  margin-top: 16px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}

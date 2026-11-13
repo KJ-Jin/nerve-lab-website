@@ -15,6 +15,7 @@ export function StudyCard(study, index, { showNumber = true } = {}) {
     questions = [],
     methods,
     sourceUrl,
+    trialUrl,
     image,
     imageAlt,
     caption = '',
@@ -31,13 +32,16 @@ export function StudyCard(study, index, { showNumber = true } = {}) {
       </div>
       <div class="project-content${showNumber ? '' : ' project-no-index'}">
         ${showNumber && html`<span class="project-index">${String(index + 1).padStart(2, '0')}</span>`}
-        <h3>${title}</h3>
+        <h3>${trialUrl
+          ? html`<a class="study-title-link" href="${trialUrl}" target="_blank" rel="noopener noreferrer">${title}</a>`
+          : title}</h3>
         ${subtitle && html`<p class="project-subtitle">${subtitle}</p>`}
         ${principalInvestigator && html`
           <p class="study-pi"><span class="study-pi-label">Principal Investigator:</span> <span class="study-pi-name">${principalInvestigator}</span></p>
         `}
         ${status && html`<p class="study-status">${status}</p>`}
         <p class="copy multiline">${paragraphs(description)}</p>
+        ${trialUrl && html`<a class="study-source study-trial-link" href="${trialUrl}" target="_blank" rel="noopener noreferrer">View trial details on ClinicalTrials.gov ${ArrowIcon('up-right')}</a>`}
         ${questions.length > 0 && html`
           <h4>Questions we explore</h4>
           <ul class="question-list">${questions.map((q) => html`<li>${q}</li>`)}</ul>
