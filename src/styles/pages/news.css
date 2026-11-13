@@ -153,7 +153,7 @@
   padding: 8px;
   border: 0;
   background: rgba(9, 9, 14, 0.24);
-  color: var(--uw-gold-muted);
+  color: #b8c9ed;
   cursor: pointer;
 }
 .news-gallery-arrow--prev { left: 10px; }
@@ -328,11 +328,7 @@
   .gallery-archive-card img { height: 270px; }
 }
 
-/* Restrained UW Medicine gold on News link arrows and their thin underlines. */
-.news-entry .text-link .site-arrow,
-.news-archive-link .text-link .site-arrow {
-  color: var(--uw-gold-muted);
-}
+/* Keep understated gold on News link underlines, not the arrows. */
 .news-entry .text-link,
 .news-archive-link .text-link {
   border-bottom-color: var(--uw-gold-muted);

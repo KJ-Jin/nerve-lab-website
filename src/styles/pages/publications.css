@@ -74,7 +74,7 @@
 
 .publication .arrow {
   align-self: start;
-  color: var(--accent);
+  color: var(--uw-gold-muted);
   font-size: 25px;
 }
 
@@ -88,4 +88,9 @@
   .pub-title {
     font-size: 20px;
   }
+}
+
+/* Muted gold is reserved for the publication link arrows; text remains lavender. */
+.pub-pubmed .site-arrow {
+  color: var(--uw-gold-muted);
 }

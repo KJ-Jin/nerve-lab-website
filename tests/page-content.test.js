@@ -173,12 +173,16 @@ test('Contact page links Northwest Institute for Nerve Injury to the UW Medicine
   assert.ok(page.includes('Ninth &amp; Jefferson'));
 });
 
-test('News arrows use muted UW gold without replacing the original black look', async () => {
+test('News arrows use original colors, while photo dots and link underlines stay gold', async () => {
   const { readFileSync } = await import('node:fs');
   const newsCSS = readFileSync(new URL('../src/styles/pages/news.css', import.meta.url), 'utf8');
-  assert.match(newsCSS, /\.news-gallery-arrow\s*\{[^}]*color:\s*var\(--uw-gold-muted\)/);
-  assert.ok(newsCSS.includes('.news-entry .text-link .site-arrow'));
-  assert.ok(newsCSS.includes('.news-archive-link .text-link .site-arrow'));
+  const publicationsCSS = readFileSync(new URL('../src/styles/pages/publications.css', import.meta.url), 'utf8');
+  assert.match(newsCSS, /\.news-gallery-arrow\s*\{[^}]*color:\s*#b8c9ed;/);
+  assert.ok(!newsCSS.includes('.news-entry .text-link .site-arrow'));
+  assert.ok(!newsCSS.includes('.news-archive-link .text-link .site-arrow'));
+  assert.match(newsCSS, /\.news-gallery-dot\[aria-current="true"\]\s*\{[^}]*background:\s*var\(--uw-gold-muted\)/);
   assert.ok(newsCSS.includes('border-bottom-color: var(--uw-gold-muted)'));
   assert.ok(newsCSS.includes('background: #08080c'));
+  assert.match(publicationsCSS, /\.publication \.arrow\s*\{[^}]*color:\s*var\(--uw-gold-muted\)/);
+  assert.match(publicationsCSS, /\.pub-pubmed \.site-arrow\s*\{[^}]*color:\s*var\(--uw-gold-muted\)/);
 });
