@@ -11,6 +11,7 @@ export default {
     items: [
       {
         name: 'Northwest Institute for Nerve Injury at Harborview Medical Center',
+        url: 'https://www.uwmedicine.org/locations/northwest-nerve-injury-harborview',
         address: 'Ninth & Jefferson Building, 908 Jefferson St., Floor 6, Seattle, WA 98104',
       },
       {

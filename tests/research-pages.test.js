@@ -107,3 +107,19 @@ test('Research overview and navigation show Basic Science first, Clinical Studie
   assert.ok(!overview.includes('Translational'));
   assert.ok(!main.includes("'research-translational':"));
 });
+
+test('Neuraptive trials are text-only with unchanged study details and external links', () => {
+  const neuraptive = clinical.activeTrials.filter(s => s.title.startsWith('Neuraptive'));
+  assert.equal(neuraptive.length, 2);
+  for (const trial of neuraptive) {
+    assert.equal(trial.hideVisual, true);
+    assert.ok(!trial.image);
+    assert.ok(trial.trialUrl.startsWith('https://clinicaltrials.gov/study/'));
+  }
+  const page = render(clinical);
+  assert.equal((page.match(/class="project project--text-only"/g) ?? []).length, 2);
+  assert.ok(!page.includes('images/research/clinical-neuraptive.png'));
+  assert.ok(page.includes('NTX-001'));
+  assert.ok(page.includes('View trial details on ClinicalTrials.gov'));
+  assert.ok(page.includes('images/research/clinical-thermography.jpg'));
+});

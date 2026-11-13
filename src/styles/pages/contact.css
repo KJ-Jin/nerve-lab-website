@@ -79,3 +79,16 @@
     padding: 30px 0 0;
   }
 }
+
+/* Hospital clinic heading links to the official UW Medicine location page. */
+.address-block h2 a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #8f76aa;
+  text-underline-offset: 5px;
+}
+.address-block h2 a:hover,
+.address-block h2 a:focus-visible {
+  color: #dbc7f5;
+  text-decoration-color: currentColor;
+}

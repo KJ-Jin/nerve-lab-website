@@ -188,3 +188,13 @@
   text-decoration: underline;
   text-underline-offset: 4px;
 }
+
+/* Text-only clinical trial cards: remove the visual column entirely. */
+.project--text-only {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+.project--text-only .project-content {
+  order: initial;
+  max-width: 930px;
+}

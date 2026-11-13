@@ -16,6 +16,7 @@ export function StudyCard(study, index, { showNumber = true } = {}) {
     methods,
     sourceUrl,
     trialUrl,
+    hideVisual = false,
     image,
     imageAlt,
     caption = '',
@@ -23,13 +24,15 @@ export function StudyCard(study, index, { showNumber = true } = {}) {
   } = study;
 
   return html`
-    <article class="project">
-      <div class="project-visual">
-        <div class="visual-frame">
-          ${image ? html`<img src="${image}" alt="${imageAlt || title}">` : PlaceholderArt(art)}
+    <article class="project${hideVisual ? ' project--text-only' : ''}">
+      ${!hideVisual && html`
+        <div class="project-visual">
+          <div class="visual-frame">
+            ${image ? html`<img src="${image}" alt="${imageAlt || title}">` : PlaceholderArt(art)}
+          </div>
+          <p class="image-note">${caption}</p>
         </div>
-        <p class="image-note">${caption}</p>
-      </div>
+      `}
       <div class="project-content${showNumber ? '' : ' project-no-index'}">
         ${showNumber && html`<span class="project-index">${String(index + 1).padStart(2, '0')}</span>`}
         <h3>${trialUrl

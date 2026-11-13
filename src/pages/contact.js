@@ -14,7 +14,9 @@ export function ContactPage() {
         <div class="eyebrow">${locations.eyebrow}</div>
         ${locations.items.map((place) => html`
           <div class="address-block">
-            <h2>${place.name}</h2>
+            <h2>${place.url
+              ? html`<a href="${place.url}" target="_blank" rel="noopener noreferrer">${place.name}</a>`
+              : place.name}</h2>
             <p>${place.address}</p>
           </div>
         `)}

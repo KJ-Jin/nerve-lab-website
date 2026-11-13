@@ -29,12 +29,27 @@ test('all linked publications show a working destination, with no invented accep
 
 test('Katie is underlined for both Liu Y and Liu YK without affecting other author names', () => {
   const markup = String(PublicationsPage());
-  assert.ok(markup.includes('<u class="pub-katie">Liu Y</u>, MD, PhD'));
-  assert.ok(markup.includes('<u class="pub-katie">Liu YK</u>, MD, PhD'));
+  assert.ok(markup.includes('<u class="pub-katie">Liu Y</u>'));
+  assert.ok(markup.includes('<u class="pub-katie">Liu YK</u>'));
   assert.ok(!markup.includes('&lt;u'));
   assert.equal((markup.match(/<u class="pub-katie">/g) || []).length,
     publicationsContent.publications.filter(p => /\bLiu YK?\b/.test(p.authors)).length);
   const escaped = String(html`<span>${FormatAuthors('Liu YK and <script>')}</span>`);
   assert.ok(!escaped.includes('<script>'));
   assert.ok(escaped.includes('&lt;script&gt;'));
+});
+
+test('publication citations omit all professional degree suffixes without removing authors', () => {
+  const entries = publicationsContent.publications;
+  for (const entry of entries) {
+    assert.doesNotMatch(entry.authors, /, (?:MD|PhD|MBE)(?:,|$)/);
+  }
+  const markup = String(PublicationsPage());
+  assert.ok(markup.includes('<u class="pub-katie">Liu Y</u>'));
+  assert.ok(markup.includes('<u class="pub-katie">Liu YK</u>'));
+  assert.ok(markup.includes('Mauch JT'));
+  assert.ok(markup.includes('Crowe CS'));
+  assert.ok(!markup.includes(', MD'));
+  assert.ok(!markup.includes(', PhD'));
+  assert.ok(!markup.includes(', MBE'));
 });

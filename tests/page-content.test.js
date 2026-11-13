@@ -139,3 +139,36 @@ test('Home page uses the smaller welcome heading and no NDRG label', async () =>
   assert.match(css, /font-size:\s*clamp\(32px, 4\.65vw, 49px\)/);
   assert.match(css, /font-size:\s*clamp\(29px, 7\.5vw, 39px\)/);
 });
+
+test('News gallery captions use Dr. Liu talk descriptions and retain session details', async () => {
+  const { default: news } = await import('../src/content/news.js');
+  const photos = news.gallery.photos;
+  assert.equal(photos.length, 4);
+  for (const photo of photos) {
+    assert.ok(photo.caption.startsWith('Dr. Liu speaks on “'));
+    assert.ok(photo.caption.includes('at the American '));
+    assert.ok(photo.date);
+  }
+  assert.ok(photos[0].caption.includes('Orlando, FL'));
+  assert.ok(photos[1].caption.includes('CCC15: Adult Brachial Plexus Reconstruction'));
+  assert.equal(photos[1].caption, photos[2].caption);
+  assert.ok(photos[3].caption.includes('Vancouver, BC, Canada'));
+});
+
+test('Global footer links the nerve injury donation campaign on every page', async () => {
+  const { readFileSync } = await import('node:fs');
+  const index = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+  const footer = index.slice(index.indexOf('<footer class="site-footer">'));
+  assert.ok(footer.includes('Give hope to patients with nerve injuries'));
+  assert.ok(footer.includes('Donate to support nerve injury research'));
+  assert.ok(footer.includes('https://together.uw.edu/campaign/give-hope-to-patients-with-debilitating-nerve-injuries'));
+  assert.ok(footer.includes('target="_blank" rel="noopener noreferrer"'));
+});
+
+test('Contact page links Northwest Institute for Nerve Injury to the UW Medicine clinic', async () => {
+  const { ContactPage } = await import('../src/pages/contact.js');
+  const page = String(ContactPage());
+  assert.ok(page.includes('https://www.uwmedicine.org/locations/northwest-nerve-injury-harborview'));
+  assert.ok(page.includes('Northwest Institute for Nerve Injury at Harborview Medical Center'));
+  assert.ok(page.includes('Ninth &amp; Jefferson'));
+});

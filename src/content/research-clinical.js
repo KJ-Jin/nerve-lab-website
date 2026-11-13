@@ -84,8 +84,7 @@ export default {
         'The NTX-001 surgical product contains three (3) solutions that are applied in consecutive order and timed steps to your severed nerve during the surgical repair. You will be randomly (like flipping a coin) entered into either the NTX-001 or Standard of Care group.',
         'Other procedures include collection of your vital signs and medical history, a physical exam, blood tests, a nerve stimulation test, electromyography, nerve conduction and sensory tests, muscle and sensory assessments, and questionnaires are conducted during the course of a 12-month period post operatively.',
       ],
-      image: 'images/research/clinical-neuraptive.png',
-      imageAlt: 'Neuraptive Phase III',
+      hideVisual: true,
     },
     {
       title: 'Neuraptive Expanded Access',
@@ -95,8 +94,7 @@ export default {
         'The proposed use of NTX-001 for transections of upper extremity and facial peripheral nerves, acutely or planned. For this expanded access program, there is a case-by-case internal review process conducted by Neuraptive after the respective investigator provides a prospective case narrative for enrollment consideration. Allowed Sunderland Classifications are IV degree (Seddon’s Class II) and V degree (Seddon’s Class III). If the case is approved, the investigator can move forward.',
         'If you decide to take part in this research study, the general procedures include applying an investigational solution to the two ends of the nerve that’s being surgically repaired followed by standard of care follow-up visits. There are currently no known side effects related to the use of NTX-001.',
       ],
-      image: 'images/research/clinical-neuraptive.png',
-      imageAlt: 'Neuraptive Expanded Access',
+      hideVisual: true,
     },
     {
       title: 'FASTR-TEN',
