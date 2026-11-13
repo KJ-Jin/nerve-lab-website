@@ -19,7 +19,7 @@
 
 /* Initials shown when there is no photo */
 .portrait-placeholder {
-  color: #5f5772;
+  color: #d6c8e1;
   font: 400 110px var(--serif);
   letter-spacing: -10px;
 }
