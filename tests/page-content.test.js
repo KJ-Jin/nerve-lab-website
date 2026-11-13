@@ -122,3 +122,20 @@ test('centered News photo is visibly larger than both faded side previews', asyn
   assert.match(newsCSS, /\.news-gallery-slide\[data-position="previous"\]\s*\{[^}]*width:\s*17%;[^}]*top:\s*11%;/);
   assert.match(newsCSS, /\.news-gallery-slide\[data-position="next"\]\s*\{[^}]*width:\s*17%;[^}]*top:\s*11%;/);
 });
+
+test('Home page uses the smaller welcome heading and no NDRG label', async () => {
+  const { HomePage } = await import('../src/pages/home.js');
+  const { readFileSync } = await import('node:fs');
+  const home = String(HomePage());
+  const index = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+  const css = readFileSync(new URL('../src/styles/pages/home.css', import.meta.url), 'utf8');
+  assert.ok(home.includes('Welcome to the Nerve Lab!'));
+  assert.ok(!home.includes('NDRG'));
+  assert.ok(home.includes('UNIVERSITY OF WASHINGTON'));
+  assert.ok(index.includes('images/brand/nerve-injury-research-logo.jpg'));
+  assert.ok(!index.includes('images/brand/institute-logo.jpg'));
+  assert.ok(!index.includes('UNIVERSITY OF WASHINGTON  /  ISCRM'));
+  assert.match(css, /font-size:\s*clamp\(32px, 3\.75vw, 57px\)/);
+  assert.match(css, /font-size:\s*clamp\(32px, 4\.65vw, 49px\)/);
+  assert.match(css, /font-size:\s*clamp\(29px, 7\.5vw, 39px\)/);
+});

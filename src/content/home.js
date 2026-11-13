@@ -8,8 +8,6 @@ export default {
 
   kicker: {
     text: 'UNIVERSITY OF WASHINGTON',
-    abbr: 'NDRG',
-    abbrTitle: 'Neuromuscular Disease Research Group',
   },
 
   headline: 'Welcome to the Nerve Lab!',

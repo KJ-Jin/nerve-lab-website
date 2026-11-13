@@ -11,7 +11,7 @@ export function HomePage() {
         <img class="hero-image" src="${heroImage.src}" alt="${heroImage.alt}">
       </div>
       <div class="home-copy">
-        <div class="home-kicker"><span>${kicker.text}</span> <span class="home-kicker-sep" aria-hidden="true">/</span> <abbr title="${kicker.abbrTitle}">${kicker.abbr}</abbr></div>
+        <div class="home-kicker"><span>${kicker.text}</span></div>
         <h1 class="display">${headline}</h1>
         <p class="copy">${intro}</p>
         <div class="home-actions">
