@@ -11,6 +11,8 @@
   --uw-lavender: #ae95c4;
   --uw-gold: #ffc700;
   --uw-gold-light: #ffdd66;
+  /* Blend UW gold with UW lavender for warmer, less saturated accents. */
+  --uw-gold-muted: color-mix(in srgb, var(--uw-gold) 60%, var(--uw-lavender) 40%);
 
   --ink: #f0edf8; /* main text on black */
   --accent: var(--uw-lavender); /* subdued purple details */

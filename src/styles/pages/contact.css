@@ -50,7 +50,7 @@
   gap: 18px;
   margin-top: 28px;
   padding-bottom: 6px;
-  border-bottom: 1px solid #8b72aa;
+  border-bottom: 1px solid var(--uw-gold-muted);
   color: #d5bbff;
   font-size: 15px;
   overflow-wrap: anywhere;

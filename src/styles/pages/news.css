@@ -211,8 +211,8 @@
   border-radius: 50%;
 }
 .news-gallery-dot[aria-current="true"] {
-  border-color: #e5d2fb;
-  background: #e5d2fb;
+  border-color: var(--uw-gold-muted);
+  background: var(--uw-gold-muted);
 }
 .news-gallery-pause {
   padding: 6px 10px;
