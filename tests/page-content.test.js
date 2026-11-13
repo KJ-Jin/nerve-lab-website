@@ -21,7 +21,7 @@ test('News, Publications and Team use the requested page headings', () => {
 
   assert.match(team, /<h1 class="display">The Team<\/h1>/);
   assert.ok(!team.includes('THE LAB'));
-  assert.ok(team.includes('Basic Science Team'));
+  assert.ok(team.includes('Basic Sciences Team'));
   assert.ok(team.includes('Our Team'));
   assert.ok(!team.includes('TOGETHER IN RESEARCH'));
 });
