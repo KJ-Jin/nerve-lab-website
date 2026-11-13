@@ -123,3 +123,15 @@ test('Neuraptive trials are text-only with unchanged study details and external 
   assert.ok(page.includes('View trial details on ClinicalTrials.gov'));
   assert.ok(page.includes('images/research/clinical-thermography.jpg'));
 });
+
+test('Basic Science and Clinical Studies overview cards have no descriptive paragraphs', async () => {
+  const { ResearchPage } = await import('../src/pages/research.js');
+  const overview = String(ResearchPage());
+  assert.equal((overview.match(/class="research-area-link"/g) ?? []).length, 2);
+  assert.ok(overview.includes('Explore basic science'));
+  assert.ok(overview.includes('Explore clinical studies'));
+  assert.ok(!overview.includes('Mechanisms of peripheral nerve regeneration, Schwann cell biology, and neuromuscular junction preservation.'));
+  assert.ok(!overview.includes('Patient-oriented research and clinical trials on nerve injury and functional recovery.'));
+  const grid = overview.slice(overview.indexOf('class="research-area-grid"'));
+  assert.ok(!grid.includes('<p>'));
+});

@@ -22,13 +22,11 @@ export default {
     items: [
       {
         title: 'Basic Science',
-        text: 'Mechanisms of peripheral nerve regeneration, Schwann cell biology, and neuromuscular junction preservation.',
         linkText: 'Explore basic science',
         href: '#research-basic',
       },
       {
         title: 'Clinical Studies',
-        text: 'Patient-oriented research and clinical trials on nerve injury and functional recovery.',
         linkText: 'Explore clinical studies',
         href: '#research-clinical',
       },

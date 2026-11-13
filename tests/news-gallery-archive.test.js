@@ -32,15 +32,21 @@ test('only nine newest captioned photos appear in carousel, older photos move to
   assert.ok(recent.includes('Event 9 caption'));
   assert.ok(!recent.includes('Event 10 caption'));
   assert.equal((archive.match(/class="gallery-archive-card"/g) ?? []).length, 3);
-  assert.ok(archive.includes('Event 10 caption'));
+  assert.ok(archive.includes('photo-10.webp'));
+  assert.ok(!archive.includes('Event 10 caption'));
   assert.ok(!archive.includes('Event 9 caption'));
+  assert.ok(!archive.includes('<figcaption>'));
+  assert.ok(!archive.includes('Photos and memories from earlier'));
+
   assert.ok(archive.includes('Back to News'));
 });
 
 test('Archive exists before there are ten photos, with no placeholders or fake images', () => {
   const archive = String(GalleryArchivePage());
   assert.ok(archive.includes('Gallery Archive'));
-  assert.ok(archive.includes('Older photos will appear here'));
+  assert.ok(!archive.includes('Older photos will appear here'));
+  assert.ok(!archive.includes('Photos and memories from earlier'));
+  assert.ok(!archive.includes('class="gallery-archive-intro"'));
   assert.equal((archive.match(/class="gallery-archive-card"/g) ?? []).length, 0);
   assert.ok(String(NewsPage()).includes('href="#gallery-archive"'));
 });
@@ -57,4 +63,15 @@ test('The News navigation dropdown exists and stays distinct from the Research m
   const main = read(new URL('../src/main.js', import.meta.url), 'utf-8');
   assert.ok(main.includes("'gallery-archive': GalleryArchivePage"));
   assert.ok(main.includes("news: NewsPage"));
+});
+
+test('News is listed in the global footer, and archive teaser has no descriptive copy', async () => {
+  const { readFileSync } = await import('node:fs');
+  const index = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+  const footer = index.slice(index.indexOf('<footer class="site-footer">'));
+  assert.ok(footer.includes('<a href="#news">News</a>'));
+  assert.ok(footer.indexOf('<a href="#publications">Publications</a>') < footer.indexOf('<a href="#news">News</a>'));
+  const news = String(NewsPage());
+  assert.ok(news.includes('Explore Gallery Archive'));
+  assert.ok(!news.includes('Explore earlier lab photos and the stories behind them.'));
 });

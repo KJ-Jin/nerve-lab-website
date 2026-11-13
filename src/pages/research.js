@@ -24,7 +24,6 @@ export function ResearchPage() {
             <a class="research-area-link" href="${area.href}">
               <span class="research-area-index">${String(i + 1).padStart(2, '0')}</span>
               <h3>${area.title}</h3>
-              <p>${area.text}</p>
               <span class="research-area-action">${area.linkText} ${ArrowIcon('right')}</span>
             </a>
           `)}
