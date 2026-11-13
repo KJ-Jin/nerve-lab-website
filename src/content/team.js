@@ -57,21 +57,21 @@ export default {
           role: 'Medical Student Research Fellow',
           bio: 'Haneul is a medical student research fellow with a background in neuroscience. Her research interests include peripheral nerve regeneration and socioeconomic barriers to care. She is hoping to pursue a career in plastic surgery. In her free time, Haneul loves cafe hopping, cooking, reading, and running!',
           photo: 'images/team/haneul-ryou.webp',
-        }
+        },
       ],
       collaborators: {
-          title: 'Basic Sciences Collaborators',
-      intro: 'Scientific partners working with us on fundamental questions of nerve and muscle regeneration.',
-      // Each collaborator: { name, affiliation, role, link, image }
-      items: [
-        { name: "Mark Bothwell", affiliation: "University of Washington", role: "Neuromuscular Disease Research Group", link: "https://ndrg.uw.edu/" },
-        { name: "David Mack", affiliation: "University of Washington", role: "Neuromuscular Disease Research Group", link: "https://ndrg.uw.edu/" },
-        { name: "Alec Smith", affiliation: "University of Washington", role: "Neuromuscular Disease Research Group", link: "https://ndrg.uw.edu/" },
-        { name: "Shao-En Ong", affiliation: "University of Washington", link: "https://www.quantbiology.org/" },
-        { name: "Samuel Rayner", affiliation: "University of Washington", link: "https://sites.uw.edu/raynerlab/" },
-        { name: "David Brogan", affiliation: "Washington University in St. Louis", link: "https://nerveresearch.wustl.edu/" },
-      ],
-    },
+        title: 'Basic Sciences Collaborators',
+        intro: 'Scientific partners working with us on fundamental questions of nerve and muscle regeneration.',
+        // Each collaborator: { name, affiliation, role, link, image }
+        items: [
+          { name: "Mark Bothwell", affiliation: "University of Washington", role: "Neuromuscular Disease Research Group", link: "https://ndrg.uw.edu/" },
+          { name: "David Mack", affiliation: "University of Washington", role: "Neuromuscular Disease Research Group", link: "https://ndrg.uw.edu/" },
+          { name: "Alec Smith", affiliation: "University of Washington", role: "Neuromuscular Disease Research Group", link: "https://ndrg.uw.edu/" },
+          { name: "Shao-En Ong", affiliation: "University of Washington", link: "https://www.quantbiology.org/" },
+          { name: "Samuel Rayner", affiliation: "University of Washington", link: "https://sites.uw.edu/raynerlab/" },
+          { name: "David Brogan", affiliation: "Washington University in St. Louis", link: "https://nerveresearch.wustl.edu/" },
+        ],
+      },
     },
     {
       id: 'clinical',
@@ -84,7 +84,7 @@ export default {
           role: 'Medical Student Research Fellow',
           bio: 'Haneul is a medical student research fellow with a background in neuroscience. Her research interests include peripheral nerve regeneration and socioeconomic barriers to care. She is hoping to pursue a career in plastic surgery. In her free time, Haneul loves cafe hopping, cooking, reading, and running!',
           photo: 'images/team/haneul-ryou.webp',
-        }
+        },
         {
           name: 'Joyce Liu',
           role: 'Research Scientist',
@@ -93,17 +93,17 @@ export default {
         }
       ],
       collaborators: {
-          title: 'Clinical Studies Collaborators',
-      intro: 'Researchers and partners contributing to our clinical research.',
-      // Each collaborator: { name, affiliation, role, link, image }
-      items: [
-        { name: "Chris Crowe", affiliation: "University of Washington", link: "https://www.uwmedicine.org/bios/christopher-crowe" },
-        { name: "Jeff Friedrich", affiliation: "University of Washington", link: "https://www.uwmedicine.org/bios/jeffrey-friedrich" },
-        { name: "Ben Grannan", affiliation: "University of Washington", link: "https://www.uwmedicine.org/bios/benjamin-grannan" },
-        { name: "Chris Dy", affiliation: "Washington University in St. Louis", link: "https://nerveresearch.wustl.edu/" },
-        { name: "David Brogan", affiliation: "Washington University in St. Louis", link: "https://nerveresearch.wustl.edu/" },
-      ],
-    },
+        title: 'Clinical Studies Collaborators',
+        intro: 'Researchers and partners contributing to our clinical research.',
+        // Each collaborator: { name, affiliation, role, link, image }
+        items: [
+          { name: "Chris Crowe", affiliation: "University of Washington", link: "https://www.uwmedicine.org/bios/christopher-crowe" },
+          { name: "Jeff Friedrich", affiliation: "University of Washington", link: "https://www.uwmedicine.org/bios/jeffrey-friedrich" },
+          { name: "Ben Grannan", affiliation: "University of Washington", link: "https://www.uwmedicine.org/bios/benjamin-grannan" },
+          { name: "Chris Dy", affiliation: "Washington University in St. Louis", link: "https://nerveresearch.wustl.edu/" },
+          { name: "David Brogan", affiliation: "Washington University in St. Louis", link: "https://nerveresearch.wustl.edu/" },
+        ],
+      },
     },
   ],
 };
