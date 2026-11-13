@@ -1,19 +1,11 @@
 // Team page (#people)
+// Members and collaborators are shown on dedicated Basic Sciences and Clinical Team pages.
 // Photos live in images/team/. Members without a photo show their initials.
 
 export default {
   banner: {
     eyebrow: '',
     title: 'The Team',
-  },
-
-  groupPhoto: {
-    title: 'Our Team',
-    image: '', // e.g. 'images/team/group-photo.jpg'
-    caption: 'The Nerve Lab team',
-    // Shown while there is no image:
-    placeholderTitle: 'Space reserved for our lab group photo',
-    placeholderNote: 'Add an approved team photo in the Team editor',
   },
 
   pi: {
@@ -28,10 +20,13 @@ export default {
     profileUrl: 'https://www.uwmedicine.org/bios/yusha-katie-liu',
   },
 
-  // Each group renders as a heading followed by a grid of member cards.
+  // Both team photo cards link to dedicated member-and-collaborator pages.
   groups: [
     {
-      title: 'Basic Science Team',
+      id: 'basic',
+      title: 'Basic Sciences Team',
+      href: '#team-basic',
+      photo: '', // Add the approved basic sciences group photo here later.
       members: [
         {
           name: 'Sean Yuan, PhD',
@@ -57,22 +52,58 @@ export default {
           bio: 'Joyce is a research scientist with a background in biochemistry and experience in cardiovascular research. She is passionate about peripheral nerve regeneration and bridging basic science discoveries with clinical applications to improve patient outcomes. Outside of the lab, she enjoys traveling, exploring new places, and spending time with her three very active cats.',
           photo: 'images/team/joyce-liu.png',
         },
+        {
+          name: 'Haneul Ryou',
+          role: 'Medical Student Research Fellow',
+          bio: 'Haneul is a medical student research fellow with a background in neuroscience. Her research interests include peripheral nerve regeneration and socioeconomic barriers to care. She is hoping to pursue a career in plastic surgery. In her free time, Haneul loves cafe hopping, cooking, reading, and running!',
+          photo: 'images/team/haneul-ryou.webp',
+        }
+      ],
+      collaborators: {
+          title: 'Basic Sciences Collaborators',
+      intro: 'Scientific partners working with us on fundamental questions of nerve and muscle regeneration.',
+      // Each collaborator: { name, affiliation, role, link, image }
+      items: [
+        { name: "Mark Bothwell", affiliation: "University of Washington", role: "Neuromuscular Disease Research Group", link: "https://ndrg.uw.edu/" },
+        { name: "David Mack", affiliation: "University of Washington", role: "Neuromuscular Disease Research Group", link: "https://ndrg.uw.edu/" },
+        { name: "Alec Smith", affiliation: "University of Washington", role: "Neuromuscular Disease Research Group", link: "https://ndrg.uw.edu/" },
+        { name: "Shao-En Ong", affiliation: "University of Washington", link: "https://www.quantbiology.org/" },
+        { name: "Samuel Rayner", affiliation: "University of Washington", link: "https://sites.uw.edu/raynerlab/" },
+        { name: "David Brogan", affiliation: "Washington University in St. Louis", link: "https://nerveresearch.wustl.edu/" },
       ],
     },
+    },
     {
+      id: 'clinical',
       title: 'Clinical Team',
+      href: '#team-clinical',
+      photo: '', // Add the approved clinical group photo here later.
       members: [
         {
           name: 'Haneul Ryou',
           role: 'Medical Student Research Fellow',
           bio: 'Haneul is a medical student research fellow with a background in neuroscience. Her research interests include peripheral nerve regeneration and socioeconomic barriers to care. She is hoping to pursue a career in plastic surgery. In her free time, Haneul loves cafe hopping, cooking, reading, and running!',
           photo: 'images/team/haneul-ryou.webp',
-        },
+        }
+        {
+          name: 'Joyce Liu',
+          role: 'Research Scientist',
+          bio: 'Joyce is a research scientist with a background in biochemistry and experience in cardiovascular research. She is passionate about peripheral nerve regeneration and bridging basic science discoveries with clinical applications to improve patient outcomes. Outside of the lab, she enjoys traveling, exploring new places, and spending time with her three very active cats.',
+          photo: 'images/team/joyce-liu.png',
+        }
+      ],
+      collaborators: {
+          title: 'Clinical Studies Collaborators',
+      intro: 'Researchers and partners contributing to our clinical research.',
+      // Each collaborator: { name, affiliation, role, link, image }
+      items: [
+        { name: "Chris Crowe", affiliation: "University of Washington", link: "https://www.uwmedicine.org/bios/christopher-crowe" },
+        { name: "Jeff Friedrich", affiliation: "University of Washington", link: "https://www.uwmedicine.org/bios/jeffrey-friedrich" },
+        { name: "Ben Grannan", affiliation: "University of Washington", link: "https://www.uwmedicine.org/bios/benjamin-grannan" },
+        { name: "Chris Dy", affiliation: "Washington University in St. Louis", link: "https://nerveresearch.wustl.edu/" },
+        { name: "David Brogan", affiliation: "Washington University in St. Louis", link: "https://nerveresearch.wustl.edu/" },
       ],
     },
-    {
-      title: 'Translational Team',
-      members: [],
     },
   ],
 };

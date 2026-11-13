@@ -9,8 +9,13 @@ function render(content) {
   return String(ResearchAreaPage(content));
 }
 
-test('clinical collaborators are rendered after every study with working profile URLs', () => {
-  const page = render(clinical);
+import team from '../src/content/team.js';
+import { TeamGroupPage } from '../src/pages/team-group.js';
+
+test('Clinical Studies collaborators appear after clinical team members, not on the Research page', () => {
+  const group = team.groups.find(group => group.id === 'clinical');
+  const page = String(TeamGroupPage(group));
+  const research = render(clinical);
   const collaborators = ['Chris Crowe', 'Jeff Friedrich', 'Ben Grannan', 'Chris Dy', 'David Brogan'];
   const urls = [
     'https://www.uwmedicine.org/bios/christopher-crowe',
@@ -18,21 +23,24 @@ test('clinical collaborators are rendered after every study with working profile
     'https://www.uwmedicine.org/bios/benjamin-grannan',
     'https://nerveresearch.wustl.edu/',
   ];
-
+  assert.ok(page.includes('Clinical Studies Collaborators'));
   assert.equal((page.match(/class="collaborator-card"/g) ?? []).length, 5);
   assert.equal((page.match(/University of Washington/g) ?? []).length, 3);
   assert.equal((page.match(/Washington University in St. Louis/g) ?? []).length, 2);
   for (const name of collaborators) assert.ok(page.includes(name), `Missing ${name}`);
   for (const url of urls) assert.ok(page.includes(url), `Missing ${url}`);
-  assert.ok(page.indexOf('class="shell collaborator-section"') > page.lastIndexOf('class="project"'));
-  assert.ok(page.indexOf('Chris Crowe') > page.indexOf('Cutaneous Thermography for Diagnosis of Nerve Injury and Recovery'));
+  assert.ok(page.indexOf('class="shell collaborator-section"') > page.lastIndexOf('class="member-card"'));
+  assert.ok(!research.includes('class="collaborator-section"'));
+  assert.ok(!('collaborators' in clinical));
 });
 
-test('basic science collaborators remain at the end of the page', () => {
-  const page = render(basic);
+test('Basic Sciences collaborators appear below basic sciences team members, not on Research', () => {
+  const group = team.groups.find(group => group.id === 'basic');
+  const page = String(TeamGroupPage(group));
   for (const name of ['Mark Bothwell', 'David Mack', 'Alec Smith', 'Shao-En Ong', 'Samuel Rayner', 'David Brogan']) {
     assert.ok(page.includes(name), `Missing ${name}`);
   }
+  assert.ok(page.includes('Basic Sciences Collaborators'));
   assert.equal((page.match(/class="collaborator-card"/g) ?? []).length, 6);
   assert.equal((page.match(/University of Washington/g) || []).length, 5);
   assert.ok(page.includes('Washington University in St. Louis'));
@@ -40,7 +48,9 @@ test('basic science collaborators remain at the end of the page', () => {
   assert.ok(page.includes('https://ndrg.uw.edu/'));
   assert.ok(page.includes('https://www.quantbiology.org/'));
   assert.ok(page.includes('https://sites.uw.edu/raynerlab/'));
-  assert.ok(page.indexOf('class="shell collaborator-section"') > page.lastIndexOf('class="project"'));
+  assert.ok(page.indexOf('class="shell collaborator-section"') > page.lastIndexOf('class="member-card"'));
+  assert.ok(!render(basic).includes('class="collaborator-section"'));
+  assert.ok(!('collaborators' in basic));
 });
 
 test('requested clinical source links and study numbers stay removed', () => {
@@ -63,7 +73,8 @@ test('Clinical Studies separates active clinical trials from other studies witho
   }
   assert.ok(page.indexOf('Cutaneous Thermography for Diagnosis') < page.indexOf('active-trials-heading'));
   assert.ok(page.indexOf('active-trials-heading') < page.indexOf('Neuraptive Phase III'));
-  assert.ok(page.indexOf('FASTR-TEN') < page.indexOf('class="shell collaborator-section"'));
+  assert.ok(page.indexOf('FASTR-TEN') > page.indexOf('active-trials-heading'));
+  assert.ok(!page.includes('class="collaborator-section"'));
   assert.ok(page.includes('class="active-trials-divider"'));
   assert.equal((page.match(/class="project"/g) || []).length, 8);
 });

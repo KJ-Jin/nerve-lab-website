@@ -2,6 +2,8 @@ import { HomePage } from './pages/home.js';
 import { ResearchPage } from './pages/research.js';
 import { ResearchAreaPage } from './pages/research-area.js';
 import { TeamPage } from './pages/team.js';
+import { TeamGroupPage } from './pages/team-group.js';
+import teamContent from './content/team.js';
 import { PublicationsPage } from './pages/publications.js';
 import { NewsPage } from './pages/news.js';
 import { GalleryArchivePage } from './pages/gallery-archive.js';
@@ -21,6 +23,8 @@ const routes = {
   'research-basic': () => ResearchAreaPage(basic),
   'research-clinical': () => ResearchAreaPage(clinical),
   people: TeamPage,
+  'team-basic': () => TeamGroupPage(teamContent.groups.find(group => group.id === 'basic')),
+  'team-clinical': () => TeamGroupPage(teamContent.groups.find(group => group.id === 'clinical')),
   publications: PublicationsPage,
   news: NewsPage,
   'gallery-archive': GalleryArchivePage,

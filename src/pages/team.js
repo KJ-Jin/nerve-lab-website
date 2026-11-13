@@ -1,28 +1,27 @@
 import { html, paragraphs } from '../lib/html.js';
 import { PageBanner } from '../components/page-banner.js';
-import { MemberGrid, Portrait } from '../components/member-grid.js';
+import { Portrait } from '../components/member-grid.js';
 import content from '../content/team.js';
 import { ArrowIcon } from '../components/arrow-icon.js';
 
-function GroupPhoto({ eyebrow, title, image, caption, placeholderTitle, placeholderNote }) {
+function TeamGroupLink(group) {
   return html`
-    <section class="team-group-photo">
-      <div class="group-photo-heading">
-        ${eyebrow && html`<div class="eyebrow">${eyebrow}</div>`}
-        <h2 class="team-heading">${title}</h2>
+    <a class="team-division-card" href="${group.href}" aria-label="View ${group.title} members and collaborators">
+      <div class="team-division-photo">
+        ${group.photo
+          ? html`<img src="${group.photo}" alt="${group.title} group photograph">`
+          : html`
+            <div class="team-division-placeholder" aria-hidden="true">
+              <span>GROUP PHOTO</span>
+              <small>Coming soon</small>
+            </div>
+          `}
       </div>
-      ${image
-        ? html`
-          <figure class="group-photo-figure">
-            <img src="${image}" alt="Group photograph of Nerve Lab members">
-            <figcaption>${caption}</figcaption>
-          </figure>`
-        : html`
-          <div class="group-photo-empty">
-            <span>${placeholderTitle}</span>
-            <small>${placeholderNote}</small>
-          </div>`}
-    </section>
+      <div class="team-division-label">
+        <h3>${group.title}</h3>
+        <span>View team members ${ArrowIcon('right')}</span>
+      </div>
+    </a>
   `;
 }
 
@@ -42,22 +41,20 @@ function PrincipalInvestigator(pi) {
   `;
 }
 
-/** #people — group photo, principal investigator, then member groups. */
+/** #people — principal investigator and two group-photo links to team details. */
 export function TeamPage() {
-  const { banner, groupPhoto, pi, groups } = content;
+  const { banner, pi, groups } = content;
 
   return html`
     ${PageBanner(banner)}
-
     <section class="shell-wide team-wrap">
-      ${GroupPhoto(groupPhoto)}
       ${PrincipalInvestigator(pi)}
-      ${groups.map((group) => html`
-        <div class="team-group">
-          <h2 class="team-heading">${group.title}</h2>
-          ${group.members.length > 0 && MemberGrid(group.members)}
+      <div class="team-divisions">
+        <h2 class="team-heading">Our Team</h2>
+        <div class="team-division-grid">
+          ${groups.map(TeamGroupLink)}
         </div>
-      `)}
+      </div>
     </section>
   `;
 }

@@ -62,6 +62,9 @@ export function updateNav(pageId) {
   const newsMenu = menus.find((menu) => menu.id === 'news');
   researchMenu.wrapper.classList.toggle('current', pageId === 'research' || pageId.startsWith('research-'));
   newsMenu.wrapper.classList.toggle('current', pageId === 'news' || pageId === 'gallery-archive');
+  // Keep Team highlighted while viewing either group detail page.
+  const teamLink = document.querySelector('.nav-link[data-page="people"]');
+  teamLink?.classList.toggle('active', pageId === 'people' || pageId.startsWith('team-'));
   closeMenus();
   setMobileMenuOpen(false);
 }

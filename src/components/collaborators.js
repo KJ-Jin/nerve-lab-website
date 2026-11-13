@@ -13,14 +13,14 @@ function CollaboratorCard({ name, affiliation, role, link, image }) {
   `;
 }
 
-/** "Collaborators" section at the bottom of each research area page. */
-export function Collaborators({ intro, items }) {
+/** Reusable collaborator section, displayed below team members. */
+export function Collaborators({ title = "Collaborators", intro, items }) {
   return html`
-    <section class="shell collaborator-section" aria-label="Collaborators">
+    <section class="shell collaborator-section" aria-label="${title}">
       <div class="collaborator-top">
         <div>
           <div class="eyebrow">WORKING TOGETHER</div>
-          <h2 class="section-title">Collaborators</h2>
+          <h2 class="section-title">${title}</h2>
         </div>
         <p class="copy">${intro}</p>
       </div>

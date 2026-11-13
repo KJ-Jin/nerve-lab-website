@@ -131,3 +131,108 @@
     font-size: 20px;
   }
 }
+
+/* Team landing page: two clickable group photo placeholders. */
+.team-divisions {
+  padding-top: 22px;
+}
+.team-divisions > .team-heading {
+  margin: 40px 0 26px;
+}
+.team-division-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+}
+.team-division-card {
+  display: block;
+  min-width: 0;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid #312a3a;
+  background: #0d0b12;
+  transition: border-color .2s ease, transform .2s ease, background .2s ease;
+}
+.team-division-card:hover,
+.team-division-card:focus-visible {
+  background: #17121e;
+  border-color: #a58cbf;
+  transform: translateY(-3px);
+}
+.team-division-card:focus-visible {
+  outline: 2px solid #dbc7f7;
+  outline-offset: 4px;
+}
+.team-division-photo {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #111019;
+}
+.team-division-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.team-division-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+  border: 1px dashed #55465f;
+  color: #d6c8dd;
+  background: linear-gradient(145deg, #18121f, #0a0910 70%);
+  text-align: center;
+}
+.team-division-placeholder span {
+  font: 400 18px/1.4 var(--serif);
+  letter-spacing: 3px;
+}
+.team-division-placeholder small {
+  color: #a99cb5;
+  font: 400 12px/1.5 var(--sans);
+}
+.team-division-label {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px 22px;
+  padding: 24px 25px 27px;
+}
+.team-division-label h3 {
+  font: 400 clamp(25px, 2.2vw, 32px)/1.2 var(--serif);
+  margin: 0;
+}
+.team-division-label > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #d5c4eb;
+  font: 700 11px/1.5 var(--sans);
+  letter-spacing: .4px;
+}
+.team-group-detail {
+  padding-top: 3px;
+  padding-bottom: 70px;
+}
+.team-group-detail > .team-heading {
+  margin-top: 12px;
+}
+.team-group-detail + .collaborator-section {
+  padding-top: 58px;
+}
+.team-group-return {
+  padding-bottom: 85px;
+}
+.team-group-return .text-link svg {
+  transform: rotate(180deg);
+}
+@media (max-width: 700px) {
+  .team-division-grid { grid-template-columns: 1fr; gap: 18px; }
+  .team-division-label { padding: 20px; }
+  .team-group-detail { padding-bottom: 50px; }
+}
