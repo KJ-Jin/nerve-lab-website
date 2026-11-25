@@ -76,7 +76,7 @@ export default {
     },
     {
       id: 'clinical',
-      title: 'Clinical Team',
+      title: 'Clinical Research Team',
       href: '#team-clinical',
       photo: 'images/team/clinical-team.webp',
       photoAlt: 'Illustrated portrait of seven Clinical Team members in front of the Seattle waterfront and Space Needle.',
