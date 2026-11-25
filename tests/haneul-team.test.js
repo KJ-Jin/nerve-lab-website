@@ -60,7 +60,9 @@ test('Basic Sciences details begin with Katie as PI followed by five members', (
   assert.ok(page.includes('Yusha'));
   assert.ok(page.indexOf('Yusha') < page.indexOf('Sean Yuan'));
   assert.ok(page.indexOf('class="pi-block"') < page.indexOf('class="team-members-section"'));
-  assert.ok(page.includes('images/team/clinical-pis-sprite.webp'));
+  assert.equal(team.pi.photo, 'images/team/yusha-katie-liu.jpg');
+  assert.ok(page.includes('images/team/yusha-katie-liu.jpg'));
+  assert.ok(!page.includes('images/team/clinical-pis-sprite.webp'));
 });
 
 test('Clinical PIs use the supplied file-name identities, Katie first; Joyce and Haneul follow', () => {
