@@ -11,8 +11,9 @@ test('Team landing page has two vertically stacked clickable group-photo slots, 
   const landing = String(TeamPage());
   assert.equal(team.groups.length, 2);
   assert.equal((landing.match(/class="team-division-card"/g) || []).length, 2);
-  assert.equal((landing.match(/class="team-division-placeholder"/g) || []).length, 1);
+  assert.equal((landing.match(/class="team-division-placeholder"/g) || []).length, 0);
   assert.ok(landing.includes('src="images/team/basic-science-team.webp"'));
+  assert.ok(landing.includes('src="images/team/clinical-team.webp"'));
   assert.ok(landing.includes('Basic Science Lab Team'));
   assert.ok(landing.includes('href="#team-basic"'));
   assert.ok(landing.includes('href="#team-clinical"'));
@@ -104,5 +105,19 @@ test('Illustrated group portrait is uploaded with a correct team label and remai
   assert.ok(landing.includes('Illustration of six Basic Science Lab Team members'));
   const styles = readFileSync(new URL('../src/styles/pages/team.css', import.meta.url), 'utf8');
   assert.ok(styles.includes('aspect-ratio: 1920 / 819'));
+  assert.ok(styles.includes('object-fit: contain;'));
+});
+
+
+test('Clinical Team photo is a permanent asset and its full waterfront illustration is shown uncropped', async () => {
+  const { statSync, readFileSync } = await import('node:fs');
+  assert.equal(clinical.title, 'Clinical Team');
+  assert.equal(clinical.photo, 'images/team/clinical-team.webp');
+  assert.ok(statSync(new URL('../images/team/clinical-team.webp', import.meta.url)).size > 20000);
+  const landing = String(TeamPage());
+  assert.ok(landing.includes('Illustrated portrait of seven Clinical Team members'));
+  assert.ok(landing.includes('team-division-photo--clinical'));
+  const styles = readFileSync(new URL('../src/styles/pages/team.css', import.meta.url), 'utf8');
+  assert.match(styles, /\.team-division-photo--clinical\s*\{[^}]*aspect-ratio:\s*16\s*\/\s*9;/);
   assert.ok(styles.includes('object-fit: contain;'));
 });

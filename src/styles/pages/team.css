@@ -162,9 +162,12 @@
 }
 .team-division-photo {
   width: 100%;
-  aspect-ratio: 1920 / 819; /* Show the full illustrated Basic Science Lab Team portrait. */
+  aspect-ratio: 1920 / 819; /* Preserve the original Basic Science Lab Team illustration. */
   overflow: hidden;
   background: #111019;
+}
+.team-division-photo--clinical {
+  aspect-ratio: 16 / 9; /* Show the complete Clinical Team waterfront portrait without cropping. */
 }
 .team-division-photo img {
   display: block;

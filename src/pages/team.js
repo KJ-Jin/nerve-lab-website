@@ -6,7 +6,7 @@ import { ArrowIcon } from '../components/arrow-icon.js';
 function TeamGroupLink(group) {
   return html`
     <a class="team-division-card" href="${group.href}" aria-label="View ${group.title} members and investigators">
-      <div class="team-division-photo">
+      <div class="team-division-photo${group.id === 'clinical' ? ' team-division-photo--clinical' : ''}">
         ${group.photo
           ? html`<img src="${group.photo}" alt="${group.photoAlt || `${group.title} group photograph`}" loading="lazy" decoding="async">`
           : html`
