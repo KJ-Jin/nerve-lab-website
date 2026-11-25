@@ -169,3 +169,17 @@
   .active-trials-heading { font-size: 34px; }
 }
 
+
+/* Basic Science only: reduce project headings 20%, increase descriptions 20%.
+ * Clinical Studies and Active Clinical Trials retain their original typography. */
+#page-research-basic .project-content h3 {
+  font-size: clamp(27.2px, 2.64vw, 38.4px);
+}
+#page-research-basic .project-content .copy {
+  font-size: 16.8px;
+}
+@media (max-width: 640px) {
+  #page-research-basic .project-content h3 {
+    font-size: 28.8px;
+  }
+}

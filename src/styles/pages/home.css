@@ -95,7 +95,7 @@
   max-width: 675px;
   margin: 0;
   font-family: var(--serif);
-  font-size: 25px; /* Match publication titles */
+  font-size: 22.5px; /* 10% smaller than the previous 25px */
   font-weight: 400;
   line-height: 1.42;
   color: #efeaf2;
@@ -174,7 +174,7 @@
   }
 
   .home-hero .copy {
-    font-size: 25px;
+    font-size: 22.5px;
     max-width: 610px;
   }
 }
@@ -210,7 +210,7 @@
 
   .home-hero .copy {
     max-width: 100%;
-    font-size: 20px; /* Match mobile publication titles */
+    font-size: 18px; /* 10% smaller than the previous mobile 20px */
     line-height: 1.42;
   }
 

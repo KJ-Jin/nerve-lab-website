@@ -198,3 +198,9 @@
   order: initial;
   max-width: 930px;
 }
+
+/* Active Clinical Trials: link text and trial descriptions use the same font size. */
+#page-research-clinical .active-trials-list .study-trial-link {
+  font-size: 14px;
+  line-height: 1.89;
+}

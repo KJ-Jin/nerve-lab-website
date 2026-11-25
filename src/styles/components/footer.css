@@ -74,12 +74,12 @@
 }
 .footer-donation-copy h2 {
   margin: 0 0 9px;
-  font: 400 clamp(31.05px, 3.105vw, 41.85px)/1.2 var(--serif); /* +35% */
+  font: 400 clamp(27.945px, 2.7945vw, 37.665px)/1.2 var(--serif); /* 10% smaller */
 }
 .site-footer .footer-donation-copy p {
   margin: 0;
   max-width: 590px;
-  font-size: 17.55px; /* +35% from 13px */
+  font-size: 15.795px; /* 10% smaller */
   color: #c9c1d2;
 }
 .footer-donation-link {
@@ -91,7 +91,7 @@
   border: 1px solid #8663a8;
   color: var(--uw-gold-muted);
   text-align: center;
-  font: 700 16.2px/1.5 var(--sans); /* +35% */
+  font: 700 14.58px/1.5 var(--sans); /* 10% smaller */
   letter-spacing: .3px;
   transition: color .2s, border-color .2s, background .2s;
 }
