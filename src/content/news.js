@@ -53,7 +53,7 @@ export default {
       url: 'https://www.assh.org/annualmeeting/general-information/awards',
     },
     {
-      date: 'JUNE 2026',
+      date: 'OCTOBER 2026',
       title: 'Tietze Research Award recognizes Dr. Liu’s research',
       description: 'ISCRM announced that Yusha (Katie) Liu and Mark Bothwell received awards from the John H. Tietze Foundation Trust to support their research.',
       url: 'https://iscrm.uw.edu/mark-bothwell-and-yusha-katie-liu-receive-tietze-research-awards/',
@@ -78,7 +78,7 @@ export default {
       linkLabel: 'Read PDF',
     },
     {
-      date: '2024',
+      date: 'OCTOBER 2024',
       title: '2024 AFSH Basic Science Grant supports microvascular patch research',
       description: 'The project “Patterned Microvascular Patches to Promote Angiogenesis in Nerve Surgery,” in collaboration with Dr. Samuel Rayner, received a 2024 American Foundation for Surgery of the Hand (AFSH) Basic Science Grant.',
       url: 'https://afsh.assh.org/s/basic-science-grants',

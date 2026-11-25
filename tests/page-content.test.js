@@ -186,3 +186,14 @@ test('News arrows use original colors, while photo dots and link underlines stay
   assert.match(publicationsCSS, /\.publication \.arrow\s*\{[^}]*color:\s*var\(--uw-gold-muted\)/);
   assert.match(publicationsCSS, /\.pub-pubmed \.site-arrow\s*\{[^}]*color:\s*var\(--uw-gold-muted\)/);
 });
+
+test('AFSH 2024 and Tietze 2026 News entries display their October dates', async () => {
+  const { default: newsContent } = await import('../src/content/news.js');
+  const afsh = newsContent.news.find(item => item.title.includes('2024 AFSH Basic Science Grant'));
+  const tietze = newsContent.news.find(item => item.title.includes('Tietze Research Award'));
+  assert.equal(afsh?.date, 'OCTOBER 2024');
+  assert.equal(tietze?.date, 'OCTOBER 2026');
+  const markup = String(NewsPage());
+  assert.ok(markup.includes('OCTOBER 2024'));
+  assert.ok(markup.includes('OCTOBER 2026'));
+});
