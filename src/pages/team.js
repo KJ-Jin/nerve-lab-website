@@ -8,7 +8,7 @@ function TeamGroupLink(group) {
     <a class="team-division-card" href="${group.href}" aria-label="View ${group.title} members and investigators">
       <div class="team-division-photo">
         ${group.photo
-          ? html`<img src="${group.photo}" alt="${group.title} group photograph">`
+          ? html`<img src="${group.photo}" alt="${group.photoAlt || `${group.title} group photograph`}" loading="lazy" decoding="async">`
           : html`
             <div class="team-division-placeholder" aria-hidden="true">
               <span>GROUP PHOTO</span>
@@ -31,7 +31,6 @@ export function TeamPage() {
     ${PageBanner(banner)}
     <section class="shell-wide team-wrap">
       <div class="team-divisions">
-        <h2 class="team-heading">Our Team</h2>
         <div class="team-division-grid">
           ${groups.map(TeamGroupLink)}
         </div>

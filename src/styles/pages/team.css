@@ -134,10 +134,7 @@
 
 /* Team landing page: vertically stacked, clickable group-photo sections. */
 .team-divisions {
-  padding-top: 22px;
-}
-.team-divisions > .team-heading {
-  margin: 40px 0 26px;
+  padding-top: 0;
 }
 .team-division-grid {
   display: grid;
@@ -165,7 +162,7 @@
 }
 .team-division-photo {
   width: 100%;
-  aspect-ratio: 16 / 6;
+  aspect-ratio: 1920 / 819; /* Show the full illustrated Basic Science Lab Team portrait. */
   overflow: hidden;
   background: #111019;
 }
@@ -173,7 +170,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 .team-division-placeholder {
   display: flex;
@@ -271,7 +268,7 @@
     grid-template-columns: 1fr;
   }
   .team-division-photo {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 1920 / 819;
   }
   .team-basic-principal {
     margin-bottom: 42px;

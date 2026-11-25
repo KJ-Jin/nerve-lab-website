@@ -11,13 +11,15 @@ test('Team landing page has two vertically stacked clickable group-photo slots, 
   const landing = String(TeamPage());
   assert.equal(team.groups.length, 2);
   assert.equal((landing.match(/class="team-division-card"/g) || []).length, 2);
-  assert.equal((landing.match(/class="team-division-placeholder"/g) || []).length, 2);
+  assert.equal((landing.match(/class="team-division-placeholder"/g) || []).length, 1);
+  assert.ok(landing.includes('src="images/team/basic-science-team.webp"'));
+  assert.ok(landing.includes('Basic Science Lab Team'));
   assert.ok(landing.includes('href="#team-basic"'));
   assert.ok(landing.includes('href="#team-clinical"'));
   assert.ok(!landing.includes('Yusha'));
   assert.ok(!landing.includes('pi-block'));
   assert.ok(landing.indexOf('href="#team-basic"') < landing.indexOf('href="#team-clinical"'));
-  assert.ok(landing.includes('Our Team'));
+  assert.ok(!landing.includes('Our Team'));
   assert.ok(!landing.includes('Translational Team'));
   assert.ok(!landing.includes('class="member-card"'));
   assert.ok(!landing.includes('class="collaborator-card"'));
@@ -90,4 +92,17 @@ test('Clinical PIs use the supplied file-name identities, Katie first; Joyce and
   assert.equal((page.match(/class="member-card"/g) || []).length, 9);
   assert.equal(clinical.collaborators.items.length, 2);
   assert.deepEqual(clinical.collaborators.items.map(c=>c.name), ['Chris Dy','David Brogan']);
+});
+
+
+test('Illustrated group portrait is uploaded with a correct team label and remains uncropped', async () => {
+  const { statSync, readFileSync } = await import('node:fs');
+  assert.equal(basic.title, 'Basic Science Lab Team');
+  assert.equal(basic.photo, 'images/team/basic-science-team.webp');
+  assert.ok(statSync(new URL('../images/team/basic-science-team.webp', import.meta.url)).size > 10000);
+  const landing = String(TeamPage());
+  assert.ok(landing.includes('Illustration of six Basic Science Lab Team members'));
+  const styles = readFileSync(new URL('../src/styles/pages/team.css', import.meta.url), 'utf8');
+  assert.ok(styles.includes('aspect-ratio: 1920 / 819'));
+  assert.ok(styles.includes('object-fit: contain;'));
 });

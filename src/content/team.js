@@ -24,9 +24,10 @@ export default {
   groups: [
     {
       id: 'basic',
-      title: 'Basic Sciences Team',
+      title: 'Basic Science Lab Team',
       href: '#team-basic',
-      photo: '', // Add the approved basic sciences group photo here later.
+      photo: 'images/team/basic-science-team.webp',
+      photoAlt: 'Illustration of six Basic Science Lab Team members with Mount Rainier and the Seattle skyline in the background.',
       members: [
         {
           name: 'Sean Yuan, PhD',
