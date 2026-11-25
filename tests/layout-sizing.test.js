@@ -19,14 +19,14 @@ test('Navigation and UW affiliation remain 35% larger; donation copy is eased ba
   assert.ok(footer.includes('padding: 18.9px 27px;'));
 });
 
-test('Welcome headline stays 25% smaller and intro becomes 10% smaller', () => {
+test('Welcome headline stays 25% smaller and intro is reduced another 10%', () => {
   const home = css('pages/home.css');
   const pubs = css('pages/publications.css');
   for (const declaration of ['clamp(24px, 2.8125vw, 42.75px)', 'clamp(24px, 3.4875vw, 36.75px)', 'clamp(21.75px, 5.625vw, 29.25px)']) {
     assert.ok(home.includes(declaration));
   }
-  assert.match(home, /\.home-hero \.copy\s*\{[^}]*font-size:\s*22\.5px;/);
-  assert.match(home, /@media \(max-width: 640px\)[\s\S]*?\.home-hero \.copy\s*\{[^}]*font-size:\s*18px;/);
+  assert.match(home, /\.home-hero \.copy\s*\{[^}]*font-size:\s*20\.25px;/);
+  assert.match(home, /@media \(max-width: 640px\)[\s\S]*?\.home-hero \.copy\s*\{[^}]*font-size:\s*16\.2px;/);
   assert.match(pubs, /\.pub-title\s*\{[^}]*font:\s*400 25px/);
   assert.match(pubs, /@media \(max-width: 640px\)[\s\S]*?\.pub-title\s*\{[^}]*font-size:\s*20px;/);
 });
