@@ -135,9 +135,9 @@ test('Home page uses the smaller welcome heading and no NDRG label', async () =>
   assert.ok(index.includes('images/brand/nerve-injury-research-logo.jpg'));
   assert.ok(!index.includes('images/brand/institute-logo.jpg'));
   assert.ok(!index.includes('UNIVERSITY OF WASHINGTON  /  ISCRM'));
-  assert.match(css, /font-size:\s*clamp\(32px, 3\.75vw, 57px\)/);
-  assert.match(css, /font-size:\s*clamp\(32px, 4\.65vw, 49px\)/);
-  assert.match(css, /font-size:\s*clamp\(29px, 7\.5vw, 39px\)/);
+  assert.match(css, /font-size:\s*clamp\(24px, 2\.8125vw, 42\.75px\)/);
+  assert.match(css, /font-size:\s*clamp\(24px, 3\.4875vw, 36\.75px\)/);
+  assert.match(css, /font-size:\s*clamp\(21\.75px, 5\.625vw, 29\.25px\)/);
 });
 
 test('News gallery captions use Dr. Liu talk descriptions and retain session details', async () => {

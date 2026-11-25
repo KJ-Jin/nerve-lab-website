@@ -22,8 +22,9 @@
   --serif: Georgia, 'Times New Roman', serif;
   --sans: Arial, Helvetica, sans-serif;
 
-  /* Side padding of content columns */
-  --gutter: 36px;
+  /* Match page titles/content to the header logo's left edge. */
+  --content-width: 1148px; /* 1260px header minus 56px on either side */
+  --gutter: 56px;
 
   /* Header logo width */
   --logo-width: 295px;
@@ -33,6 +34,12 @@
   --hero-position-x: 63%; /* focal point of the hero image */
   --hero-position-y: 47%;
   --hero-dim: 0.12; /* extra darkening over the hero image, 0–1 */
+}
+
+@media (max-width: 900px) {
+  :root {
+    --gutter: 30px;
+  }
 }
 
 @media (max-width: 640px) {

@@ -55,8 +55,8 @@
 /* Wide, shallow three-photo stage inspired by an editorial photo strip.
  * Center image stays sharp and uncropped; adjacent previews fade outward. */
 .news-gallery-section {
-  width: min(1160px, calc(100% - 2 * var(--gutter)));
-  max-width: 1160px;
+  width: min(var(--content-width), calc(100% - 2 * var(--gutter)));
+  max-width: var(--content-width);
   margin-inline: auto;
   padding: 10px 0 32px;
 }

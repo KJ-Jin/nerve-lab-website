@@ -51,8 +51,9 @@
   align-items: flex-start;
   min-width: 0;
   width: 100%;
-  max-width: 1000px;
-  padding: 78px clamp(28px, 8.5vw, 155px) 85px clamp(35px, 8.5vw, 165px);
+  max-width: 1260px;
+  margin-inline: auto;
+  padding: 78px var(--gutter) 85px;
   text-shadow: 0 2px 15px rgba(0, 0, 0, 0.34);
 }
 
@@ -83,7 +84,7 @@
   max-width: 820px;
   margin: 0 0 24px;
   font-family: var(--serif);
-  font-size: clamp(32px, 3.75vw, 57px);
+  font-size: clamp(24px, 2.8125vw, 42.75px); /* 25% smaller */
   font-weight: 400;
   line-height: 1.07;
   letter-spacing: -1.8px;
@@ -94,9 +95,9 @@
   max-width: 675px;
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(18px, 1.55vw, 21px);
+  font-size: 25px; /* Match publication titles */
   font-weight: 400;
-  line-height: 1.62;
+  line-height: 1.42;
   color: #efeaf2;
 }
 
@@ -164,16 +165,16 @@
   }
 
   .home-copy {
-    max-width: 840px;
-    padding: 60px 48px 66px;
+    max-width: 1260px;
+    padding: 60px var(--gutter) 66px;
   }
 
   .home-hero .display {
-    font-size: clamp(32px, 4.65vw, 49px);
+    font-size: clamp(24px, 3.4875vw, 36.75px); /* 25% smaller */
   }
 
   .home-hero .copy {
-    font-size: 19px;
+    font-size: 25px;
     max-width: 610px;
   }
 }
@@ -192,7 +193,7 @@
 
   .home-copy {
     max-width: 100%;
-    padding: 50px 27px 62px;
+    padding: 50px var(--gutter) 62px;
   }
 
   .home-kicker {
@@ -203,14 +204,14 @@
 
   .home-hero .display {
     margin-bottom: 22px;
-    font-size: clamp(29px, 7.5vw, 39px);
+    font-size: clamp(21.75px, 5.625vw, 29.25px); /* 25% smaller */
     letter-spacing: -1.1px;
   }
 
   .home-hero .copy {
     max-width: 100%;
-    font-size: 17px;
-    line-height: 1.57;
+    font-size: 20px; /* Match mobile publication titles */
+    line-height: 1.42;
   }
 
   .home-actions {

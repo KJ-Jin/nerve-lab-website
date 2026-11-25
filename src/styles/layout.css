@@ -27,19 +27,16 @@
   }
 }
 
-/* Content columns.
- * .shell       1180px box with the gutter inside it (text column is 1108px).
- * .shell-wide  1180px text column, with the gutter added outside it on smaller screens. */
-
+/* Align logo, page titles, section content and hero text horizontally. */
 .shell {
-  max-width: 1180px;
+  max-width: 1260px;
   margin: 0 auto;
   padding-inline: var(--gutter);
 }
 
 .shell-wide {
-  width: min(1180px, 100% - 2 * var(--gutter));
-  margin: 0 auto;
+  width: min(var(--content-width), 100% - 2 * var(--gutter));
+  margin-inline: auto;
 }
 
 .thin-rule {

@@ -12,7 +12,7 @@
   justify-content: space-between;
   max-width: 1260px;
   margin: auto;
-  padding: 26px 56px 24px;
+  padding: 26px var(--gutter) 24px;
   background: #000;
 }
 
@@ -42,7 +42,7 @@
 
 .affiliation {
   color: #a8a2b8;
-  font-size: 10px;
+  font-size: 13.5px; /* +35% from 10px */
   font-weight: 700;
   letter-spacing: 2.1px;
   text-align: right;
@@ -51,7 +51,7 @@
 
 @media (max-width: 900px) {
   .header-top {
-    padding: 24px 30px;
+    padding: 24px var(--gutter);
   }
 
   .brand-logo {
@@ -69,19 +69,20 @@
 
 @media (max-width: 640px) {
   .header-top {
-    padding: 22px 23px;
+    padding: 22px var(--gutter);
   }
 
   .affiliation {
-    font-size: 8px;
+    font-size: 10.8px; /* +35% from 8px */
     letter-spacing: 1px;
-    max-width: 150px;
+    max-width: 40vw;
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 640px) {
+  /* Keep the enlarged university name beside the logo on narrow phones. */
   .brand-logo {
-    width: 165px;
-    height: 65px;
+    width: min(var(--logo-width), 200px, 43vw);
+    height: calc(min(var(--logo-width), 200px, 43vw) * 0.395);
   }
 }
