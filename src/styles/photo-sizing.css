@@ -93,9 +93,22 @@
   height: auto;
   max-height: none;
   white-space: normal;
-  overflow-wrap: anywhere;
-  hyphens: auto;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
   line-height: 1.24;
+}
+
+/* Keep regular words intact across the site; wrap at spaces, not inside words. */
+body, h1, h2, h3, h4, h5, h6, p, li, span, a {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+/* Exceptions: long uninterrupted machine strings (email addresses) can wrap as needed. */
+.contact-email-link {
+  overflow-wrap: anywhere;
 }
 
 /* Give long research titles their own room, then start the description below. */
@@ -107,7 +120,9 @@
   clear: both;
   margin-top: 16px;
   line-height: 1.8;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }
 .project-content .project-subtitle,
 .project-content .study-pi,
@@ -115,7 +130,9 @@
   position: static;
   height: auto;
   max-height: none;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }
 
 @media (max-width: 900px) {
