@@ -16,8 +16,7 @@ export default {
     bio: 'Dr. Yusha “Katie” Liu is a board-certified hand and peripheral nerve surgeon and an Assistant Professor in the University of Washington Division of Plastic Surgery. She leads basic science research on nerve and muscle regeneration within the Institute for Stem Cell & Regenerative Medicine and conducts clinical and translational peripheral nerve injury research through the UW Department of Surgery.',
     // A full biography was found in the old editor data but is not shown on the current site:
     // 'Dr. Katie Liu is a hand and peripheral nerve surgeon scientist in the Division of Plastic Surgery who cares deeply about helping people regain function after life-changing nerve injuries. She spearheaded the creation of the Northwest Institute for Nerve Injury at Harborview Medical Center, a multidisciplinary clinic providing comprehensive care for patients from diagnosis to surgery to rehabilitation. Her research program includes her basic science laboratory within the UW Institute for Stem Cell & Regenerative Medicine, focusing on molecular and cellular mechanisms of nerve and muscle degradation and regeneration, as well as translational studies and multi-institutional clinical trials exploring new ways to improve recovery after peripheral nerve injury. Dr. Liu enjoys spending quality time with her husband and two sons when she’s not in surgery or in the laboratory.'
-    photo: 'images/team/clinical-pis-sprite.webp',
-    photoPosition: '0%',
+    photo: 'images/team/yusha-katie-liu.jpg',
     profileUrl: 'https://www.uwmedicine.org/bios/yusha-katie-liu',
   },
 
