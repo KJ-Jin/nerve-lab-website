@@ -132,7 +132,7 @@
   }
 }
 
-/* Team landing page: two clickable group photo placeholders. */
+/* Team landing page: vertically stacked, clickable group-photo sections. */
 .team-divisions {
   padding-top: 22px;
 }
@@ -141,8 +141,8 @@
 }
 .team-division-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 26px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 34px;
 }
 .team-division-card {
   display: block;
@@ -165,7 +165,7 @@
 }
 .team-division-photo {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 6;
   overflow: hidden;
   background: #111019;
 }
@@ -235,4 +235,45 @@
   .team-division-grid { grid-template-columns: 1fr; gap: 18px; }
   .team-division-label { padding: 20px; }
   .team-group-detail { padding-bottom: 50px; }
+}
+
+/* Investigator and member order on the dedicated team pages. */
+.team-basic-principal {
+  margin-bottom: 58px;
+}
+.team-basic-principal > .team-heading,
+.clinical-pi-section > .team-heading {
+  margin-top: 12px;
+}
+.clinical-pi-section {
+  margin-bottom: 72px;
+}
+.clinical-pi-section .members-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.clinical-pi-section .member-card {
+  min-width: 0;
+}
+.clinical-pi-section .member-role {
+  margin-bottom: 10px;
+}
+.member-profile-link {
+  margin-top: 8px;
+  font-size: 10px;
+}
+@media (max-width: 900px) {
+  .clinical-pi-section .members-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .clinical-pi-section .members-grid {
+    grid-template-columns: 1fr;
+  }
+  .team-division-photo {
+    aspect-ratio: 16 / 9;
+  }
+  .team-basic-principal {
+    margin-bottom: 42px;
+  }
 }

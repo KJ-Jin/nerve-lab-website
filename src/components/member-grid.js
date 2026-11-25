@@ -5,11 +5,11 @@ export function initials(name) {
   return (name.match(/\p{L}+/gu) ?? ['?']).map((word) => word[0]).slice(0, 2).join('');
 }
 
-export function Portrait({ photo, name }) {
+export function Portrait({ photo, name, photoPosition }) {
   return html`
     <div class="portrait">
       ${photo
-        ? html`<img src="${photo}" alt="Portrait of ${name}">`
+        ? html`<img src="${photo}" alt="Portrait of ${name}" loading="lazy" ${photoPosition ? html`style="object-position: ${photoPosition} center"` : ''}>`
         : html`<span class="portrait-placeholder">${initials(name)}</span>`}
     </div>
   `;
@@ -21,7 +21,8 @@ function MemberCard(member) {
       ${Portrait(member)}
       <h3 class="member-name">${member.name}</h3>
       <div class="member-role">${member.role}</div>
-      <p class="member-description multiline">${paragraphs(member.bio)}</p>
+      ${member.bio && html`<p class="member-description multiline">${paragraphs(member.bio)}</p>`}
+      ${member.profileUrl && html`<a class="text-link member-profile-link" href="${member.profileUrl}" target="_blank" rel="noopener noreferrer">Faculty profile</a>`}
     </article>
   `;
 }

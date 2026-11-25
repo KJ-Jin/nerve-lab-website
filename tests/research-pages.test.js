@@ -16,7 +16,7 @@ test('Clinical Studies collaborators appear after clinical team members, not on 
   const group = team.groups.find(group => group.id === 'clinical');
   const page = String(TeamGroupPage(group));
   const research = render(clinical);
-  const collaborators = ['Chris Crowe', 'Jeff Friedrich', 'Ben Grannan', 'Chris Dy', 'David Brogan'];
+  const collaborators = ['Chris Dy', 'David Brogan'];
   const urls = [
     'https://www.uwmedicine.org/bios/christopher-crowe',
     'https://www.uwmedicine.org/bios/jeffrey-friedrich',
@@ -24,8 +24,7 @@ test('Clinical Studies collaborators appear after clinical team members, not on 
     'https://nerveresearch.wustl.edu/',
   ];
   assert.ok(page.includes('Clinical Studies Collaborators'));
-  assert.equal((page.match(/class="collaborator-card"/g) ?? []).length, 5);
-  assert.equal((page.match(/University of Washington/g) ?? []).length, 3);
+  assert.equal((page.match(/class="collaborator-card"/g) ?? []).length, 2);
   assert.equal((page.match(/Washington University in St. Louis/g) ?? []).length, 2);
   for (const name of collaborators) assert.ok(page.includes(name), `Missing ${name}`);
   for (const url of urls) assert.ok(page.includes(url), `Missing ${url}`);

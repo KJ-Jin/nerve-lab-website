@@ -1,12 +1,11 @@
-import { html, paragraphs } from '../lib/html.js';
+import { html } from '../lib/html.js';
 import { PageBanner } from '../components/page-banner.js';
-import { Portrait } from '../components/member-grid.js';
 import content from '../content/team.js';
 import { ArrowIcon } from '../components/arrow-icon.js';
 
 function TeamGroupLink(group) {
   return html`
-    <a class="team-division-card" href="${group.href}" aria-label="View ${group.title} members and collaborators">
+    <a class="team-division-card" href="${group.href}" aria-label="View ${group.title} members and investigators">
       <div class="team-division-photo">
         ${group.photo
           ? html`<img src="${group.photo}" alt="${group.title} group photograph">`
@@ -25,30 +24,12 @@ function TeamGroupLink(group) {
   `;
 }
 
-function PrincipalInvestigator(pi) {
-  return html`
-    <h2 class="team-heading">${pi.heading}</h2>
-    <div class="pi-block">
-      ${Portrait(pi)}
-      <div class="pi-text">
-        <div class="eyebrow">${pi.role}</div>
-        <h3>${pi.name}</h3>
-        <div class="pi-title">${pi.title}</div>
-        <p class="copy multiline">${paragraphs(pi.bio)}</p>
-        <a class="text-link" href="${pi.profileUrl}" target="_blank" rel="noopener noreferrer">Faculty profile ${ArrowIcon('up-right')}</a>
-      </div>
-    </div>
-  `;
-}
-
-/** #people — principal investigator and two group-photo links to team details. */
+/** #people — two vertically stacked, clickable group-photo sections. */
 export function TeamPage() {
-  const { banner, pi, groups } = content;
-
+  const { banner, groups } = content;
   return html`
     ${PageBanner(banner)}
     <section class="shell-wide team-wrap">
-      ${PrincipalInvestigator(pi)}
       <div class="team-divisions">
         <h2 class="team-heading">Our Team</h2>
         <div class="team-division-grid">
