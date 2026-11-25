@@ -43,13 +43,14 @@ test('only nine newest captioned photos appear in carousel, older photos move to
   assert.ok(archive.includes('Back to News'));
 });
 
-test('Archive exists before there are ten photos, with no placeholders or fake images', () => {
+test('Archive shows explicitly archived photos before ten recent photos, without placeholders', () => {
   const archive = String(GalleryArchivePage());
   assert.ok(archive.includes('Gallery Archive'));
   assert.ok(!archive.includes('Older photos will appear here'));
   assert.ok(!archive.includes('Photos and memories from earlier'));
   assert.ok(!archive.includes('class="gallery-archive-intro"'));
-  assert.equal((archive.match(/class="gallery-archive-card"/g) ?? []).length, 0);
+  assert.equal((archive.match(/class="gallery-archive-card"/g) ?? []).length, 1);
+  assert.ok(archive.includes('assh-2026-panel.jpg'));
   assert.ok(String(NewsPage()).includes('href="#gallery-archive"'));
 });
 
