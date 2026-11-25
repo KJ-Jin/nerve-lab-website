@@ -61,6 +61,7 @@ test('Lab News lists the two Goldner awards and the 2024 AFSH Basic Science Gran
   assert.ok(news.includes('Induced pluripotent stem cells to model the neuromuscular junction'));
   assert.ok(news.includes('Electrodiagnostic Features of Hyperselective Neurectomy in the Spastic Upper Limb'));
   assert.ok(news.includes('Patterned Microvascular Patches to Promote Angiogenesis in Nerve Surgery'));
+  assert.equal(content.news.filter(item => item.title.includes('Goldner Award') && item.date === 'OCTOBER 2026').length, 2);
   assert.ok(news.includes('Samuel Rayner'));
   assert.ok(news.indexOf('OCTOBER 2024') < news.indexOf('2024 AFSH Basic Science Grant'));
 });

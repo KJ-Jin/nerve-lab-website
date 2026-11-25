@@ -10,7 +10,7 @@
 }
 
 .page-banner .display {
-  font-size: clamp(54px, 5.2vw, 74px);
+  font-size: clamp(29px, 3.4vw, 43px);
   max-width: 900px;
   margin: 24px 0 16px;
 }
@@ -25,9 +25,6 @@
     padding-block: 60px 45px;
   }
 
-  .page-banner .display {
-    font-size: 53px;
-  }
 
   .page-banner .copy {
     font-size: 14px;

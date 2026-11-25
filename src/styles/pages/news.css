@@ -65,7 +65,7 @@
 }
 .news-gallery-heading .section-title {
   margin: 9px 0 0;
-  font-size: clamp(29px, 3.4vw, 43px);
+  font-size: clamp(25px, 2.7vw, 36px);
 }
 .news-gallery {
   background: #08080c;

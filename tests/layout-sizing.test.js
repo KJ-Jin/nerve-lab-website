@@ -76,3 +76,14 @@ test('Active Clinical Trials links match 14px descriptions without changing othe
   assert.match(cardCSS, /#page-research-clinical \.active-trials-list \.study-trial-link\s*\{[^}]*font-size:\s*14px;/);
   assert.ok(!cardCSS.includes('#page-research-basic .study-trial-link'));
 });
+
+
+test('Page headings match the former Recent Happenings scale, while section headings are smaller', () => {
+  const titles = css('components/page-banner.css');
+  const typography = css('typography.css');
+  const news = css('pages/news.css');
+  assert.match(titles, /\.page-banner \.display\s*\{[^}]*font-size:\s*clamp\(29px, 3\.4vw, 43px\)/);
+  assert.ok(!titles.includes('font-size: 53px'));
+  assert.match(typography, /\.section-title\s*\{[^}]*clamp\(25px, 2\.7vw, 36px\)/);
+  assert.match(news, /\.news-gallery-heading \.section-title\s*\{[^}]*font-size:\s*clamp\(25px, 2\.7vw, 36px\)/);
+});
