@@ -106,5 +106,5 @@ test('ASSH 2026 panel photo moves to Archive with unchanged caption; podium phot
 test('Photo dates are 25% larger in News and Archive', async () => {
   const { readFileSync } = await import('node:fs');
   const css = readFileSync(new URL('../src/styles/pages/news.css', import.meta.url), 'utf8');
-  assert.match(css, /\\.news-gallery-date\\s*\\{[^}]*font:\\s*700 12\\.5px\\/1\\.5/);
+  assert.match(css, /\.news-gallery-date\s*\{[^}]*font:\s*700 12\.5px\/1\.5/);
 });
