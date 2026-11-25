@@ -178,7 +178,7 @@
 }
 .news-gallery-caption[hidden] { display: none; }
 .news-gallery-date {
-  font: 700 10px/1.5 var(--sans);
+  font: 700 12.5px/1.5 var(--sans); /* 25% larger date text */
   color: var(--accent);
   letter-spacing: 1.6px;
   text-transform: uppercase;

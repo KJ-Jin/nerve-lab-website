@@ -10,9 +10,11 @@ export function getNewsPhotos(gallery = {}) {
 }
 
 export function getRecentPhotos(gallery = {}) {
-  return getNewsPhotos(gallery).slice(0, MAX_RECENT_PHOTOS);
+  return getNewsPhotos(gallery).filter((photo) => !photo.archiveOnly).slice(0, MAX_RECENT_PHOTOS);
 }
 
 export function getArchivedPhotos(gallery = {}) {
-  return getNewsPhotos(gallery).slice(MAX_RECENT_PHOTOS);
+  const photos = getNewsPhotos(gallery);
+  const recent = new Set(getRecentPhotos(gallery));
+  return photos.filter((photo) => !recent.has(photo));
 }

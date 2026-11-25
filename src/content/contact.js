@@ -16,6 +16,7 @@ export default {
       },
       {
         name: 'University of Washington Nerve Lab',
+        url: 'https://kj-jin.github.io/nerve-lab-website/',
         address: '850 Republican St., Seattle, WA 98109',
       },
     ],

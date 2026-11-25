@@ -91,7 +91,6 @@ test('News photo carousel stays hidden until real event photos with captions exi
   assert.ok(liveNews.includes('data-news-gallery'));
   for (const [fileName, caption] of [
     ['aanem-2026.jpg', 'Surgical Strategies for Functional Upper Extremity Reconstruction After Spinal Cord Injury'],
-    ['assh-2026-panel.jpg', 'Does Free Functional Muscle Transfer Outperform Nerve-Based Hand Reconstruction'],
     ['assh-2026-presentation.jpg', 'CCC15: Adult Brachial Plexus Reconstruction'],
     ['assh-2025-presentation.jpg', 'Patient Selection: Who, When, and What to Prioritize?'],
   ]) {
@@ -101,10 +100,11 @@ test('News photo carousel stays hidden until real event photos with captions exi
   assert.ok(!liveNews.includes('cats-eating-together.webp'));
   assert.ok(!liveNews.includes('cat-on-tree.webp'));
   assert.ok(!liveNews.includes('close-up-cat.webp'));
-  assert.equal((liveNews.match(/data-news-gallery-slide/g) || []).length, 4);
-  assert.equal((liveNews.match(/data-news-gallery-caption/g) || []).length, 4);
+  assert.equal((liveNews.match(/data-news-gallery-slide/g) || []).length, 3);
+  assert.equal((liveNews.match(/data-news-gallery-caption/g) || []).length, 3);
   assert.ok(liveNews.includes('data-position="previous"'));
-  assert.equal((liveNews.match(/data-news-gallery-dot=/g) || []).length, 4);
+  assert.equal((liveNews.match(/data-news-gallery-dot=/g) || []).length, 3);
+  assert.ok(!liveNews.includes('assh-2026-panel.jpg'));
 });
 
 test('News page has its own reduced banner spacing without changing other page banners', async () => {

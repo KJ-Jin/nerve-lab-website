@@ -20,6 +20,7 @@ export default {
       },
       {
         src: 'images/news/events/assh-2026-panel.jpg',
+        archiveOnly: true, // Keep this panel photo and its original description in Gallery Archive.
         alt: 'Panel discussion at the 2026 American Society for Surgery of the Hand Annual Meeting',
         caption: 'Dr. Liu speaks on “Does Free Functional Muscle Transfer Outperform Nerve-Based Hand Reconstruction?” at the American Society for Surgery of the Hand Annual Meeting, during CCC15: Adult Brachial Plexus Reconstruction: Controversies in Strategy and Priorities, in Boston, MA.',
         date: 'September 19, 2026',
