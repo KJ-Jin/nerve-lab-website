@@ -1,0 +1,144 @@
+/*
+ * Responsive image scale and text-flow safeguards.
+ * Imported after page styles to keep photographs compact on large screens.
+ * Images retain their original files and natural proportions.
+ */
+
+/* Wide illustrated cards should not consume the entire desktop viewport. */
+.team-division-grid {
+  width: 100%;
+  max-width: 930px;
+  margin-inline: auto;
+}
+.team-division-photo img {
+  object-fit: contain;
+}
+
+/* The lab member grid and PI portrait have an upper display limit. */
+.members-grid {
+  max-width: 970px;
+}
+.pi-block {
+  grid-template-columns: minmax(0, 315px) minmax(0, 1fr);
+}
+.team-group-detail {
+  max-width: 1000px;
+}
+.team-group-photo {
+  max-width: 950px;
+  margin-inline: auto;
+}
+.group-photo-figure img {
+  height: auto;
+  max-height: 490px;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+/* Research illustrations stay smaller than the text section. */
+.project:not(.project--text-only) {
+  grid-template-columns: minmax(0, 460px) minmax(0, 1fr);
+}
+.project-visual {
+  width: 100%;
+  max-width: 460px;
+}
+
+/* Slightly smaller News carousel and archive thumbnails. */
+.news-gallery-section {
+  max-width: 980px;
+}
+.news-gallery-stage {
+  height: clamp(215px, 23vw, 290px);
+}
+.gallery-archive-grid {
+  max-width: 970px;
+}
+.gallery-archive-card img {
+  height: 270px;
+}
+
+/* Keep the full-bleed homepage visual, but lower its height. */
+.home-hero {
+  min-height: 610px;
+}
+
+/*
+ * Never let heading text push a grid wider than its track or overlap copy.
+ * These are ordinary flow elements rather than positioned overlays.
+ */
+.project-content,
+.project-visual,
+.member-card,
+.team-division-label,
+.publication > div,
+.news-entry > div,
+.research-area-link,
+.contact-layout > *,
+.collaborator-card {
+  min-width: 0;
+}
+
+.project-content h3,
+.member-name,
+.team-division-label h3,
+.pub-title,
+.research-area-link h3,
+.research-overview h2,
+.collaborator-card h3,
+.news-entry h2,
+.contact-layout h2 {
+  display: block;
+  position: static;
+  height: auto;
+  max-height: none;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  line-height: 1.24;
+}
+
+/* Give long research titles their own room, then start the description below. */
+.project-content h3 {
+  margin-bottom: 16px;
+}
+.project-content .copy {
+  position: static;
+  clear: both;
+  margin-top: 16px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.project-content .project-subtitle,
+.project-content .study-pi,
+.project-content .study-status {
+  position: static;
+  height: auto;
+  max-height: none;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  .project:not(.project--text-only) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .pi-block {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .member-card {
+    max-width: 380px;
+  }
+  .project-content h3 {
+    font-size: clamp(25px, 6vw, 32px);
+    line-height: 1.28;
+  }
+  .gallery-archive-card img {
+    height: 230px;
+  }
+  .home-hero {
+    min-height: 630px;
+  }
+}

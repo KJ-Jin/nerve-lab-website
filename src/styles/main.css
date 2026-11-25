@@ -19,3 +19,6 @@
 @import './pages/publications.css';
 @import './pages/news.css';
 @import './pages/contact.css';
+
+/* Final responsive image and text-flow safeguards. */
+@import './photo-sizing.css';
