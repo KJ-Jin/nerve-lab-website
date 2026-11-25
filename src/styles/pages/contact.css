@@ -1,9 +1,9 @@
 .contact-layout {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 12%;
+  gap: clamp(30px, 6vw, 90px);
   align-items: start;
-  padding-block: 65px 110px;
+  padding-block: clamp(38px, 5vw, 65px) clamp(65px, 7vw, 110px);
 }
 
 .contact-layout .eyebrow {
@@ -41,7 +41,7 @@
 }
 
 .contact-recruit h2 {
-  font: 400 35px/1.25 Georgia, 'Times New Roman', serif;
+  font: 400 clamp(26px, 2.7vw, 35px)/1.25 Georgia, 'Times New Roman', serif;
   margin: 0 0 15px;
 }
 

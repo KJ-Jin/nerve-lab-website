@@ -5,8 +5,8 @@
 .publication {
   display: grid;
   grid-template-columns: 100px 1fr 42px;
-  gap: 35px;
-  padding: 29px 0;
+  gap: clamp(15px, 3vw, 35px);
+  padding: clamp(22px, 2.5vw, 29px) 0;
   border-top: 1px solid var(--line);
 }
 
@@ -93,4 +93,16 @@
 /* Muted gold is reserved for the publication link arrows; text remains lavender. */
 .pub-pubmed .site-arrow {
   color: var(--uw-gold-muted);
+}
+
+/* On narrow phones put the year above the title rather than squeezing its text column. */
+@media (max-width: 480px) {
+  .publication,
+  .publication--accepted {
+    grid-template-columns: minmax(0, 1fr) 22px;
+    gap: 8px 12px;
+  }
+  .pub-year {
+    grid-column: 1 / -1;
+  }
 }

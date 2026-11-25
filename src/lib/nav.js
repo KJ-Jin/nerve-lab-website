@@ -1,11 +1,11 @@
 /**
  * Header navigation: desktop dropdowns, accessible mobile menu toggles,
- * outside-click and Escape dismissal. Research and News share the same behavior.
+ * outside-click and Escape dismissal. Research, Team and News share the same behavior.
  */
 const mobileToggle = document.getElementById('mobile-toggle');
 const mainNav = document.getElementById('main-nav');
 
-const menus = ['research', 'news'].map((id) => ({
+const menus = ['research', 'team', 'news'].map((id) => ({
   id,
   wrapper: document.getElementById(`${id}-menu`),
   toggle: document.getElementById(`${id}-dropdown-toggle`),
@@ -59,12 +59,11 @@ export function initNav() {
 /** Highlight parent menus on their subpages and close menus on navigation. */
 export function updateNav(pageId) {
   const researchMenu = menus.find((menu) => menu.id === 'research');
+  const teamMenu = menus.find((menu) => menu.id === 'team');
   const newsMenu = menus.find((menu) => menu.id === 'news');
   researchMenu.wrapper.classList.toggle('current', pageId === 'research' || pageId.startsWith('research-'));
+  teamMenu.wrapper.classList.toggle('current', pageId === 'people' || pageId.startsWith('team-'));
   newsMenu.wrapper.classList.toggle('current', pageId === 'news' || pageId === 'gallery-archive');
-  // Keep Team highlighted while viewing either group detail page.
-  const teamLink = document.querySelector('.nav-link[data-page="people"]');
-  teamLink?.classList.toggle('active', pageId === 'people' || pageId.startsWith('team-'));
   closeMenus();
   setMobileMenuOpen(false);
 }

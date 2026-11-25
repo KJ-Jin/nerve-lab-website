@@ -1,4 +1,4 @@
-/* Main navigation, Research dropdown, and the mobile menu (≤640px). */
+/* Shared Research / Team / News dropdowns and the mobile menu (≤640px). */
 
 .nav-bar {
   background: #000;
@@ -102,6 +102,7 @@
   left: -23px;
   z-index: 80;
   min-width: 218px;
+  max-width: min(330px, calc(100vw - 2 * var(--gutter)));
   padding: 10px 8px;
   display: none;
   flex-direction: column;
@@ -117,7 +118,7 @@
   font: 700 14.85px/1.4 Arial, sans-serif;
   letter-spacing: 1.1px;
   text-transform: uppercase;
-  white-space: nowrap;
+  white-space: normal;
   border-radius: 3px;
 }
 
@@ -143,14 +144,22 @@
   }
 }
 
-@media (max-width: 900px) {
+/* Scale the nav as a unit until the mobile layout takes over. */
+@media (min-width: 641px) and (max-width: 1050px) {
   .main-nav {
-    gap: 25px;
-    padding: 0 22px;
+    gap: clamp(11px, 1.3vw, 22px);
+    padding-inline: clamp(18px, 2.3vw, 28px);
+  }
+  .nav-link {
+    font-size: clamp(12px, 1.25vw, 14px);
+    letter-spacing: 0.8px;
+  }
+  .nav-submenu a {
+    font-size: 13px;
   }
 }
 
-/* Phone: hamburger menu, Research sub-links expand inline */
+/* Phone: hamburger menu, dropdown links expand inline. */
 @media (max-width: 640px) {
   .nav-bar {
     position: relative;

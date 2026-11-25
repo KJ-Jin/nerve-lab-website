@@ -1,32 +1,32 @@
-/* Top-of-page banner (eyebrow, title, intro) — see src/components/page-banner.js */
-
+/* Shared compact page headings: consistent on phone, tablet and desktop. */
 .page-banner {
-  padding-block: 86px 72px;
+  padding-block: clamp(34px, 4vw, 54px) clamp(28px, 3.4vw, 46px);
 }
 
-/* An empty eyebrow still takes up its line, so titles line up across pages. */
-.page-banner .eyebrow:empty::before {
-  content: '\200b';
+/* A missing eyebrow should not leave an invisible extra row above page titles. */
+.page-banner .eyebrow:empty {
+  display: none;
 }
 
 .page-banner .display {
   font-size: clamp(29px, 3.4vw, 43px);
   max-width: 900px;
-  margin: 24px 0 16px;
+  margin: 14px 0 12px;
+}
+
+.page-banner .eyebrow:empty + .display {
+  margin-top: 0;
 }
 
 .page-banner .copy {
   max-width: 780px;
   margin: 0;
+  font-size: clamp(14px, 1.2vw, 16px);
+  line-height: 1.7;
 }
 
 @media (max-width: 640px) {
   .page-banner {
-    padding-block: 60px 45px;
-  }
-
-
-  .page-banner .copy {
-    font-size: 14px;
+    padding-block: 32px 28px;
   }
 }

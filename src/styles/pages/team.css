@@ -1,19 +1,19 @@
 /* #people (Team) page. Member cards and portraits are in components/member-card.css. */
 
 .team-wrap {
-  padding-block: 45px 100px;
+  padding-block: clamp(18px, 2.3vw, 30px) clamp(52px, 5.4vw, 78px);
 }
 
 .team-heading {
   display: block;
-  margin: 30px 0 25px;
-  font: 400 30px var(--serif);
+  margin: clamp(18px, 2.6vw, 30px) 0 clamp(16px, 2vw, 25px);
+  font: 400 clamp(25px, 2.5vw, 30px)/1.2 var(--serif);
 }
 
 /* Group photo */
 
 .team-group-photo {
-  padding: 69px 0 25px;
+  padding: clamp(32px, 4.5vw, 58px) 0 25px;
 }
 
 .group-photo-heading {
@@ -68,13 +68,13 @@
 .pi-block {
   display: grid;
   grid-template-columns: 34% 1fr;
-  gap: 65px;
-  padding-bottom: 68px;
+  gap: clamp(24px, 4vw, 56px);
+  padding-bottom: clamp(42px, 5vw, 64px);
   border-bottom: 1px solid var(--line);
 }
 
 .pi-text h3 {
-  font: 400 clamp(40px, 4vw, 54px) / 1.2 var(--serif);
+  font: 400 clamp(29px, 3vw, 42px) / 1.2 var(--serif);
   letter-spacing: -1px;
   margin: 14px 0;
 }
@@ -95,7 +95,7 @@
 /* Member groups (Lab Members, Clinical Team, …) */
 
 .team-group .team-heading {
-  margin-top: 75px;
+  margin-top: clamp(42px, 6vw, 68px);
 }
 
 .team-group + .team-group {
@@ -110,7 +110,7 @@
 
 @media (max-width: 640px) {
   .team-wrap {
-    padding-block: 20px 70px;
+    padding-block: 18px 56px;
   }
 
   .pi-block {
@@ -139,7 +139,7 @@
 .team-division-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 34px;
+  gap: clamp(20px, 2.8vw, 34px);
 }
 .team-division-card {
   display: block;
@@ -200,11 +200,11 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
-  gap: 14px 22px;
-  padding: 24px 25px 27px;
+  gap: 12px 22px;
+  padding: clamp(17px, 2vw, 24px);
 }
 .team-division-label h3 {
-  font: 400 clamp(25px, 2.2vw, 32px)/1.2 var(--serif);
+  font: 400 clamp(23px, 2.2vw, 32px)/1.2 var(--serif);
   margin: 0;
 }
 .team-division-label > span {
@@ -216,14 +216,14 @@
   letter-spacing: .4px;
 }
 .team-group-detail {
-  padding-top: 3px;
-  padding-bottom: 70px;
+  padding-top: clamp(14px, 2.6vw, 32px);
+  padding-bottom: clamp(42px, 5vw, 70px);
 }
 .team-group-detail > .team-heading {
   margin-top: 12px;
 }
 .team-group-detail + .collaborator-section {
-  padding-top: 58px;
+  padding-top: clamp(36px, 4vw, 58px);
 }
 .team-group-return {
   padding-bottom: 85px;
@@ -233,20 +233,20 @@
 }
 @media (max-width: 700px) {
   .team-division-grid { grid-template-columns: 1fr; gap: 18px; }
-  .team-division-label { padding: 20px; }
+  .team-division-label { padding: clamp(16px, 3.5vw, 20px); }
   .team-group-detail { padding-bottom: 50px; }
 }
 
 /* Investigator and member order on the dedicated team pages. */
 .team-basic-principal {
-  margin-bottom: 58px;
+  margin-bottom: clamp(38px, 4.4vw, 58px);
 }
 .team-basic-principal > .team-heading,
 .clinical-pi-section > .team-heading {
   margin-top: 12px;
 }
 .clinical-pi-section {
-  margin-bottom: 72px;
+  margin-bottom: clamp(42px, 5vw, 68px);
 }
 .clinical-pi-section .members-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -270,9 +270,7 @@
   .clinical-pi-section .members-grid {
     grid-template-columns: 1fr;
   }
-  .team-division-photo {
-    aspect-ratio: 1920 / 819;
-  }
+  /* Keep the clinical photo at 16:9 on mobile instead of shrinking it into a panoramic slot. */
   .team-basic-principal {
     margin-bottom: 42px;
   }

@@ -63,11 +63,11 @@ test('Black backgrounds, muted gold and purple navigation line stay unchanged', 
 test('Basic Science project titles shrink by 20% and descriptions grow by 20% only on that page', () => {
   const cssText = css('pages/research.css');
   const cardCSS = css('components/study-card.css');
-  assert.match(cardCSS, /\.project-content h3\s*\{[^}]*clamp\(34px, 3\.3vw, 48px\)/);
+  assert.match(cardCSS, /\.project-content h3\s*\{[^}]*clamp\(30px, 3vw, 42px\)/);
   assert.match(cardCSS, /\.project-content \.copy\s*\{[^}]*font-size:\s*14px;/);
-  assert.match(cssText, /#page-research-basic \.project-content h3\s*\{[^}]*clamp\(27\.2px, 2\.64vw, 38\.4px\)/);
-  assert.match(cssText, /#page-research-basic \.project-content \.copy\s*\{[^}]*font-size:\s*16\.8px;/);
-  assert.match(cssText, /@media \(max-width: 640px\)[\s\S]*?#page-research-basic \.project-content h3\s*\{[^}]*font-size:\s*28\.8px;/);
+  assert.match(cssText, /#page-research-basic \.project-content h3\s*\{[^}]*clamp\(24px, 2\.4vw, 33\.6px\)/);
+  assert.match(cssText, /#page-research-basic \.project-content \.copy\s*\{[^}]*font-size:\s*clamp\(14\.8px, 1\.15vw, 16\.8px\);/);
+  assert.match(cssText, /@media \(max-width: 640px\)[\s\S]*?#page-research-basic \.project-content h3\s*\{[^}]*font-size:\s*clamp\(23px, 5\.6vw, 28px\);/);
 });
 
 test('Active Clinical Trials links match 14px descriptions without changing other study links', () => {
@@ -86,4 +86,18 @@ test('Page headings match the former Recent Happenings scale, while section head
   assert.ok(!titles.includes('font-size: 53px'));
   assert.match(typography, /\.section-title\s*\{[^}]*clamp\(25px, 2\.7vw, 36px\)/);
   assert.match(news, /\.news-gallery-heading \.section-title\s*\{[^}]*font-size:\s*clamp\(25px, 2\.7vw, 36px\)/);
+});
+
+
+test('Shared compact banners and stable photo proportions work at desktop and mobile widths', () => {
+  const banner = css('components/page-banner.css');
+  const team = css('pages/team.css');
+  const studies = css('components/study-card.css');
+  const nav = css('components/nav.css');
+  assert.ok(banner.includes('padding-block: clamp(34px, 4vw, 54px) clamp(28px, 3.4vw, 46px);'));
+  assert.ok(banner.includes('.page-banner .eyebrow:empty {\n  display: none;'));
+  assert.ok(team.includes('aspect-ratio: 16 / 9;'));
+  assert.ok(!team.includes('.team-division-photo {\n    aspect-ratio: 1920 / 819;'));
+  assert.ok(studies.includes('aspect-ratio: 4 / 3;'));
+  assert.ok(nav.includes('@media (min-width: 641px) and (max-width: 1050px)'));
 });

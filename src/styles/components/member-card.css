@@ -26,9 +26,9 @@
 
 .members-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-top: 25px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2.4vw, 30px);
+  margin-top: clamp(16px, 2vw, 25px);
 }
 
 .member-card .portrait {
@@ -41,8 +41,8 @@
 }
 
 .member-name {
-  font: 400 25px var(--serif);
-  margin: 17px 0 4px;
+  font: 400 clamp(21px, 2vw, 25px)/1.2 var(--serif);
+  margin: clamp(12px, 1.4vw, 17px) 0 4px;
 }
 
 .member-role {
@@ -60,12 +60,15 @@
 
 @media (max-width: 900px) {
   .members-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 640px) {
   .members-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .member-card {
+    max-width: 460px;
   }
 }

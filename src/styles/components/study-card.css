@@ -3,8 +3,8 @@
 .project {
   display: grid;
   grid-template-columns: 48% 1fr;
-  gap: 7%;
-  padding: 52px 0 90px;
+  gap: clamp(24px, 4vw, 60px);
+  padding: clamp(28px, 3.5vw, 46px) 0 clamp(42px, 5vw, 70px);
   border-top: 1px solid #27222c;
 }
 
@@ -24,7 +24,7 @@
 .visual-frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 1.09 / 1;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   background: #111017;
 }
@@ -58,7 +58,7 @@
 }
 
 .project-content h3 {
-  font: 400 clamp(34px, 3.3vw, 48px) / 1.14 var(--serif);
+  font: 400 clamp(30px, 3vw, 42px) / 1.14 var(--serif);
   letter-spacing: -1px;
   margin: 20px 0 10px;
 }
@@ -144,8 +144,8 @@
 
 @media (max-width: 900px) {
   .project {
-    grid-template-columns: 1fr;
-    gap: 32px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(18px, 3vw, 28px);
   }
 
   .project:nth-of-type(even) .project-visual,
@@ -153,22 +153,15 @@
     order: initial;
   }
 
-  .visual-frame {
-    aspect-ratio: 1.65;
-  }
+  /* Keep a 4:3 visual crop on desktop, tablet and mobile. */
 }
 
 @media (max-width: 640px) {
   .project {
-    padding: 40px 0 65px;
+    padding: 26px 0 44px;
   }
-
-  .visual-frame {
-    aspect-ratio: 1.1;
-  }
-
   .project-content h3 {
-    font-size: 36px;
+    font-size: clamp(25px, 6vw, 32px);
   }
 }
 

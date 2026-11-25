@@ -121,3 +121,17 @@ test('Clinical Team photo is a permanent asset and its full waterfront illustrat
   assert.match(styles, /\.team-division-photo--clinical\s*\{[^}]*aspect-ratio:\s*16\s*\/\s*9;/);
   assert.ok(styles.includes('object-fit: contain;'));
 });
+
+
+test('Navigation provides accessible dropdown links to both Team sections', async () => {
+  const { readFileSync } = await import('node:fs');
+  const markup = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+  const nav = readFileSync(new URL('../src/lib/nav.js', import.meta.url), 'utf8');
+  assert.ok(markup.includes('id="team-menu"'));
+  assert.ok(markup.includes('id="team-dropdown-toggle"'));
+  assert.ok(markup.includes('aria-controls="team-submenu"'));
+  assert.ok(markup.includes('href="#team-basic" data-page="team-basic">Basic Science Lab Team</a>'));
+  assert.ok(markup.includes('href="#team-clinical" data-page="team-clinical">Clinical Research Team</a>'));
+  assert.ok(nav.includes("['research', 'team', 'news']"));
+  assert.ok(nav.includes("teamMenu.wrapper.classList.toggle('current'"));
+});

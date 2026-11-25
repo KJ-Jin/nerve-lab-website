@@ -3,8 +3,8 @@
 .research-overview {
   display: grid;
   grid-template-columns: 27% 1fr;
-  gap: 50px;
-  padding-block: 74px 70px;
+  gap: clamp(24px, 4vw, 50px);
+  padding-block: clamp(38px, 5vw, 66px);
 }
 
 .research-overview h2 {
@@ -22,7 +22,7 @@
 /* Research area cards */
 
 .research-areas {
-  padding: 76px 0 35px;
+  padding: clamp(42px, 5vw, 70px) 0 35px;
 }
 
 .research-areas > .shell > h2 {
@@ -32,8 +32,8 @@
 .research-area-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 25px;
-  margin: 38px 0 75px;
+  gap: clamp(17px, 2vw, 25px);
+  margin: clamp(26px, 3vw, 38px) 0 clamp(48px, 5vw, 75px);
 }
 
 .research-area-link {
@@ -59,7 +59,7 @@
 }
 
 .research-area-link h3 {
-  font: 400 35px/1.12 Georgia, serif;
+  font: 400 clamp(26px, 2.5vw, 35px)/1.12 Georgia, serif;
   margin: 25px 0 18px;
 }
 
@@ -83,11 +83,12 @@
 }
 
 .study-list {
-  padding: 14px 0 35px;
+  padding: clamp(12px, 1.6vw, 20px) 0 clamp(35px, 4vw, 55px);
 }
 
 .study-list .project:first-of-type {
-  padding-top: 24px;
+  border-top: 0;
+  padding-top: clamp(8px, 1.6vw, 20px);
 }
 
 .research-empty {
@@ -126,7 +127,7 @@
   }
 
   .study-list {
-    padding-bottom: 60px;
+    padding-bottom: 42px;
   }
 
   .research-area-grid {
@@ -173,13 +174,13 @@
 /* Basic Science only: reduce project headings 20%, increase descriptions 20%.
  * Clinical Studies and Active Clinical Trials retain their original typography. */
 #page-research-basic .project-content h3 {
-  font-size: clamp(27.2px, 2.64vw, 38.4px);
+  font-size: clamp(24px, 2.4vw, 33.6px);
 }
 #page-research-basic .project-content .copy {
-  font-size: 16.8px;
+  font-size: clamp(14.8px, 1.15vw, 16.8px);
 }
 @media (max-width: 640px) {
   #page-research-basic .project-content h3 {
-    font-size: 28.8px;
+    font-size: clamp(23px, 5.6vw, 28px);
   }
 }
