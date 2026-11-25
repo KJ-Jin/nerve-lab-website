@@ -41,7 +41,8 @@ test('Basic Sciences collaborators appear below basic sciences team members, not
   }
   assert.ok(page.includes('Basic Sciences Collaborators'));
   assert.equal((page.match(/class="collaborator-card"/g) ?? []).length, 6);
-  assert.equal((page.match(/University of Washington/g) || []).length, 5);
+  const collaboratorsSection = page.slice(page.indexOf('class="shell collaborator-section"'));
+  assert.equal((collaboratorsSection.match(/University of Washington/g) || []).length, 5);
   assert.ok(page.includes('Washington University in St. Louis'));
   assert.ok(page.includes('https://nerveresearch.wustl.edu/'));
   assert.ok(page.includes('https://ndrg.uw.edu/'));
