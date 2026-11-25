@@ -111,7 +111,7 @@ test('Illustrated group portrait is uploaded with a correct team label and remai
 
 test('Clinical Team photo is a permanent asset and its full waterfront illustration is shown uncropped', async () => {
   const { statSync, readFileSync } = await import('node:fs');
-  assert.equal(clinical.title, 'Clinical Team');
+  assert.equal(clinical.title, 'Clinical Research Team');
   assert.equal(clinical.photo, 'images/team/clinical-team.webp');
   assert.ok(statSync(new URL('../images/team/clinical-team.webp', import.meta.url)).size > 20000);
   const landing = String(TeamPage());
