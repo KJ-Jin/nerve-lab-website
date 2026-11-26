@@ -88,25 +88,11 @@ export default {
           photoPosition: '16.666667%',
         },
         {
-          name: 'Christopher S. Crowe, MD',
-          role: 'Principal Investigator',
-          photo: 'images/team/clinical-pis-sprite.webp',
-          photoPosition: '50%',
-          profileUrl: 'https://www.uwmedicine.org/bios/christopher-crowe',
-        },
-        {
           name: 'Jeffrey B. Friedrich, MD',
           role: 'Principal Investigator',
           photo: 'images/team/clinical-pis-sprite.webp',
           photoPosition: '66.666667%',
           profileUrl: 'https://www.uwmedicine.org/bios/jeffrey-friedrich',
-        },
-        {
-          name: 'Benjamin L. Grannan, MD',
-          role: 'Principal Investigator',
-          photo: 'images/team/clinical-pis-sprite.webp',
-          photoPosition: '33.333333%',
-          profileUrl: 'https://www.uwmedicine.org/bios/benjamin-grannan',
         },
         {
           name: 'Yusha “Katie” Liu, MD, PhD',
@@ -116,16 +102,30 @@ export default {
           profileUrl: 'https://www.uwmedicine.org/bios/yusha-katie-liu',
         },
         {
-          name: 'Whitney M. Morean, PhD',
-          role: 'Principal Investigator',
-          photo: 'images/team/clinical-pis-sprite.webp',
-          photoPosition: '100%',
-        },
-        {
           name: 'Sarah M. Smith, MD',
           role: 'Principal Investigator',
           photo: 'images/team/clinical-pis-sprite.webp',
           photoPosition: '83.333333%',
+        },
+        {
+          name: 'Christopher S. Crowe, MD',
+          role: 'Principal Investigator',
+          photo: 'images/team/clinical-pis-sprite.webp',
+          photoPosition: '50%',
+          profileUrl: 'https://www.uwmedicine.org/bios/christopher-crowe',
+        },
+        {
+          name: 'Benjamin L. Grannan, MD',
+          role: 'Principal Investigator',
+          photo: 'images/team/clinical-pis-sprite.webp',
+          photoPosition: '33.333333%',
+          profileUrl: 'https://www.uwmedicine.org/bios/benjamin-grannan',
+        },
+        {
+          name: 'Whitney M. Morean, PhD',
+          role: 'Principal Investigator',
+          photo: 'images/team/clinical-pis-sprite.webp',
+          photoPosition: '100%',
         },
       ],
       members: [

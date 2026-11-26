@@ -68,19 +68,18 @@ test('Basic Sciences details begin with Katie as PI followed by five members', (
   assert.ok(!page.includes('images/team/clinical-pis-sprite.webp'));
 });
 
-test('Clinical PIs retain their photos and are alphabetical by surname', () => {
+test('Clinical PIs keep their portraits in the requested W layout order', () => {
   const page = String(TeamGroupPage(clinical));
   assert.equal(clinical.principalInvestigators.length, 7);
   const names = [
     'Aaron E. Bunnell, MD',
-    'Christopher S. Crowe, MD',
     'Jeffrey B. Friedrich, MD',
-    'Benjamin L. Grannan, MD',
     'Yusha “Katie” Liu, MD, PhD',
-    'Whitney M. Morean, PhD',
     'Sarah M. Smith, MD',
-  ];
-  for (let i=0; i<names.length; i++) {
+    'Christopher S. Crowe, MD',
+    'Benjamin L. Grannan, MD',
+    'Whitney M. Morean, PhD',
+  ];  for (let i=0; i<names.length; i++) {
     assert.equal(clinical.principalInvestigators[i].name, names[i]);
     assert.equal(clinical.principalInvestigators[i].role, 'Principal Investigator');
     assert.equal(clinical.principalInvestigators[i].photo, 'images/team/clinical-pis-sprite.webp');
@@ -148,8 +147,16 @@ test('Clinical principal investigators form a staggered W: four above, three cen
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.clinical-pi-section \.members-grid\s*\{[^}]*repeat\(2, minmax\(0, 1fr\)\)/);
   assert.match(css, /@media \(max-width: 640px\)[\s\S]*?\.clinical-pi-section \.members-grid\s*\{[^}]*grid-template-columns:\s*1fr/);
   const surname = name => name.split(',')[0].trim().split(' ').at(-1);
-  const pi = clinical.principalInvestigators.map(person => surname(person.name));
-  assert.deepEqual(pi, [...pi].sort((a,b) => a.localeCompare(b, 'en')));
+  const pi = clinical.principalInvestigators.map(person => person.name);
+  assert.deepEqual(pi, [
+    'Aaron E. Bunnell, MD',
+    'Jeffrey B. Friedrich, MD',
+    'Yusha “Katie” Liu, MD, PhD',
+    'Sarah M. Smith, MD',
+    'Christopher S. Crowe, MD',
+    'Benjamin L. Grannan, MD',
+    'Whitney M. Morean, PhD',
+  ]);
   const members = clinical.members.map(person => surname(person.name));
   assert.deepEqual(members, [...members].sort((a,b) => a.localeCompare(b, 'en')));
 });
