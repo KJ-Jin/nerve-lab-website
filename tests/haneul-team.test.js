@@ -195,6 +195,6 @@ test('Clinical PI portraits use the exact original screenshot grid size and W ar
   assert.ok(!css.includes('max-width: 1260px'), 'no oversized clinical grid');
   assert.ok(!css.includes('Individual clinical PI framing adjustments'), 'other faces keep their natural framing');
   assert.ok(!css.includes('transform: scale(0.88)'), 'Aaron framing must be in the image, not a CSS border');
-  assert.equal(clinical.principalInvestigators[1].photo, 'images/team/clinical-pis/aaron-bunnell.webp');
+  assert.equal(clinical.principalInvestigators[1].photo, 'images/team/clinical-pis-sprite.webp');
   assert.equal(clinical.principalInvestigators.length, 7);
 });
