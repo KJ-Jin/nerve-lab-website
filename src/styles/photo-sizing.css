@@ -159,3 +159,234 @@ body, h1, h2, h3, h4, h5, h6, p, li, span, a {
     min-height: 630px;
   }
 }
+
+/* CONSISTENT TYPE SCALE · 2026
+ * Keep font sizes stable while the window changes. Layout and images adapt to
+ * available width instead of independently scaling the text with vw units.
+ */
+:root {
+  --type-page: 35px;
+  --type-section: 28px;
+  --type-card: 25px;
+  --type-body: 15px;
+  --type-member: 22px;
+}
+
+body {
+  font-size: var(--type-body);
+}
+
+/* Stable visual hierarchy across all breakpoints, including small mobile. */
+.display,
+.page-banner .display {
+  font-size: var(--type-page);
+  line-height: 1.17;
+  letter-spacing: -0.8px;
+}
+.section-title,
+.news-gallery-heading .section-title {
+  font-size: var(--type-section);
+  line-height: 1.22;
+}
+.home-hero .display {
+  font-size: var(--type-page);
+  line-height: 1.14;
+}
+.home-hero .copy {
+  font-size: 17px;
+  line-height: 1.55;
+}
+.research-overview h2,
+.research-overview h2.section-title {
+  font-size: 27px;
+  line-height: 1.27;
+}
+.research-overview p {
+  font-size: var(--type-body);
+  line-height: 1.7;
+}
+.project-content h3,
+#page-research-basic .project-content h3 {
+  font-size: var(--type-card);
+  line-height: 1.25;
+  letter-spacing: -0.4px;
+}
+.project-content .copy,
+#page-research-basic .project-content .copy {
+  font-size: var(--type-body);
+  line-height: 1.72;
+}
+.project-subtitle,
+.study-pi {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.team-heading,
+.active-trials-heading,
+.contact-recruit h2 {
+  font-size: var(--type-section);
+  line-height: 1.25;
+}
+.pi-text h3 {
+  font-size: 30px;
+  line-height: 1.25;
+}
+.member-name {
+  font-size: var(--type-member);
+  line-height: 1.3;
+}
+.team-division-label h3,
+.news-entry h2,
+.research-area-link h3,
+.pub-title,
+.collaborator-card h3,
+.address-block h2 {
+  font-size: 24px;
+  line-height: 1.3;
+}
+.nav-link,
+.nav-submenu a {
+  font-size: 14px;
+}
+.page-banner .copy,
+.copy {
+  font-size: var(--type-body);
+  line-height: 1.7;
+}
+
+/* More compact vertical rhythm, without removing useful separation. */
+.page-banner {
+  padding-block: 36px 28px;
+}
+.page-banner .display {
+  margin-block: 12px 10px;
+}
+.research-overview {
+  padding-block: 32px 42px;
+  gap: 30px;
+}
+.research-areas {
+  padding-top: 42px;
+}
+.research-areas > .shell > h2 {
+  margin-bottom: 28px;
+}
+.research-area-grid {
+  margin-block: 26px 48px;
+}
+.study-list {
+  padding-block: 8px 30px;
+}
+.project {
+  padding-block: 28px 42px;
+  gap: 28px;
+}
+.study-list .project:first-of-type {
+  padding-top: 18px;
+}
+.project-content h3 {
+  margin: 0 0 12px;
+}
+.project-content .copy,
+#page-research-basic .project-content .copy {
+  margin-top: 12px;
+}
+.team-wrap {
+  padding-block: 18px 58px;
+}
+.members-grid {
+  gap: 22px;
+}
+.clinical-pi-section {
+  margin-bottom: 44px;
+}
+
+/* Research photos and text share the same grid, so neither becomes dominant.
+ * Alternate rows mirror the narrower image column. Leave text-only trials intact.
+ */
+.project:not(.project--text-only) {
+  grid-template-columns: minmax(0, min(40%, 400px)) minmax(0, 1fr);
+  gap: 30px;
+}
+.project:not(.project--text-only):nth-of-type(even) {
+  grid-template-columns: minmax(0, 1fr) minmax(0, min(40%, 400px));
+}
+.project-visual {
+  width: 100%;
+  max-width: none;
+}
+.visual-frame {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+.visual-frame > img {
+  object-fit: contain;
+}
+
+/* Switch to one column at the point where the two-column design gets cramped.
+ * The photo remains proportionate but no longer fills the whole window.
+ */
+@media (max-width: 800px) {
+  .project:not(.project--text-only),
+  .project:not(.project--text-only):nth-of-type(even) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+  .project-visual {
+    max-width: 360px;
+  }
+  .project {
+    padding-block: 24px 36px;
+  }
+  .research-overview {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+  .nav-link,
+  .nav-submenu a {
+    font-size: 14px;
+  }
+}
+
+/* On phones keep the same typographic proportions, rather than inflating
+ * titles or shrinking body copy relative to photos.
+ */
+@media (max-width: 640px) {
+  .project-visual {
+    max-width: 320px;
+  }
+  .project-content h3,
+  #page-research-basic .project-content h3 {
+    font-size: var(--type-card);
+  }
+  .home-hero .display {
+    font-size: var(--type-page);
+  }
+  .home-hero .copy {
+    font-size: 17px;
+  }
+  .research-overview h2,
+  .research-overview h2.section-title {
+    font-size: 27px;
+  }
+  .research-overview p,
+  .page-banner .copy {
+    font-size: var(--type-body);
+  }
+  .page-banner {
+    padding-block: 30px 25px;
+  }
+  .research-overview {
+    padding-block: 28px 36px;
+  }
+  .research-areas {
+    padding-block: 38px;
+  }
+  .research-area-link h3 {
+    font-size: 24px;
+  }
+  .team-division-label h3,
+  .pub-title {
+    font-size: 24px;
+  }
+}
