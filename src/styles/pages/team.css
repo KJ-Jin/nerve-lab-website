@@ -248,11 +248,24 @@
 .clinical-pi-section {
   margin-bottom: clamp(42px, 5vw, 68px);
 }
+/* Four across on top, three centered between them on row two (W layout).
+ * Eight half-width tracks keep every headshot exactly the same width.
+ */
 .clinical-pi-section .members-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(8, minmax(0, 1fr));
 }
 .clinical-pi-section .member-card {
   min-width: 0;
+  grid-column: span 2;
+}
+.clinical-pi-section .member-card:nth-child(5) {
+  grid-column: 2 / span 2;
+}
+.clinical-pi-section .member-card:nth-child(6) {
+  grid-column: 4 / span 2;
+}
+.clinical-pi-section .member-card:nth-child(7) {
+  grid-column: 6 / span 2;
 }
 .clinical-pi-section .member-role {
   margin-bottom: 10px;
@@ -264,6 +277,10 @@
 @media (max-width: 900px) {
   .clinical-pi-section .members-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .clinical-pi-section .member-card,
+  .clinical-pi-section .member-card:nth-child(n) {
+    grid-column: auto;
   }
 }
 @media (max-width: 640px) {

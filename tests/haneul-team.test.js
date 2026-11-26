@@ -136,10 +136,15 @@ test('Navigation provides accessible dropdown links to both Team sections', asyn
   assert.ok(nav.includes("teamMenu.wrapper.classList.toggle('current'"));
 });
 
-test('Clinical principal investigators form a 4-column, two-row grid on desktop', async () => {
+test('Clinical principal investigators form a staggered W: four above, three centered', async () => {
   const { readFileSync } = await import('node:fs');
   const css = readFileSync(new URL('../src/styles/pages/team.css', import.meta.url), 'utf8');
-  assert.match(css, /\.clinical-pi-section \.members-grid\s*\{[^}]*grid-template-columns:\s*repeat\(4, minmax\(0, 1fr\)\)/);
+  assert.match(css, /\.clinical-pi-section \.members-grid\s*\{[^}]*grid-template-columns:\s*repeat\(8, minmax\(0, 1fr\)\)/);
+  assert.match(css, /\.clinical-pi-section \.member-card\s*\{[^}]*grid-column:\s*span 2/);
+  for (const [n, col] of [[5, 2], [6, 4], [7, 6]]) {
+    assert.ok(css.includes(`.clinical-pi-section .member-card:nth-child(${n}) {\n  grid-column: ${col} / span 2;`), 'staggered placement for card ' + n);
+  }
+  assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.clinical-pi-section \.member-card:nth-child\(n\)\s*\{[^}]*grid-column:\s*auto/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.clinical-pi-section \.members-grid\s*\{[^}]*repeat\(2, minmax\(0, 1fr\)\)/);
   assert.match(css, /@media \(max-width: 640px\)[\s\S]*?\.clinical-pi-section \.members-grid\s*\{[^}]*grid-template-columns:\s*1fr/);
   const surname = name => name.split(',')[0].trim().split(' ').at(-1);
