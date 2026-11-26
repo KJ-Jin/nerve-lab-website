@@ -87,17 +87,8 @@ test('Clinical PIs keep their portraits in the requested W layout order', () => 
   ];  for (let i=0; i<names.length; i++) {
     assert.equal(clinical.principalInvestigators[i].name, names[i]);
     assert.equal(clinical.principalInvestigators[i].role, 'Principal Investigator');
-    const newPhotoPaths = [
-      'images/team/clinical-pis/jeffrey-friedrich.webp',
-      'images/team/clinical-pis/aaron-bunnell.webp',
-      'images/team/clinical-pis/benjamin-grannan.webp',
-      'images/team/clinical-pis/katie-liu.webp',
-      'images/team/clinical-pis/sarah-smith.webp',
-      'images/team/clinical-pis/christopher-crowe.webp',
-      'images/team/clinical-pis/whitney-morean.webp',
-    ];
-    assert.equal(clinical.principalInvestigators[i].photo, newPhotoPaths[i]);
-    assert.equal(clinical.principalInvestigators[i].photoPosition, undefined);
+    assert.equal(clinical.principalInvestigators[i].photo, 'images/team/clinical-pis-sprite.webp');
+    assert.equal(clinical.principalInvestigators[i].photoPosition, ['66.666667%', '16.666667%', '33.333333%', '0%', '83.333333%', '50%', '100%'][i]);
     assert.ok(page.includes(names[i]));
   }
   assert.deepEqual(clinical.members, []);
@@ -176,30 +167,25 @@ test('Clinical principal investigators form a staggered W: four above, three cen
 });
 
 
-test('All seven clinical PIs use the newly supplied original-proportion portraits', async () => {
+test('Clinical PI portraits use the original screenshot framing and undistorted square cards', async () => {
   const { readFileSync, statSync } = await import('node:fs');
-  const photoPaths = clinical.principalInvestigators.map(person => person.photo);
-  assert.equal(new Set(photoPaths).size, 7);
-  for (const photo of photoPaths) {
-    assert.match(photo, /^images\/team\/clinical-pis\/[-a-z]+\.webp$/);
-    const path = new URL('../' + photo, import.meta.url);
-    const buf = readFileSync(path);
-    assert.ok(buf.length > 8000, 'headshot must be present: ' + photo);
-    assert.equal(buf.toString('ascii',0,4), 'RIFF');
-    assert.equal(buf.toString('ascii',8,12), 'WEBP');
-    assert.equal(buf.toString('ascii',12,16), 'VP8 ');
-    const width=buf.readUInt16LE(26) & 0x3fff;
-    const height=buf.readUInt16LE(28) & 0x3fff;
-    assert.ok(width >= 250, photo + ' must have usable display resolution');
-    assert.ok(height > width, photo + ' must preserve its original portrait aspect ratio');
-  }
+  const sprite = 'images/team/clinical-pis-sprite.webp';
+  assert.ok(statSync(new URL('../'+sprite, import.meta.url)).size > 20000);
   const page = String(TeamGroupPage(clinical));
-  assert.ok(!page.includes('clinical-pis-sprite.webp'));
-  for(const photo of photoPaths) assert.ok(page.includes(photo));
+  const positions = ['66.666667%', '16.666667%', '33.333333%', '0%', '83.333333%', '50%', '100%'];
+  assert.equal(clinical.principalInvestigators.length, positions.length);
+  assert.equal((page.match(/src="images\/team\/clinical-pis-sprite.webp"/g) || []).length, 7);
+  for (const [i, pi] of clinical.principalInvestigators.entries()) {
+    assert.equal(pi.photo, sprite);
+    assert.equal(pi.photoPosition, positions[i]);
+    assert.ok(page.includes(`object-position: ${positions[i]} center`));
+  }
+  const css = readFileSync(new URL('../src/styles/components/member-card.css', import.meta.url), 'utf8');
+  assert.match(css, /\.member-card \.portrait\s*\{\s*aspect-ratio:\s*1;/);
+  assert.match(css, /\.portrait img\s*\{[^}]*object-fit:\s*cover/);
 });
 
-
-test('Clinical PI portraits retain the exact pre-replacement grid size and W arrangement', async () => {
+test('Clinical PI portraits use the exact original screenshot grid size and W arrangement', async () => {
   const { readFileSync } = await import('node:fs');
   const css = readFileSync(new URL('../src/styles/pages/team.css', import.meta.url), 'utf8');
   const responsive = readFileSync(new URL('../src/styles/photo-sizing.css', import.meta.url), 'utf8');
