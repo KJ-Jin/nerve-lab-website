@@ -26,32 +26,37 @@ test('Team landing page has two vertically stacked clickable group-photo slots, 
   assert.ok(!landing.includes('class="collaborator-card"'));
 });
 
-test('Haneul Ryou and Joyce Liu belong to both basic sciences and clinical teams', () => {
-  for (const group of [basic, clinical]) {
-    assert.ok(group.members.some(member => member.name === 'Haneul Ryou'));
-    assert.ok(group.members.some(member => member.name === 'Joyce Liu'));
-  }
+test('Haneul Ryou and Joyce Liu are shown only on Basic Science Lab Team', () => {
+  assert.ok(basic.members.some(member => member.name === 'Haneul Ryou'));
+  assert.ok(basic.members.some(member => member.name === 'Joyce Liu'));
+  assert.equal(clinical.members.length, 0);
   const haneul = basic.members.find(person => person.name === 'Haneul Ryou');
   assert.equal(haneul.role, 'Medical Student Research Fellow');
   assert.equal(haneul.photo, 'images/team/haneul-ryou.webp');
   assert.match(haneul.bio, /socioeconomic barriers to care/);
   assert.match(haneul.bio, /cafe hopping, cooking, reading, and running!/);
-  const joyce = clinical.members.find(person => person.name === 'Joyce Liu');
+  const joyce = basic.members.find(person => person.name === 'Joyce Liu');
   assert.equal(joyce.photo, 'images/team/joyce-liu.png');
   assert.match(joyce.bio, /cardiovascular research/);
   assert.equal(basic.members.length, 5);
-  assert.equal(clinical.members.length, 2);
+  assert.deepEqual(clinical.members, []);
 });
 
-test('Member cards render only inside the team group detail pages', () => {
+test('Member cards appear on Basic Science and only PI cards appear on Clinical Research', () => {
   const basics = String(TeamGroupPage(basic));
   const clinic = String(TeamGroupPage(clinical));
   assert.equal((basics.match(/class="member-card"/g) || []).length, 5);
-  assert.equal((clinic.match(/class="member-card"/g) || []).length, 9); // 7 PIs + 2 clinical members
+  assert.equal((clinic.match(/class="member-card"/g) || []).length, 7);
+  assert.ok(basics.includes('Team Members'));
+  assert.ok(basics.includes('images/team/haneul-ryou.webp'));
+  assert.ok(basics.includes('images/team/joyce-liu.png'));
+  assert.ok(!clinic.includes('class="team-members-section"'));
+  assert.ok(!clinic.includes('images/team/haneul-ryou.webp'));
+  assert.ok(!clinic.includes('images/team/joyce-liu.png'));
+  assert.ok(!clinic.includes('Joyce Liu'));
+  assert.ok(!clinic.includes('Haneul Ryou'));
+  assert.ok(clinic.includes('Clinical Studies Collaborators'));
   for (const page of [basics, clinic]) {
-    assert.ok(page.includes('Team Members') || page.includes('Clinical Team'));
-    assert.ok(page.includes('images/team/haneul-ryou.webp'));
-    assert.ok(page.includes('images/team/joyce-liu.png'));
     assert.ok(page.includes('href="#people"'));
     assert.ok(!page.includes('New member'));
   }
@@ -85,11 +90,10 @@ test('Clinical PIs keep their portraits in the requested W layout order', () => 
     assert.equal(clinical.principalInvestigators[i].photo, 'images/team/clinical-pis-sprite.webp');
     assert.ok(page.includes(names[i]));
   }
-  assert.equal(clinical.members[0].name, 'Joyce Liu');
-  assert.equal(clinical.members[1].name, 'Haneul Ryou');
-  assert.ok(page.indexOf('Principal Investigators') < page.indexOf('class="team-members-section"'));
-  assert.ok(page.indexOf('Sarah M. Smith') < page.indexOf('Joyce Liu'));
-  assert.equal((page.match(/class="member-card"/g) || []).length, 9);
+  assert.deepEqual(clinical.members, []);
+  assert.ok(page.includes('Principal Investigators'));
+  assert.ok(!page.includes('class="team-members-section"'));
+  assert.equal((page.match(/class="member-card"/g) || []).length, 7);
   assert.equal(clinical.collaborators.items.length, 2);
   assert.deepEqual(clinical.collaborators.items.map(c=>c.name), ['Chris Dy','David Brogan']);
 });

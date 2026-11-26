@@ -36,10 +36,12 @@ export function TeamGroupPage(group) {
           ${MemberGrid(group.principalInvestigators)}
         </div>
       `}
-      <div class="team-members-section">
-        <h2 class="team-heading">${group.id === 'clinical' ? 'Clinical Team' : 'Team Members'}</h2>
-        ${MemberGrid(group.members)}
-      </div>
+      ${group.members?.length > 0 && html`
+        <div class="team-members-section">
+          <h2 class="team-heading">${group.id === 'clinical' ? 'Clinical Team' : 'Team Members'}</h2>
+          ${MemberGrid(group.members)}
+        </div>
+      `}
     </section>
     ${group.collaborators?.items?.length > 0 && Collaborators(group.collaborators)}
     <div class="shell-wide team-group-return">

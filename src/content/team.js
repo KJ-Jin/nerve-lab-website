@@ -128,20 +128,7 @@ export default {
           photoPosition: '100%',
         },
       ],
-      members: [
-        {
-          name: 'Joyce Liu',
-          role: 'Research Scientist',
-          bio: 'Joyce is a research scientist with a background in biochemistry and experience in cardiovascular research. She is passionate about peripheral nerve regeneration and bridging basic science discoveries with clinical applications to improve patient outcomes. Outside of the lab, she enjoys traveling, exploring new places, and spending time with her three very active cats.',
-          photo: 'images/team/joyce-liu.png',
-        },
-        {
-          name: 'Haneul Ryou',
-          role: 'Medical Student Research Fellow',
-          bio: 'Haneul is a medical student research fellow with a background in neuroscience. Her research interests include peripheral nerve regeneration and socioeconomic barriers to care. She is hoping to pursue a career in plastic surgery. In her free time, Haneul loves cafe hopping, cooking, reading, and running!',
-          photo: 'images/team/haneul-ryou.webp',
-        }
-      ],
+      members: [],
       collaborators: {
         title: 'Clinical Studies Collaborators',
         intro: 'Researchers and partners contributing to our clinical research.',
