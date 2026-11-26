@@ -267,30 +267,6 @@
 .clinical-pi-section .member-card:nth-child(7) {
   grid-column: 6 / span 2;
 }
-
-/* Aaron's head size is matched inside his square image. Restore the
- * wider desktop PI grid from the reference screenshot, leaving tablet
- * and phone layouts unchanged.
- */
-@media (min-width: 901px) {
-  .team-group-detail:has(.clinical-pi-section) {
-    max-width: 1260px;
-  }
-  .clinical-pi-section .members-grid {
-    max-width: none;
-  }
-}
-
-/* Individual clinical PI framing adjustments: keep square cards and other portraits unchanged. */
-.clinical-pi-section .portrait img[src$="/katie-liu.webp"] {
-  transform: translateX(3%) scale(1.07);
-  transform-origin: center center;
-}
-.clinical-pi-section .portrait img[src$="/christopher-crowe.webp"] {
-  transform: translateX(3%) scale(1.07);
-  transform-origin: center center;
-}
-
 .clinical-pi-section .member-role {
   margin-bottom: 10px;
 }

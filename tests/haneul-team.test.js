@@ -199,12 +199,16 @@ test('All seven clinical PI images are optimized square portraits stored in the 
 });
 
 
-test('Clinical PI portraits regain their previous desktop display size without CSS stretching', async () => {
+test('Clinical PI portraits retain the exact pre-replacement grid size and W arrangement', async () => {
   const { readFileSync } = await import('node:fs');
   const css = readFileSync(new URL('../src/styles/pages/team.css', import.meta.url), 'utf8');
-  assert.match(css, /@media \(min-width: 901px\)\s*\{\s*\.team-group-detail:has\(\.clinical-pi-section\)\s*\{\s*max-width:\s*1260px;/);
-  assert.match(css, /@media \(min-width: 901px\)[\s\S]*?\.clinical-pi-section \.members-grid\s*\{\s*max-width:\s*none;/);
-  assert.ok(!css.includes('transform: scale(0.88)'), 'Aaron framing is embedded in his image rather than CSS');
+  const responsive = readFileSync(new URL('../src/styles/photo-sizing.css', import.meta.url), 'utf8');
+  assert.match(css, /\.clinical-pi-section \.members-grid\s*\{[^}]*grid-template-columns:\s*repeat\(8, minmax\(0, 1fr\)\)/);
+  assert.match(responsive, /\.members-grid\s*\{[^}]*max-width:\s*970px/);
+  assert.match(responsive, /\.team-group-detail\s*\{[^}]*max-width:\s*1000px/);
+  assert.ok(!css.includes('max-width: 1260px'), 'no oversized clinical grid');
+  assert.ok(!css.includes('Individual clinical PI framing adjustments'), 'other faces keep their natural framing');
+  assert.ok(!css.includes('transform: scale(0.88)'), 'Aaron framing must be in the image, not a CSS border');
   assert.equal(clinical.principalInvestigators[1].photo, 'images/team/clinical-pis/aaron-bunnell.webp');
   assert.equal(clinical.principalInvestigators.length, 7);
 });
