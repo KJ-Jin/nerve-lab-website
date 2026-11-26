@@ -72,12 +72,12 @@ test('Clinical PIs keep their portraits in the requested W layout order', () => 
   const page = String(TeamGroupPage(clinical));
   assert.equal(clinical.principalInvestigators.length, 7);
   const names = [
-    'Aaron E. Bunnell, MD',
     'Jeffrey B. Friedrich, MD',
+    'Aaron E. Bunnell, MD',
+    'Benjamin L. Grannan, MD',
     'Yusha “Katie” Liu, MD, PhD',
     'Sarah M. Smith, MD',
     'Christopher S. Crowe, MD',
-    'Benjamin L. Grannan, MD',
     'Whitney M. Morean, PhD',
   ];  for (let i=0; i<names.length; i++) {
     assert.equal(clinical.principalInvestigators[i].name, names[i]);
@@ -149,12 +149,12 @@ test('Clinical principal investigators form a staggered W: four above, three cen
   const surname = name => name.split(',')[0].trim().split(' ').at(-1);
   const pi = clinical.principalInvestigators.map(person => person.name);
   assert.deepEqual(pi, [
-    'Aaron E. Bunnell, MD',
     'Jeffrey B. Friedrich, MD',
+    'Aaron E. Bunnell, MD',
+    'Benjamin L. Grannan, MD',
     'Yusha “Katie” Liu, MD, PhD',
     'Sarah M. Smith, MD',
     'Christopher S. Crowe, MD',
-    'Benjamin L. Grannan, MD',
     'Whitney M. Morean, PhD',
   ]);
   const members = clinical.members.map(person => surname(person.name));

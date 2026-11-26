@@ -82,17 +82,24 @@ export default {
       photoAlt: 'Illustrated portrait of seven Clinical Team members in front of the Seattle waterfront and Space Needle.',
       principalInvestigators: [
         {
+          name: 'Jeffrey B. Friedrich, MD',
+          role: 'Principal Investigator',
+          photo: 'images/team/clinical-pis-sprite.webp',
+          photoPosition: '66.666667%',
+          profileUrl: 'https://www.uwmedicine.org/bios/jeffrey-friedrich',
+        },
+        {
           name: 'Aaron E. Bunnell, MD',
           role: 'Principal Investigator',
           photo: 'images/team/clinical-pis-sprite.webp',
           photoPosition: '16.666667%',
         },
         {
-          name: 'Jeffrey B. Friedrich, MD',
+          name: 'Benjamin L. Grannan, MD',
           role: 'Principal Investigator',
           photo: 'images/team/clinical-pis-sprite.webp',
-          photoPosition: '66.666667%',
-          profileUrl: 'https://www.uwmedicine.org/bios/jeffrey-friedrich',
+          photoPosition: '33.333333%',
+          profileUrl: 'https://www.uwmedicine.org/bios/benjamin-grannan',
         },
         {
           name: 'Yusha “Katie” Liu, MD, PhD',
@@ -113,13 +120,6 @@ export default {
           photo: 'images/team/clinical-pis-sprite.webp',
           photoPosition: '50%',
           profileUrl: 'https://www.uwmedicine.org/bios/christopher-crowe',
-        },
-        {
-          name: 'Benjamin L. Grannan, MD',
-          role: 'Principal Investigator',
-          photo: 'images/team/clinical-pis-sprite.webp',
-          photoPosition: '33.333333%',
-          profileUrl: 'https://www.uwmedicine.org/bios/benjamin-grannan',
         },
         {
           name: 'Whitney M. Morean, PhD',
