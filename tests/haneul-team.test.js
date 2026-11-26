@@ -197,3 +197,13 @@ test('All seven clinical PI images are optimized square portraits stored in the 
   assert.ok(!page.includes('clinical-pis-sprite.webp'));
   for(const photo of photoPaths) assert.ok(page.includes(photo));
 });
+
+
+test('Only Aaron receives a smaller face framing; other six photos remain unchanged', async () => {
+  const { readFileSync } = await import('node:fs');
+  const css = readFileSync(new URL('../src/styles/pages/team.css', import.meta.url), 'utf8');
+  assert.match(css, /\.clinical-pi-section \.portrait img\[src\$="\/aaron-bunnell\.webp"\]\s*\{[^}]*transform:\s*scale\(0\.88\)/);
+  const photos = clinical.principalInvestigators.map(person => person.photo);
+  assert.equal(new Set(photos).size, 7);
+  assert.equal(photos[1], 'images/team/clinical-pis/aaron-bunnell.webp');
+});

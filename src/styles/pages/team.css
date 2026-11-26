@@ -267,6 +267,16 @@
 .clinical-pi-section .member-card:nth-child(7) {
   grid-column: 6 / span 2;
 }
+
+/* Aaron-only PI portrait framing: preserve the other six portraits and the W layout. */
+.clinical-pi-section .portrait:has(img[src$="/aaron-bunnell.webp"]) {
+  background: linear-gradient(180deg, #494648, #a8a5a5 72%, #918e8e);
+}
+.clinical-pi-section .portrait img[src$="/aaron-bunnell.webp"] {
+  transform: scale(0.88);
+  transform-origin: center center;
+}
+
 .clinical-pi-section .member-role {
   margin-bottom: 10px;
 }
