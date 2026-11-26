@@ -68,17 +68,17 @@ test('Basic Sciences details begin with Katie as PI followed by five members', (
   assert.ok(!page.includes('images/team/clinical-pis-sprite.webp'));
 });
 
-test('Clinical PIs use the supplied file-name identities, Katie first; Joyce and Haneul follow', () => {
+test('Clinical PIs retain their photos and are alphabetical by surname', () => {
   const page = String(TeamGroupPage(clinical));
   assert.equal(clinical.principalInvestigators.length, 7);
   const names = [
-    'Yusha “Katie” Liu, MD, PhD',
     'Aaron E. Bunnell, MD',
-    'Benjamin L. Grannan, MD',
     'Christopher S. Crowe, MD',
     'Jeffrey B. Friedrich, MD',
-    'Sarah M. Smith, MD',
+    'Benjamin L. Grannan, MD',
+    'Yusha “Katie” Liu, MD, PhD',
     'Whitney M. Morean, PhD',
+    'Sarah M. Smith, MD',
   ];
   for (let i=0; i<names.length; i++) {
     assert.equal(clinical.principalInvestigators[i].name, names[i]);
@@ -89,7 +89,7 @@ test('Clinical PIs use the supplied file-name identities, Katie first; Joyce and
   assert.equal(clinical.members[0].name, 'Joyce Liu');
   assert.equal(clinical.members[1].name, 'Haneul Ryou');
   assert.ok(page.indexOf('Principal Investigators') < page.indexOf('class="team-members-section"'));
-  assert.ok(page.indexOf('Whitney M. Morean') < page.indexOf('Joyce Liu'));
+  assert.ok(page.indexOf('Sarah M. Smith') < page.indexOf('Joyce Liu'));
   assert.equal((page.match(/class="member-card"/g) || []).length, 9);
   assert.equal(clinical.collaborators.items.length, 2);
   assert.deepEqual(clinical.collaborators.items.map(c=>c.name), ['Chris Dy','David Brogan']);
@@ -134,4 +134,17 @@ test('Navigation provides accessible dropdown links to both Team sections', asyn
   assert.ok(markup.includes('href="#team-clinical" data-page="team-clinical">Clinical Research Team</a>'));
   assert.ok(nav.includes("['research', 'team', 'news']"));
   assert.ok(nav.includes("teamMenu.wrapper.classList.toggle('current'"));
+});
+
+test('Clinical principal investigators form a 4-column, two-row grid on desktop', async () => {
+  const { readFileSync } = await import('node:fs');
+  const css = readFileSync(new URL('../src/styles/pages/team.css', import.meta.url), 'utf8');
+  assert.match(css, /\.clinical-pi-section \.members-grid\s*\{[^}]*grid-template-columns:\s*repeat\(4, minmax\(0, 1fr\)\)/);
+  assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.clinical-pi-section \.members-grid\s*\{[^}]*repeat\(2, minmax\(0, 1fr\)\)/);
+  assert.match(css, /@media \(max-width: 640px\)[\s\S]*?\.clinical-pi-section \.members-grid\s*\{[^}]*grid-template-columns:\s*1fr/);
+  const surname = name => name.split(',')[0].trim().split(' ').at(-1);
+  const pi = clinical.principalInvestigators.map(person => surname(person.name));
+  assert.deepEqual(pi, [...pi].sort((a,b) => a.localeCompare(b, 'en')));
+  const members = clinical.members.map(person => surname(person.name));
+  assert.deepEqual(members, [...members].sort((a,b) => a.localeCompare(b, 'en')));
 });

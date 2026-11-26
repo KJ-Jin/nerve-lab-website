@@ -82,24 +82,10 @@ export default {
       photoAlt: 'Illustrated portrait of seven Clinical Team members in front of the Seattle waterfront and Space Needle.',
       principalInvestigators: [
         {
-          name: 'Yusha “Katie” Liu, MD, PhD',
-          role: 'Principal Investigator',
-          photo: 'images/team/clinical-pis-sprite.webp',
-          photoPosition: '0%',
-          profileUrl: 'https://www.uwmedicine.org/bios/yusha-katie-liu',
-        },
-        {
           name: 'Aaron E. Bunnell, MD',
           role: 'Principal Investigator',
           photo: 'images/team/clinical-pis-sprite.webp',
           photoPosition: '16.666667%',
-        },
-        {
-          name: 'Benjamin L. Grannan, MD',
-          role: 'Principal Investigator',
-          photo: 'images/team/clinical-pis-sprite.webp',
-          photoPosition: '33.333333%',
-          profileUrl: 'https://www.uwmedicine.org/bios/benjamin-grannan',
         },
         {
           name: 'Christopher S. Crowe, MD',
@@ -116,16 +102,30 @@ export default {
           profileUrl: 'https://www.uwmedicine.org/bios/jeffrey-friedrich',
         },
         {
-          name: 'Sarah M. Smith, MD',
+          name: 'Benjamin L. Grannan, MD',
           role: 'Principal Investigator',
           photo: 'images/team/clinical-pis-sprite.webp',
-          photoPosition: '83.333333%',
+          photoPosition: '33.333333%',
+          profileUrl: 'https://www.uwmedicine.org/bios/benjamin-grannan',
+        },
+        {
+          name: 'Yusha “Katie” Liu, MD, PhD',
+          role: 'Principal Investigator',
+          photo: 'images/team/clinical-pis-sprite.webp',
+          photoPosition: '0%',
+          profileUrl: 'https://www.uwmedicine.org/bios/yusha-katie-liu',
         },
         {
           name: 'Whitney M. Morean, PhD',
           role: 'Principal Investigator',
           photo: 'images/team/clinical-pis-sprite.webp',
           photoPosition: '100%',
+        },
+        {
+          name: 'Sarah M. Smith, MD',
+          role: 'Principal Investigator',
+          photo: 'images/team/clinical-pis-sprite.webp',
+          photoPosition: '83.333333%',
         },
       ],
       members: [

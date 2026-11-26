@@ -167,7 +167,7 @@ body, h1, h2, h3, h4, h5, h6, p, li, span, a {
 :root {
   --type-page: 36px;
   --type-section: 29px;
-  --type-card: 28px;
+  --type-card: 32px;
   --type-body: 16px;
   --type-member: 23px;
 }
@@ -278,8 +278,8 @@ body {
   padding-block: 8px 30px;
 }
 .project {
-  padding-block: 32px 46px;
-  gap: 32px;
+  padding-block: 24px 30px;
+  gap: 30px;
 }
 .study-list .project:first-of-type {
   padding-top: 18px;
@@ -289,6 +289,7 @@ body {
 }
 .project-content {
   max-width: 690px;
+  min-width: 0;
 }
 .project-content .copy,
 #page-research-basic .project-content .copy {
@@ -308,41 +309,40 @@ body {
  * Alternate rows mirror the narrower image column. Leave text-only trials intact.
  */
 .project:not(.project--text-only) {
-  grid-template-columns: minmax(0, min(40%, 400px)) minmax(0, 1fr);
+  grid-template-columns: minmax(0, min(43%, 470px)) minmax(0, 1fr);
   gap: 30px;
 }
 .project:not(.project--text-only):nth-of-type(even) {
-  grid-template-columns: minmax(0, 1fr) minmax(0, min(40%, 400px));
+  grid-template-columns: minmax(0, 1fr) minmax(0, min(43%, 470px));
 }
 .project-visual {
   width: 100%;
   max-width: none;
 }
-/* Give real photographs their own intrinsic height rather than placing a
- * square image inside a wide 4:3 box (which creates the black side bars).
- * SVG placeholder art continues using its original 4:3 frame.
+/* Restore the balanced 4:3 image crop shown in the UW reference.
+ * The image fills the frame without side bars or stretching.
  */
 .visual-frame:has(> img) {
   width: 100%;
   height: auto;
-  aspect-ratio: auto;
-  overflow: visible;
-  background: transparent;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #111017;
 }
 .visual-frame > img {
   display: block;
-  width: auto;
+  width: 100%;
   max-width: 100%;
-  height: auto;
-  max-height: 430px;
-  margin-inline: auto;
-  object-fit: contain;
+  height: 100%;
+  max-height: none;
+  margin-inline: 0;
+  object-fit: cover;
 }
 
 /* Switch to one column at the point where the two-column design gets cramped.
  * The photo remains proportionate but no longer fills the whole window.
  */
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .project:not(.project--text-only),
   .project:not(.project--text-only):nth-of-type(even) {
     grid-template-columns: minmax(0, 1fr);
@@ -352,7 +352,7 @@ body {
     max-width: 360px;
   }
   .project {
-    padding-block: 24px 36px;
+    padding-block: 22px 30px;
   }
   .research-overview {
     grid-template-columns: minmax(0, 1fr);
