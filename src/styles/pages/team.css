@@ -281,6 +281,16 @@
   }
 }
 
+/* Individual clinical PI framing adjustments: keep square cards and other portraits unchanged. */
+.clinical-pi-section .portrait img[src$="/katie-liu.webp"] {
+  transform: translateX(3%) scale(1.07);
+  transform-origin: center center;
+}
+.clinical-pi-section .portrait img[src$="/christopher-crowe.webp"] {
+  transform: translateX(3%) scale(1.07);
+  transform-origin: center center;
+}
+
 .clinical-pi-section .member-role {
   margin-bottom: 10px;
 }
