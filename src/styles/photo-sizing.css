@@ -165,11 +165,11 @@ body, h1, h2, h3, h4, h5, h6, p, li, span, a {
  * available width instead of independently scaling the text with vw units.
  */
 :root {
-  --type-page: 35px;
-  --type-section: 28px;
-  --type-card: 25px;
-  --type-body: 15px;
-  --type-member: 22px;
+  --type-page: 36px;
+  --type-section: 29px;
+  --type-card: 28px;
+  --type-body: 16px;
+  --type-member: 23px;
 }
 
 body {
@@ -278,14 +278,17 @@ body {
   padding-block: 8px 30px;
 }
 .project {
-  padding-block: 28px 42px;
-  gap: 28px;
+  padding-block: 32px 46px;
+  gap: 32px;
 }
 .study-list .project:first-of-type {
   padding-top: 18px;
 }
 .project-content h3 {
-  margin: 0 0 12px;
+  margin: 0 0 14px;
+}
+.project-content {
+  max-width: 690px;
 }
 .project-content .copy,
 #page-research-basic .project-content .copy {
@@ -315,11 +318,24 @@ body {
   width: 100%;
   max-width: none;
 }
-.visual-frame {
+/* Give real photographs their own intrinsic height rather than placing a
+ * square image inside a wide 4:3 box (which creates the black side bars).
+ * SVG placeholder art continues using its original 4:3 frame.
+ */
+.visual-frame:has(> img) {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: auto;
+  aspect-ratio: auto;
+  overflow: visible;
+  background: transparent;
 }
 .visual-frame > img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 430px;
+  margin-inline: auto;
   object-fit: contain;
 }
 

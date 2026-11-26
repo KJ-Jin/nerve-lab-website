@@ -8,11 +8,11 @@ const main = readFileSync(new URL('../src/styles/main.css', import.meta.url), 'u
 test('Consistent typography overrides load last and use fixed sizes instead of vw', () => {
   assert.ok(main.trimEnd().endsWith("@import './photo-sizing.css';"));
   for (const token of [
-    '--type-page: 35px;',
-    '--type-section: 28px;',
-    '--type-card: 25px;',
-    '--type-body: 15px;',
-    '--type-member: 22px;',
+    '--type-page: 36px;',
+    '--type-section: 29px;',
+    '--type-card: 28px;',
+    '--type-body: 16px;',
+    '--type-member: 23px;',
   ]) assert.ok(responsive.includes(token), token);
   const section = responsive.split('/* CONSISTENT TYPE SCALE · 2026')[1];
   assert.ok(section);
@@ -30,7 +30,8 @@ test('Images scale with columns and become compact single-column photos when nar
   assert.match(section, /\.project:not\(\.project--text-only\)\s*\{[^}]*grid-template-columns:\s*minmax\(0, min\(40%, 400px\)\) minmax\(0, 1fr\)/);
   assert.match(section, /\.project:not\(\.project--text-only\):nth-of-type\(even\)\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\) minmax\(0, min\(40%, 400px\)\)/);
   assert.match(section, /\.project-visual\s*\{[^}]*width:\s*100%;[^}]*max-width:\s*none/);
-  assert.match(section, /\.visual-frame > img\s*\{[^}]*object-fit:\s*contain/);
+  assert.match(section, /\.visual-frame:has\(> img\)\s*\{[^}]*aspect-ratio:\s*auto/);
+  assert.match(section, /\.visual-frame > img\s*\{[^}]*width:\s*auto;[^}]*max-width:\s*100%;[^}]*height:\s*auto;[^}]*max-height:\s*430px;[^}]*object-fit:\s*contain/);
   assert.match(section, /@media \(max-width: 800px\)[\s\S]*?\.project-visual\s*\{[^}]*max-width:\s*360px/);
   assert.match(section, /@media \(max-width: 640px\)[\s\S]*?\.project-visual\s*\{[^}]*max-width:\s*320px/);
 });
@@ -47,4 +48,11 @@ test('Research image and text proportions stay reasonable across simulated viewp
       assert.ok(content - image - 30 > 240, 'text must have its own usable column at ' + viewport);
     }
   }
+});
+
+test('Natural-size photographs do not show letterboxing or distort next to research copy', () => {
+  const section = responsive.split('/* CONSISTENT TYPE SCALE · 2026')[1];
+  assert.match(section, /\.visual-frame:has\(> img\)\s*\{[^}]*aspect-ratio:\s*auto;[^}]*overflow:\s*visible;[^}]*background:\s*transparent/);
+  assert.match(section, /\.project-content\s*\{[^}]*max-width:\s*690px/);
+  assert.match(section, /\.project\s*\{[^}]*padding-block:\s*32px 46px/);
 });
