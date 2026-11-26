@@ -87,7 +87,17 @@ test('Clinical PIs keep their portraits in the requested W layout order', () => 
   ];  for (let i=0; i<names.length; i++) {
     assert.equal(clinical.principalInvestigators[i].name, names[i]);
     assert.equal(clinical.principalInvestigators[i].role, 'Principal Investigator');
-    assert.equal(clinical.principalInvestigators[i].photo, 'images/team/clinical-pis-sprite.webp');
+    const newPhotoPaths = [
+      'images/team/clinical-pis/jeffrey-friedrich.webp',
+      'images/team/clinical-pis/aaron-bunnell.webp',
+      'images/team/clinical-pis/benjamin-grannan.webp',
+      'images/team/clinical-pis/katie-liu.webp',
+      'images/team/clinical-pis/sarah-smith.webp',
+      'images/team/clinical-pis/christopher-crowe.webp',
+      'images/team/clinical-pis/whitney-morean.webp',
+    ];
+    assert.equal(clinical.principalInvestigators[i].photo, newPhotoPaths[i]);
+    assert.equal(clinical.principalInvestigators[i].photoPosition, undefined);
     assert.ok(page.includes(names[i]));
   }
   assert.deepEqual(clinical.members, []);
@@ -163,4 +173,27 @@ test('Clinical principal investigators form a staggered W: four above, three cen
   ]);
   const members = clinical.members.map(person => surname(person.name));
   assert.deepEqual(members, [...members].sort((a,b) => a.localeCompare(b, 'en')));
+});
+
+
+test('All seven clinical PI images are optimized square portraits stored in the website', async () => {
+  const { readFileSync, statSync } = await import('node:fs');
+  const photoPaths = clinical.principalInvestigators.map(person => person.photo);
+  assert.equal(new Set(photoPaths).size, 7);
+  for (const photo of photoPaths) {
+    assert.match(photo, /^images\/team\/clinical-pis\/[-a-z]+\.webp$/);
+    const path = new URL('../' + photo, import.meta.url);
+    const buf = readFileSync(path);
+    assert.ok(buf.length > 8000, 'headshot must be present: ' + photo);
+    assert.equal(buf.toString('ascii',0,4), 'RIFF');
+    assert.equal(buf.toString('ascii',8,12), 'WEBP');
+    assert.equal(buf.toString('ascii',12,16), 'VP8 ');
+    const width=buf.readUInt16LE(26) & 0x3fff;
+    const height=buf.readUInt16LE(28) & 0x3fff;
+    assert.equal(width,620,photo+' width');
+    assert.equal(height,620,photo+' height');
+  }
+  const page = String(TeamGroupPage(clinical));
+  assert.ok(!page.includes('clinical-pis-sprite.webp'));
+  for(const photo of photoPaths) assert.ok(page.includes(photo));
 });
