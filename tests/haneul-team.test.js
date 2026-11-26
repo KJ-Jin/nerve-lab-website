@@ -199,11 +199,12 @@ test('All seven clinical PI images are optimized square portraits stored in the 
 });
 
 
-test('Only Aaron receives a smaller face framing; other six photos remain unchanged', async () => {
+test('Clinical PI portraits regain their previous desktop display size without CSS stretching', async () => {
   const { readFileSync } = await import('node:fs');
   const css = readFileSync(new URL('../src/styles/pages/team.css', import.meta.url), 'utf8');
-  assert.match(css, /\.clinical-pi-section \.portrait img\[src\$="\/aaron-bunnell\.webp"\]\s*\{[^}]*transform:\s*scale\(0\.88\)/);
-  const photos = clinical.principalInvestigators.map(person => person.photo);
-  assert.equal(new Set(photos).size, 7);
-  assert.equal(photos[1], 'images/team/clinical-pis/aaron-bunnell.webp');
+  assert.match(css, /@media \(min-width: 901px\)\s*\{\s*\.team-group-detail:has\(\.clinical-pi-section\)\s*\{\s*max-width:\s*1260px;/);
+  assert.match(css, /@media \(min-width: 901px\)[\s\S]*?\.clinical-pi-section \.members-grid\s*\{\s*max-width:\s*none;/);
+  assert.ok(!css.includes('transform: scale(0.88)'), 'Aaron framing is embedded in his image rather than CSS');
+  assert.equal(clinical.principalInvestigators[1].photo, 'images/team/clinical-pis/aaron-bunnell.webp');
+  assert.equal(clinical.principalInvestigators.length, 7);
 });

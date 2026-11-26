@@ -268,13 +268,17 @@
   grid-column: 6 / span 2;
 }
 
-/* Aaron-only PI portrait framing: preserve the other six portraits and the W layout. */
-.clinical-pi-section .portrait:has(img[src$="/aaron-bunnell.webp"]) {
-  background: linear-gradient(180deg, #494648, #a8a5a5 72%, #918e8e);
-}
-.clinical-pi-section .portrait img[src$="/aaron-bunnell.webp"] {
-  transform: scale(0.88);
-  transform-origin: center center;
+/* Aaron's head size is matched inside his square image. Restore the
+ * wider desktop PI grid from the reference screenshot, leaving tablet
+ * and phone layouts unchanged.
+ */
+@media (min-width: 901px) {
+  .team-group-detail:has(.clinical-pi-section) {
+    max-width: 1260px;
+  }
+  .clinical-pi-section .members-grid {
+    max-width: none;
+  }
 }
 
 .clinical-pi-section .member-role {
