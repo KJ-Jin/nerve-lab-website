@@ -176,7 +176,7 @@ test('Clinical principal investigators form a staggered W: four above, three cen
 });
 
 
-test('All seven clinical PI images are optimized square portraits stored in the website', async () => {
+test('All seven clinical PIs use the newly supplied original-proportion portraits', async () => {
   const { readFileSync, statSync } = await import('node:fs');
   const photoPaths = clinical.principalInvestigators.map(person => person.photo);
   assert.equal(new Set(photoPaths).size, 7);
@@ -190,8 +190,8 @@ test('All seven clinical PI images are optimized square portraits stored in the 
     assert.equal(buf.toString('ascii',12,16), 'VP8 ');
     const width=buf.readUInt16LE(26) & 0x3fff;
     const height=buf.readUInt16LE(28) & 0x3fff;
-    assert.equal(width,620,photo+' width');
-    assert.equal(height,620,photo+' height');
+    assert.ok(width >= 250, photo + ' must have usable display resolution');
+    assert.ok(height > width, photo + ' must preserve its original portrait aspect ratio');
   }
   const page = String(TeamGroupPage(clinical));
   assert.ok(!page.includes('clinical-pis-sprite.webp'));
