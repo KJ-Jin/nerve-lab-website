@@ -42,3 +42,25 @@ test('Research cards stack on narrow screens and remain proportionate on desktop
     }
   }
 });
+
+test('Centered half-window research images keep text readable and full-screen layout untouched', () => {
+  const block = css.split('/* HALF-WINDOW RESEARCH LAYOUT · 2026 */')[1];
+  assert.ok(block, 'half-window styles exist');
+  assert.match(block, /@media \(min-width: 641px\) and \(max-width: 900px\)/);
+  assert.match(block, /\.project:not\(\.project--text-only\) \.project-visual\s*\{[^}]*width:\s*min\(48%, 300px\);[^}]*margin-inline:\s*auto/);
+  assert.match(block, /\.project:not\(\.project--text-only\) \.project-content\s*\{[^}]*width:\s*min\(100%, 740px\);[^}]*margin-inline:\s*auto/);
+  assert.match(block, /@media \(max-width: 640px\)[\s\S]*?\.project:not\(\.project--text-only\) \.project-visual\s*\{[^}]*width:\s*min\(100%, 320px\)/);
+  assert.match(block, /\.project-visual \.image-note:empty\s*\{\s*display:\s*none/);
+  assert.ok(!block.includes('font-size:'), 'the chosen font sizes stay unchanged');
+});
+
+test('Half-window photos fit the column and are centered with balanced height', () => {
+  for (const width of [641, 700, 760, 800, 900]) {
+    const gutter = width <= 900 ? 30 : 56;
+    const contentWidth = width - 2 * gutter;
+    const pictureWidth = Math.min(contentWidth * 0.48, 300);
+    assert.ok(pictureWidth < contentWidth / 2 + 1);
+    assert.ok(pictureWidth <= 300);
+    assert.ok(pictureWidth * 3 / 4 <= 225, '4:3 photo is compact');
+  }
+});

@@ -406,3 +406,43 @@ body {
     font-size: 24px;
   }
 }
+
+/* HALF-WINDOW RESEARCH LAYOUT · 2026 */
+/* On split-screen desktop windows, centered smaller photos sit above readable
+ * left-aligned text, without the broad empty area on the right.
+ * Full-width two-column layout remains unchanged.
+ */
+@media (min-width: 641px) and (max-width: 900px) {
+  .project:not(.project--text-only) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    padding-block: 22px 28px;
+  }
+  .project:not(.project--text-only) .project-visual {
+    width: min(48%, 300px);
+    max-width: none;
+    margin-inline: auto;
+  }
+  .project:not(.project--text-only) .project-content {
+    width: min(100%, 740px);
+    margin-inline: auto;
+  }
+}
+
+/* Phone screens need a larger relative image to remain legible. */
+@media (max-width: 640px) {
+  .project:not(.project--text-only) {
+    gap: 14px;
+    padding-block: 22px 28px;
+  }
+  .project:not(.project--text-only) .project-visual {
+    width: min(100%, 320px);
+    max-width: none;
+    margin-inline: auto;
+  }
+}
+
+/* An empty image caption should not reserve spacing below the photo. */
+.project-visual .image-note:empty {
+  display: none;
+}
